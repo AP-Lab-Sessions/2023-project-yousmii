@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - run: apt update
-      - run: DEBIAN_FRONTEND=noninteractive TZ=Europe/Brussels apt install -y gcc g++ libsfml-dev cmake git libx11-dev libxrandr-dev libudev-dev libfreetype-dev
+      - run: DEBIAN_FRONTEND=noninteractive TZ=Europe/Brussels apt install -y gcc g++ libsfml-dev cmake git libx11-dev libxrandr-dev libudev-dev libfreetype-dev libopenal-dev libflac-dev libvorbis-dev
       - run: mkdir -p build
       - run: cd build && cmake ..
       - run: cd build && make
