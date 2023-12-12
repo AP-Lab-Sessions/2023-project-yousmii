@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.16)
 project(CPPacman LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+SET(CMAKE_CXX_FLAGS "-Wall")
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
 include(FetchContent)
@@ -24,4 +25,8 @@ if(WIN32)
         VERBATIM)
 endif()
 
-install (TARGETS CPPacman DESTINATION bin)
+install(TARGETS CPPacman DESTINATION bin)
+
+if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+  set (CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/installed" CACHE PATH "default install path" FORCE)
+endif()
