@@ -4,21 +4,30 @@
 #include "State.h"
 
 /// @brief The MenuState class is responsible for rendering the main menu.
-class MenuState : public State{
+class MenuState : private State {
+private:
+    sf::Font font;
+    sf::Text title;
+
 public:
     /// @brief The constructor for the MenuState class.
-    MenuState();
+    MenuState(std::shared_ptr<Game> game);
+
     /// @brief The destructor for the MenuState class.
-    virtual ~MenuState();
+    ~MenuState() override = default;
+
     /// @brief This function is called when the state is entered.
-    virtual void onEnter();
+    void onEnter() override;
+
     /// @brief This function is called when the state is exited.
-    virtual void onExit();
+    void onExit() override;
+
     /// @brief This function is called when the state is updated.
     /// @param dt The time that has passed since the last update.
-    virtual void update(float dt);
+    void update(float dt) override;
+
     /// @brief This function is called when the state is rendered.
-    virtual void render();
+    void render() const override;
 };
 
 #endif // MENUSTATE_H

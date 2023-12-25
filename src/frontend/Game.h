@@ -11,7 +11,7 @@
 class Game {
 private:
     /// @brief Not useable, because this is a singleton class.
-    Game() : mWindow(sf::VideoMode(800, 600), "CPPacman"){};
+    Game();
 
 public:
     /// @brief  Returns the current state of the game.

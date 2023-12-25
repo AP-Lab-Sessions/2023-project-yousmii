@@ -9,11 +9,11 @@
 class State {
 protected:
     /// @brief A pointer to the game object.
-    std::shared_ptr<Game> mGame;
+    std::shared_ptr<Game> game;
 
 public:
     /// @brief The constructor for the State class.
-    State(std::shared_ptr<Game> game) : mGame(game){};
+    State(std::shared_ptr<Game> game) : game(game){};
 
     /// @brief The destructor for the State class.
     virtual ~State() = 0;
@@ -29,7 +29,7 @@ public:
     virtual void update(float dt) = 0;
 
     /// @brief Renders the window content.
-    virtual void render() = 0;
+    virtual void render() const = 0;
 
     /// @brief Handles the input events.
     virtual void handleInput(sf::Event event) = 0;

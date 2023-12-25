@@ -4,7 +4,6 @@
 #include "State.h"
 
 /// @brief Game will be paused in this state and the user will be able to resume the game or quit.
-class PausedState : public State{
-};
+class PausedState : private State {};
 
 #endif // PAUSEDSTATE_H

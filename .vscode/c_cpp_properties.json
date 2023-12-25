@@ -13,9 +13,9 @@
             "windowsSdkVersion": "10.0.19041.0",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "${default}",
-            "compilerPath": "C:/MinGW/bin/gcc.exe",
-            "configurationProvider": "ms-vscode.cpptools"
+            "intelliSenseMode": "windows-gcc-x86",
+            "configurationProvider": "ms-vscode.cpptools",
+            "compilerPath": "C:/MinGW/bin/gcc.exe"
         }
     ],
     "version": 4
