@@ -12,7 +12,7 @@ FetchContent_MakeAvailable(SFML)
 
 add_executable(main src/main.cpp
         src/game.cpp
-        src/game.hPP
+        src/game.hpp
         src/state.cpp
         src/state.hpp
         src/statemachine.cpp
