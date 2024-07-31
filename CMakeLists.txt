@@ -16,7 +16,9 @@ add_executable(main src/main.cpp
         src/state.cpp
         src/state.hpp
         src/statemachine.cpp
-        src/statemachine.hpp)
+        src/statemachine.hpp
+        src/assetmanager.cpp
+        src/assetmanager.hpp)
 target_link_libraries(main PRIVATE sfml-graphics)
 target_compile_features(main PRIVATE cxx_std_17)
 
