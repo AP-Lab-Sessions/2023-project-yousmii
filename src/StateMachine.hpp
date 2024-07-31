@@ -6,7 +6,7 @@
 #include <memory>
 #include <stack>
 
-#include "state.hpp"
+#include "State.hpp"
 
 namespace Rep {
 typedef std::unique_ptr<State> StateRef;

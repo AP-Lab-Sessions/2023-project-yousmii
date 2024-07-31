@@ -1,6 +1,6 @@
 // Source: SFML Game Engine series by Sonar Systems on YouTube
 
-#include "statemachine.hpp"
+#include "StateMachine.hpp"
 
 namespace Rep {
 void StateMachine::AddState(StateRef newState, bool isReplacing) {

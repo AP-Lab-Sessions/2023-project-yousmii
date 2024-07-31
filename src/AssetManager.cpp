@@ -1,7 +1,5 @@
 // Source: SFML Game Engine by Sonar Systems
-#include "assetmanager.hpp"
-
-
+#include "AssetManager.hpp"
 
 namespace Rep {
 void AssetManager::LoadTexture(const std::string& name, const std::string& fileName) {

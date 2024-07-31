@@ -10,15 +10,20 @@ FetchContent_Declare(SFML
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(main src/main.cpp
-        src/game.cpp
-        src/game.hpp
-        src/state.cpp
-        src/state.hpp
-        src/statemachine.cpp
-        src/statemachine.hpp
-        src/assetmanager.cpp
-        src/assetmanager.hpp)
+add_executable(main
+        src/main.cpp
+        src/Game.cpp
+        src/Game.hpp
+        src/State.cpp
+        src/State.hpp
+        src/StateMachine.cpp
+        src/StateMachine.hpp
+        src/AssetManager.cpp
+        src/AssetManager.hpp
+        src/InputManager.cpp
+        src/InputManager.hpp
+        src/Stopwatch.cpp
+        src/Stopwatch.hpp)
 target_link_libraries(main PRIVATE sfml-graphics)
 target_compile_features(main PRIVATE cxx_std_17)
 
