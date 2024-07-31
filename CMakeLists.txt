@@ -1,15 +1,29 @@
 cmake_minimum_required(VERSION 3.16)
-project(CPPacman LANGUAGES CXX)
+project(SFML_Pacman LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-SET(CMAKE_CXX_FLAGS "-Wall")
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
-add_subdirectory(src)
+include(FetchContent)
+FetchContent_Declare(SFML
+        GIT_REPOSITORY https://github.com/SFML/SFML.git
+        GIT_TAG 2.6.x)
+FetchContent_MakeAvailable(SFML)
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+add_executable(main src/main.cpp
+        src/game.cpp
+        src/game.hPP
+        src/state.cpp
+        src/state.hpp
+        src/statemachine.cpp
+        src/statemachine.hpp)
+target_link_libraries(main PRIVATE sfml-graphics)
+target_compile_features(main PRIVATE cxx_std_17)
 
-install(TARGETS ${PROJECT_NAME} DESTINATION bin)
-
-if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-  set (CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/installed" CACHE PATH "default install path" FORCE)
-endif()
+if (WIN32)
+    add_custom_command(
+            TARGET main
+            COMMENT "Copy OpenAL DLL"
+            PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:main>
+            VERBATIM)
+endif ()
