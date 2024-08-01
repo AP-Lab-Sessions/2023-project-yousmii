@@ -10,7 +10,7 @@
 #include "StateMachine.hpp"
 #include "Stopwatch.hpp"
 
-namespace Rep {
+namespace View {
 
 struct GameData {
     StateMachine machine;
@@ -30,6 +30,6 @@ private:
     GameDataRef _data = std::make_shared<GameData>();
     void Run();
 };
-} // namespace Rep
+} // namespace View
 
 #endif // GAME_H

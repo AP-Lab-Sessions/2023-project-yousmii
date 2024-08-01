@@ -4,6 +4,6 @@
 #include "Game.hpp"
 
 int main() {
-    Rep::Game game;
+    View::Game game;
     return EXIT_SUCCESS;
 }

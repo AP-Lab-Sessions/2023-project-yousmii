@@ -2,7 +2,7 @@
 
 #include "StateMachine.hpp"
 
-namespace Rep {
+namespace View {
 void StateMachine::AddState(StateRef newState, bool isReplacing) {
     _isAdding = true;
     _isReplacing = isReplacing;
@@ -39,4 +39,4 @@ void StateMachine::ProcessStateChanges() {
 
 StateRef& StateMachine::GetActiveState() { return _states.top(); }
 
-} // namespace Rep
+} // namespace View

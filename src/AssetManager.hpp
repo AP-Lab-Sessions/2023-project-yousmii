@@ -7,7 +7,7 @@
 #include <map>
 #include <iostream>
 
-namespace Rep {
+namespace View {
 
 class AssetManager {
 public:
@@ -25,6 +25,6 @@ private:
     std::map<std::string, sf::Font> _fonts;
 };
 
-} // Rep
+} // View
 
 #endif //ASSETMANAGER_HPP

@@ -1,6 +1,6 @@
 #include "InputManager.hpp"
 
-namespace Rep {
+namespace View {
 bool InputManager::IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow& window) {
     if (sf::Mouse::isButtonPressed(button)) {
         sf::IntRect rect(object.getPosition().x, object.getPosition().y, object.getGlobalBounds().width,
@@ -17,4 +17,4 @@ sf::Vector2i InputManager::GetMousePosition(sf::RenderWindow& window) {
     return sf::Mouse::getPosition(window);
 }
 
-} // namespace Rep
+} // namespace View

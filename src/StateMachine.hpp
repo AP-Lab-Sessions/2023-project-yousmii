@@ -8,7 +8,7 @@
 
 #include "State.hpp"
 
-namespace Rep {
+namespace View {
 typedef std::unique_ptr<State> StateRef;
 
 class StateMachine {
@@ -35,6 +35,6 @@ private:
     bool _isAdding;
     bool _isReplacing;
 };
-} // namespace Rep
+} // namespace View
 
 #endif // STATEMACHINE_HPP

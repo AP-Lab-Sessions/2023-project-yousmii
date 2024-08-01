@@ -5,7 +5,7 @@
 
 #include <SFML/Graphics.hpp>
 
-namespace Rep {
+namespace View {
 
 class InputManager {
 public:
@@ -17,6 +17,6 @@ public:
     sf::Vector2i GetMousePosition(sf::RenderWindow &window);
 };
 
-} // Rep
+} // View
 
 #endif //INPUTMANAGER_HPP

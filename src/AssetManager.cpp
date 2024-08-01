@@ -1,7 +1,7 @@
 // Source: SFML Game Engine by Sonar Systems
 #include "AssetManager.hpp"
 
-namespace Rep {
+namespace View {
 void AssetManager::LoadTexture(const std::string& name, const std::string& fileName) {
     sf::Texture newtexture;
 
@@ -27,4 +27,4 @@ void AssetManager::LoadFont(const std::string& name, const std::string& fileName
 }
 
 sf::Font& AssetManager::GetFont(const std::string& name) { return _fonts.at(name); }
-} // namespace Rep
+} // namespace View

@@ -1,7 +1,7 @@
 #ifndef STATE_HPP
 #define STATE_HPP
 
-namespace Rep { // Representation
+namespace View { // Representation
 class State {
 public:
     virtual void init() = 0;
@@ -13,6 +13,6 @@ public:
     virtual void Pause() {}
     virtual void Resume() {}
 };
-} // namespace Rep
+} // namespace View
 
 #endif // STATE_HPP

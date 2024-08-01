@@ -1,7 +1,7 @@
 #include "Game.hpp"
 
 
-namespace Rep {
+namespace View {
 Game::Game() {
     _data->window.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), SCREEN_TITLE, sf::Style::Close | sf::Style::Titlebar);
     _data->window.setFramerateLimit(FRAMERATE_LIMIT);
@@ -34,4 +34,4 @@ void Game::Run() {
     }
 }
 
-} // namespace Rep
+} // namespace View
