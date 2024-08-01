@@ -1,0 +1,10 @@
+#ifndef DEFINITIONS_HPP
+#define DEFINITIONS_HPP
+
+#define SCREEN_WIDTH 800
+#define SCREEN_HEIGHT 600
+#define SCREEN_TITLE "CPPacman"
+#define FRAMERATE_LIMIT 165
+
+
+#endif //DEFINITIONS_HPP

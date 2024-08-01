@@ -1,6 +1,9 @@
-// Source: SFML Game Engine series by Sonar Systems on YouTube
-
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-int main() { return EXIT_SUCCESS; }
+#include "Game.hpp"
+
+int main() {
+    Rep::Game game;
+    return EXIT_SUCCESS;
+}

@@ -23,8 +23,9 @@ add_executable(main
         src/InputManager.cpp
         src/InputManager.hpp
         src/Stopwatch.cpp
-        src/Stopwatch.hpp)
-target_link_libraries(main PRIVATE sfml-graphics)
+        src/Stopwatch.hpp
+        src/DEFINITIONS.hpp)
+target_link_libraries(main PRIVATE sfml-graphics sfml-audio)
 target_compile_features(main PRIVATE cxx_std_17)
 
 if (WIN32)

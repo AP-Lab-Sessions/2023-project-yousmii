@@ -14,13 +14,14 @@ public:
     void Start();
     void Tick();
 
-    [[nodiscard]] std::chrono::milliseconds GetElapsedTime();
+    [[nodiscard]] double GetFrameTime();
 
 private:
     Stopwatch() = default;
 
     std::chrono::time_point<std::chrono::high_resolution_clock> _start;
-    std::chrono::milliseconds dt;
+    std::chrono::seconds dt;
+
 };
 
 } // namespace Logic

@@ -5,6 +5,7 @@
 #include <memory>
 
 #include "AssetManager.hpp"
+#include "DEFINITIONS.hpp"
 #include "InputManager.hpp"
 #include "StateMachine.hpp"
 #include "Stopwatch.hpp"
