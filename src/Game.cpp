@@ -16,9 +16,8 @@ Game::Game() {
     _data->window.setFramerateLimit(FRAMERATE_LIMIT);
     _data->window.setIcon( _data->assets.GetImage("Icon").getSize().x,  _data->assets.GetImage("Icon").getSize().y,  _data->assets.GetImage("Icon").getPixelsPtr());
 
-    StateRef splash_state = std::make_unique<SplashState>(_data);
-    _data->machine.AddState(std::move(splash_state), false);
-    _data->machine.ProcessStateChanges();
+    StateRef splash_state(new MainMenuState(_data));
+    _data->machine.AddState(std::move(splash_state));
 
     _data->stopwatch.Start();
     Run();

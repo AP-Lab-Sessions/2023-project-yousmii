@@ -10,7 +10,7 @@ StateMachine::StateMachine() : _isAdding(false), _isReplacing(false), _isRemovin
 void StateMachine::AddState(StateRef newState, bool isReplacing) {
     _isAdding = true;
     _isReplacing = isReplacing;
-    _newState = std::move(_newState);
+    _newState = std::move(newState);
 }
 
 void StateMachine::RemoveState() { _isRemoving = true; }

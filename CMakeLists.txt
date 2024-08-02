@@ -25,8 +25,8 @@ add_executable(main
         src/Stopwatch.cpp
         src/Stopwatch.hpp
         src/DEFINITIONS.hpp
-        src/states/SplashState.cpp
-        src/states/SplashState.hpp
+        src/states/MainMenuState.cpp
+        src/states/MainMenuState.hpp
         src/COLORS.hpp
         src/STATE_LIST.hpp
 )
