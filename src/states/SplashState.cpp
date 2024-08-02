@@ -1,8 +1,12 @@
-//
-// Created by maerrey on 01/08/2024.
-//
-
 #include "SplashState.hpp"
 
+#include <iostream>
+
 namespace View {
-} // View
+SplashState::SplashState(GameDataRef data) : _data(data) {}
+
+void SplashState::Init() {
+    std::cout << "SplashState initialised" << std::endl;
+
+}
+} // namespace View

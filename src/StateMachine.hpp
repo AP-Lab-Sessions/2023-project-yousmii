@@ -13,7 +13,7 @@ typedef std::unique_ptr<State> StateRef;
 
 class StateMachine {
 public:
-    StateMachine() {}
+    StateMachine() {} // Todo: Make constructor add the splash state
     ~StateMachine() {}
 
     void AddState(StateRef newState, bool isReplacing = true);

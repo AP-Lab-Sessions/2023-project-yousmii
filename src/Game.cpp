@@ -10,7 +10,7 @@ Game::Game() {
     _data->assets.LoadTexture("Sprites", "assets/textures/Sprites.png");
 
     _data->stopwatch.Start();
-    // Run();
+    // Run(); // TODO: Uncomment this line to run the game after states are implemented.
 }
 
 void Game::Run() {

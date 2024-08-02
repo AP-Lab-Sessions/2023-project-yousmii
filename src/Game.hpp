@@ -12,6 +12,7 @@
 
 namespace View {
 
+// TODO: Make this a singleton
 struct GameData {
     StateMachine machine;
     sf::RenderWindow window;
