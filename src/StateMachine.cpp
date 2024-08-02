@@ -4,9 +4,7 @@
 #include "STATE_LIST.hpp"
 
 namespace View {
-StateMachine::StateMachine(GameDataRef data) : _isAdding(false), _isReplacing(false), _isRemoving(false), _data(data) {
-    auto splashState = std::make_unique<SplashState>(_data);
-    _states.push(std::move(splashState));
+StateMachine::StateMachine() : _isAdding(false), _isReplacing(false), _isRemoving(false) {
 }
 
 void StateMachine::AddState(StateRef newState, bool isReplacing) {

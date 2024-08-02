@@ -9,8 +9,6 @@
 
 namespace View {
 
-
-
 class AssetManager {
 public:
     AssetManager() = default;

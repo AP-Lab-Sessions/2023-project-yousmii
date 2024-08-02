@@ -5,7 +5,7 @@
 namespace View {
 SplashState::SplashState(GameDataRef data) : _data(data) {}
 
-void SplashState::Init() {
+void SplashState::init() {
     std::cout << "SplashState initialised" << std::endl;
 
     _data->window.clear(Color::DARK_BLUE);

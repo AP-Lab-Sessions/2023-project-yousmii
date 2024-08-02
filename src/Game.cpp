@@ -1,5 +1,7 @@
 #include "Game.hpp"
 
+#include "STATE_LIST.hpp"
+#include "DEFINITIONS.hpp"
 
 namespace View {
 Game::Game() {
@@ -13,6 +15,10 @@ Game::Game() {
     _data->window.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), SCREEN_TITLE, sf::Style::Close | sf::Style::Titlebar);
     _data->window.setFramerateLimit(FRAMERATE_LIMIT);
     _data->window.setIcon( _data->assets.GetImage("Icon").getSize().x,  _data->assets.GetImage("Icon").getSize().y,  _data->assets.GetImage("Icon").getPixelsPtr());
+
+    StateRef splash_state = std::make_unique<SplashState>(_data);
+    _data->machine.AddState(std::move(splash_state), false);
+    _data->machine.ProcessStateChanges();
 
     _data->stopwatch.Start();
     Run();

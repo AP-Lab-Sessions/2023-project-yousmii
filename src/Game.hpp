@@ -5,14 +5,12 @@
 #include <memory>
 
 #include "AssetManager.hpp"
-#include "DEFINITIONS.hpp"
 #include "InputManager.hpp"
 #include "StateMachine.hpp"
 #include "Stopwatch.hpp"
 
 namespace View {
 
-// TODO: Make this a singleton
 struct GameData {
     StateMachine machine;
     sf::RenderWindow window;
