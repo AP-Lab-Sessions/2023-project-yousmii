@@ -1,18 +1,40 @@
 #include "MainMenuState.hpp"
+#include "GameState.hpp"
 
 #include <iostream>
 
 namespace View {
 MainMenuState::MainMenuState(GameDataRef data) : _data(data) {}
 
+void MainMenuState::initTitle() {
+    _title.setFont(_data->assets.GetFont("Monocraft"));
+    _title.setString("CPPacman");
+    _title.setCharacterSize(72);
+    _title.setFillColor(Color::WHITE);
+    _title.setPosition(_centerwindow.x - _title.getGlobalBounds().width / 2, _centerwindow.y - _title.getGlobalBounds().height / 2 - 150);
+}
+
+void MainMenuState::initSpaceToStart() {
+    _spacetostart.setFont(_data->assets.GetFont("Pluh"));
+    _spacetostart.setString("Press SPACE to start");
+    _spacetostart.setCharacterSize(25);
+    _spacetostart.setFillColor(Color::WHITE);
+    _spacetostart.setPosition(_centerwindow.x - _spacetostart.getGlobalBounds().width / 2, _centerwindow.y - _spacetostart.getGlobalBounds().height / 2 + 130);
+}
+
+void MainMenuState::initIcon() {
+    _icon.setTexture(_data->assets.GetTexture("Icon"));
+    _icon.setScale(0.75, 0.75);
+    _icon.setPosition(_centerwindow.x - _icon.getGlobalBounds().width / 2,
+                      _centerwindow.y - _icon.getGlobalBounds().height / 2);
+}
+
 void MainMenuState::init() {
     std::cout << "MainMenuState initialised" << std::endl;
-
-    _icon.setTexture(_data->assets.GetTexture("Icon"));
-
-    sf::Vector2f center_icon = sf::Vector2f(_data->window.getSize().x / 2, _data->window.getSize().y / 2);
-    _icon.setPosition(center_icon.x - _icon.getGlobalBounds().width / 2,
-                      center_icon.y - _icon.getGlobalBounds().height / 2);
+    _centerwindow = sf::Vector2f(_data->window.getSize().x / 2, _data->window.getSize().y / 2);
+    initIcon();
+    initTitle();
+    initSpaceToStart();
 }
 
 void MainMenuState::HandleInput() {
@@ -23,6 +45,10 @@ void MainMenuState::HandleInput() {
             _data->window.close();
         }
     }
+
+    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
+    //     _data->machine.AddState(StateRef(new GameState(_data)), true);
+    // }
 }
 
 void MainMenuState::Update() {}
@@ -30,7 +56,10 @@ void MainMenuState::Update() {}
 void MainMenuState::Draw() {
     _data->window.clear(Color::DARK_BLUE);
     _data->window.draw(_icon);
+    _data->window.draw(_title);
+    _data->window.draw(_spacetostart);
     _data->window.display();
 }
+
 
 } // namespace View

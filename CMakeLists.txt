@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(SFML_Pacman LANGUAGES CXX)
+project(CPPacman LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 SET(CMAKE_CXX_FLAGS "-Wall")
@@ -30,6 +30,8 @@ add_executable(CPPacman
         src/view/states/MainMenuState.hpp
         src/view/COLORS.hpp
         src/view/STATE_LIST.hpp
+        src/view/states/GameState.cpp
+        src/view/states/GameState.hpp
 )
 target_link_libraries(CPPacman PRIVATE sfml-graphics sfml-audio)
 target_compile_features(CPPacman PRIVATE cxx_std_17)

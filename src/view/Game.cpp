@@ -9,8 +9,8 @@ Game::Game() {
     _data->assets.LoadFont("Monocraft", "assets/fonts/Monocraft.ttf");
     _data->assets.LoadFont("Pluh", "assets/fonts/pluh.ttf");
     _data->assets.LoadTexture("Sprites", "assets/textures/Sprites.png");
-    _data->assets.LoadImage("Icon", "assets/textures/Icon.png");
     _data->assets.LoadTexture("Icon", "assets/textures/Icon.png");
+    _data->assets.LoadImage("Icon", "assets/textures/Icon.png");
 
     // Window creation
     _data->window.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), SCREEN_TITLE,

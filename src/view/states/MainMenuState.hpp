@@ -19,6 +19,13 @@ public:
 private:
     GameDataRef _data;
     sf::Sprite _icon;
+    sf::Text _title;
+    sf::Text _spacetostart;
+    sf::Vector2f _centerwindow;
+
+    void initTitle();
+    void initSpaceToStart();
+    void initIcon();
 };
 
 } // namespace View
