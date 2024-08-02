@@ -19,11 +19,10 @@ public:
 private:
     GameDataRef _data;
     sf::RectangleShape _background;
-    //Entity viewer goes here, handles positioning, etc. just sends the data to the gamestate
-    //EntityViewer _entityViewer;
-
+    // Entity viewer goes here, handles positioning, etc. just sends the data to the gamestate
+    // EntityViewer _entityViewer;
 };
 
-} // View
+} // namespace View
 
-#endif //GAMESTATE_HPP
+#endif // GAMESTATE_HPP
