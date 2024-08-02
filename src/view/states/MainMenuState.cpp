@@ -11,7 +11,8 @@ void MainMenuState::initTitle() {
     _title.setString("CPPacman");
     _title.setCharacterSize(72);
     _title.setFillColor(Color::WHITE);
-    _title.setPosition(_centerwindow.x - _title.getGlobalBounds().width / 2, _centerwindow.y - _title.getGlobalBounds().height / 2 - 150);
+    _title.setPosition(_centerwindow.x - _title.getGlobalBounds().width / 2,
+                       _centerwindow.y - _title.getGlobalBounds().height / 2 - 150);
 }
 
 void MainMenuState::initSpaceToStart() {
@@ -19,7 +20,8 @@ void MainMenuState::initSpaceToStart() {
     _spacetostart.setString("Press SPACE to start");
     _spacetostart.setCharacterSize(25);
     _spacetostart.setFillColor(Color::WHITE);
-    _spacetostart.setPosition(_centerwindow.x - _spacetostart.getGlobalBounds().width / 2, _centerwindow.y - _spacetostart.getGlobalBounds().height / 2 + 130);
+    _spacetostart.setPosition(_centerwindow.x - _spacetostart.getGlobalBounds().width / 2,
+                              _centerwindow.y - _spacetostart.getGlobalBounds().height / 2 + 130);
 }
 
 void MainMenuState::initIcon() {
@@ -46,9 +48,9 @@ void MainMenuState::HandleInput() {
         }
     }
 
-    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
-    //     _data->machine.AddState(StateRef(new GameState(_data)), true);
-    // }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
+        _data->machine.AddState(StateRef(new GameState(_data)), true);
+    }
 }
 
 void MainMenuState::Update() {}
