@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "Game.hpp"
+#include "view/Game.hpp"
 
 int main() {
     View::Game game;

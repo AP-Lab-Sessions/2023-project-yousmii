@@ -24,11 +24,9 @@ void MainMenuState::HandleInput() {
     }
 }
 
-void MainMenuState::Update(double dt) {
+void MainMenuState::Update() {}
 
-}
-
-void MainMenuState::Draw(double dt) {
+void MainMenuState::Draw() {
     _data->window.clear(Color::DARK_BLUE);
     _data->window.draw(_icon);
     _data->window.display();

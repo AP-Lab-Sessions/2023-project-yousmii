@@ -4,8 +4,6 @@
 #include "STATE_LIST.hpp"
 
 namespace View {
-StateMachine::StateMachine() : _isAdding(false), _isReplacing(false), _isRemoving(false) {
-}
 
 void StateMachine::AddState(StateRef newState, bool isReplacing) {
     _isAdding = true;

@@ -7,7 +7,7 @@
 #include "AssetManager.hpp"
 #include "InputManager.hpp"
 #include "StateMachine.hpp"
-#include "Stopwatch.hpp"
+#include "../logic/Stopwatch.hpp"
 
 namespace View {
 

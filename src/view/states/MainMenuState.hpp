@@ -13,8 +13,8 @@ public:
     void init() override;
 
     void HandleInput();
-    void Update(double dt);
-    void Draw(double dt);
+    void Update();
+    void Draw();
 
 private:
     GameDataRef _data;

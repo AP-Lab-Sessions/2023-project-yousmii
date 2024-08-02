@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 project(SFML_Pacman LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+SET(CMAKE_CXX_FLAGS "-Wall")
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
 include(FetchContent)
@@ -10,33 +11,33 @@ FetchContent_Declare(SFML
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(main
+add_executable(CPPacman
         src/main.cpp
-        src/Game.cpp
-        src/Game.hpp
-        src/State.cpp
-        src/State.hpp
-        src/StateMachine.cpp
-        src/StateMachine.hpp
-        src/AssetManager.cpp
-        src/AssetManager.hpp
-        src/InputManager.cpp
-        src/InputManager.hpp
-        src/Stopwatch.cpp
-        src/Stopwatch.hpp
-        src/DEFINITIONS.hpp
-        src/states/MainMenuState.cpp
-        src/states/MainMenuState.hpp
-        src/COLORS.hpp
-        src/STATE_LIST.hpp
+        src/view/Game.cpp
+        src/view/Game.hpp
+        src/view/State.cpp
+        src/view/State.hpp
+        src/view/StateMachine.cpp
+        src/view/StateMachine.hpp
+        src/view/AssetManager.cpp
+        src/view/AssetManager.hpp
+        src/view/InputManager.cpp
+        src/view/InputManager.hpp
+        src/logic/Stopwatch.cpp
+        src/logic/Stopwatch.hpp
+        src/view/DEFINITIONS.hpp
+        src/view/states/MainMenuState.cpp
+        src/view/states/MainMenuState.hpp
+        src/view/COLORS.hpp
+        src/view/STATE_LIST.hpp
 )
-target_link_libraries(main PRIVATE sfml-graphics sfml-audio)
-target_compile_features(main PRIVATE cxx_std_17)
+target_link_libraries(CPPacman PRIVATE sfml-graphics sfml-audio)
+target_compile_features(CPPacman PRIVATE cxx_std_17)
 
 if (WIN32)
     add_custom_command(
-            TARGET main
+            TARGET CPPacman
             COMMENT "Copy OpenAL DLL"
-            PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:main>
+            PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:CPPacman>
             VERBATIM)
 endif ()
