@@ -11,7 +11,6 @@ std::pair<std::string, T> AssetManager::Load(const std::string& name, const std:
     return std::make_pair(name, asset);
 }
 
-
 void AssetManager::LoadTexture(const std::string& name, const std::string& fileName) {
     auto asset = Load<sf::Texture>(name, fileName);
     _textures.insert(asset);
@@ -33,4 +32,3 @@ void AssetManager::LoadImage(const std::string& name, const std::string& fileNam
 
 sf::Image& AssetManager::GetImage(const std::string& name) { return _images.at(name); }
 } // namespace View
-

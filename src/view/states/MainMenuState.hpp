@@ -21,6 +21,6 @@ private:
     sf::Sprite _icon;
 };
 
-} // View
+} // namespace View
 
-#endif //SPLASHSTATE_HPP
+#endif // SPLASHSTATE_HPP

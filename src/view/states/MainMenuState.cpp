@@ -11,7 +11,8 @@ void MainMenuState::init() {
     _icon.setTexture(_data->assets.GetTexture("Icon"));
 
     sf::Vector2f center_icon = sf::Vector2f(_data->window.getSize().x / 2, _data->window.getSize().y / 2);
-    _icon.setPosition(center_icon.x - _icon.getGlobalBounds().width / 2, center_icon.y - _icon.getGlobalBounds().height / 2);
+    _icon.setPosition(center_icon.x - _icon.getGlobalBounds().width / 2,
+                      center_icon.y - _icon.getGlobalBounds().height / 2);
 }
 
 void MainMenuState::HandleInput() {
@@ -19,7 +20,7 @@ void MainMenuState::HandleInput() {
 
     while (_data->window.pollEvent(event)) {
         if (sf::Event::Closed == event.type) {
-           _data->window.close();
+            _data->window.close();
         }
     }
 }
@@ -31,6 +32,5 @@ void MainMenuState::Draw() {
     _data->window.draw(_icon);
     _data->window.display();
 }
-
 
 } // namespace View

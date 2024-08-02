@@ -3,4 +3,4 @@
 
 #include "states/MainMenuState.hpp"
 
-#endif //STATE_LIST_HPP
+#endif // STATE_LIST_HPP

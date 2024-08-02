@@ -13,7 +13,7 @@ typedef std::unique_ptr<State> StateRef;
 
 class StateMachine {
 public:
-    StateMachine(){}
+    StateMachine() {}
     ~StateMachine() {}
 
     void AddState(StateRef newState, bool isReplacing = true);
@@ -24,11 +24,11 @@ public:
 
     void ProcessStateChanges();
 
-    StateRef &GetActiveState();
+    StateRef& GetActiveState();
 
 private:
     std::stack<StateRef> _states; // States present on the stack
-    StateRef _newState; // Latest state to add
+    StateRef _newState;           // Latest state to add
 
     // Track what needs to be done
     bool _isRemoving;

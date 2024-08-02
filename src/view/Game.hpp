@@ -4,10 +4,10 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
+#include "../logic/Stopwatch.hpp"
 #include "AssetManager.hpp"
 #include "InputManager.hpp"
 #include "StateMachine.hpp"
-#include "../logic/Stopwatch.hpp"
 
 namespace View {
 

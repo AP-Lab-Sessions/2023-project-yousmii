@@ -10,5 +10,5 @@ void Stopwatch::Tick() {
     _start = now;
 }
 
-    [[nodiscard]] double Stopwatch::GetFrameTime() { return dt.count(); }
+[[nodiscard]] double Stopwatch::GetFrameTime() { return dt.count(); }
 } // namespace Logic

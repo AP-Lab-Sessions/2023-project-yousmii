@@ -4,8 +4,8 @@
 #define ASSETMANAGER_HPP
 
 #include <SFML/Graphics.hpp>
-#include <map>
 #include <iostream>
+#include <map>
 
 namespace View {
 
@@ -18,13 +18,13 @@ public:
     std::pair<std::string, T> Load(const std::string& name, const std::string& fileName);
 
     void LoadTexture(const std::string& name, const std::string& fileName);
-    sf::Texture &GetTexture(const std::string& name);
+    sf::Texture& GetTexture(const std::string& name);
 
     void LoadFont(const std::string& name, const std::string& fileName);
-    sf::Font &GetFont(const std::string& name);
+    sf::Font& GetFont(const std::string& name);
 
     void LoadImage(const std::string& name, const std::string& fileName);
-    sf::Image &GetImage(const std::string& name);
+    sf::Image& GetImage(const std::string& name);
 
 private:
     std::map<std::string, sf::Texture> _textures;
@@ -32,8 +32,6 @@ private:
     std::map<std::string, sf::Image> _images;
 };
 
+} // namespace View
 
-
-} // View
-
-#endif //ASSETMANAGER_HPP
+#endif // ASSETMANAGER_HPP

@@ -6,5 +6,4 @@
 #define SCREEN_TITLE "CPPacman"
 #define FRAMERATE_LIMIT 165
 
-
-#endif //DEFINITIONS_HPP
+#endif // DEFINITIONS_HPP
