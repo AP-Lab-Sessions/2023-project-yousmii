@@ -26,7 +26,10 @@ add_executable(main
         src/Stopwatch.hpp
         src/DEFINITIONS.hpp
         src/states/SplashState.cpp
-        src/states/SplashState.hpp)
+        src/states/SplashState.hpp
+        src/COLORS.hpp
+        src/STATE_LIST.hpp
+)
 target_link_libraries(main PRIVATE sfml-graphics sfml-audio)
 target_compile_features(main PRIVATE cxx_std_17)
 

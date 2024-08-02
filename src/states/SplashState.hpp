@@ -18,7 +18,7 @@ public:
 
 private:
     GameDataRef _data;
-    
+    sf::Sprite _icon;
 };
 
 } // View

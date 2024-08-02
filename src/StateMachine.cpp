@@ -1,8 +1,14 @@
 // Source: SFML Game Engine series by Sonar Systems on YouTube
 
 #include "StateMachine.hpp"
+#include "STATE_LIST.hpp"
 
 namespace View {
+StateMachine::StateMachine(GameDataRef data) : _isAdding(false), _isReplacing(false), _isRemoving(false), _data(data) {
+    auto splashState = std::make_unique<SplashState>(_data);
+    _states.push(std::move(splashState));
+}
+
 void StateMachine::AddState(StateRef newState, bool isReplacing) {
     _isAdding = true;
     _isReplacing = isReplacing;

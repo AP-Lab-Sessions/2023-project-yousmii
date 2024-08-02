@@ -1,6 +1,8 @@
 #ifndef STATE_HPP
 #define STATE_HPP
 
+#include "COLORS.hpp"
+
 namespace View { // Representation
 class State {
 public:

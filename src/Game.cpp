@@ -3,14 +3,19 @@
 
 namespace View {
 Game::Game() {
+    _data->assets.LoadFont("Monocraft", "assets/fonts/Monocraft.ttf");
+    _data->assets.LoadFont("Pluh", "assets/fonts/pluh.ttf");
+
+    _data->assets.LoadTexture("Sprites", "assets/textures/Sprites.png");
+    _data->assets.LoadImage("Icon", "assets/textures/Icon.png");
+    _data->assets.LoadTexture("Icon", "assets/textures/Icon.png");
+
     _data->window.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), SCREEN_TITLE, sf::Style::Close | sf::Style::Titlebar);
     _data->window.setFramerateLimit(FRAMERATE_LIMIT);
-
-    _data->assets.LoadFont("Monocraft", "assets/fonts/Monocraft.ttf");
-    _data->assets.LoadTexture("Sprites", "assets/textures/Sprites.png");
+    _data->window.setIcon( _data->assets.GetImage("Icon").getSize().x,  _data->assets.GetImage("Icon").getSize().y,  _data->assets.GetImage("Icon").getPixelsPtr());
 
     _data->stopwatch.Start();
-    // Run(); // TODO: Uncomment this line to run the game after states are implemented.
+    Run();
 }
 
 void Game::Run() {

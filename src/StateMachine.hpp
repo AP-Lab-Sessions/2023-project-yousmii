@@ -3,6 +3,8 @@
 #ifndef STATEMACHINE_HPP
 #define STATEMACHINE_HPP
 
+#include "Game.hpp"
+
 #include <memory>
 #include <stack>
 
@@ -13,7 +15,7 @@ typedef std::unique_ptr<State> StateRef;
 
 class StateMachine {
 public:
-    StateMachine() {} // Todo: Make constructor add the splash state
+    StateMachine(GameDataRef data);
     ~StateMachine() {}
 
     void AddState(StateRef newState, bool isReplacing = true);
@@ -34,6 +36,8 @@ private:
     bool _isRemoving;
     bool _isAdding;
     bool _isReplacing;
+
+    GameDataRef _data;
 };
 } // namespace View
 
