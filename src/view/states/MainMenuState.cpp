@@ -63,5 +63,4 @@ void MainMenuState::Draw() {
     _data->window.display();
 }
 
-
 } // namespace View

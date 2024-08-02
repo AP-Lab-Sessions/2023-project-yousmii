@@ -4,6 +4,7 @@ namespace View {
 GameState::GameState(GameDataRef data) : _data(data) {}
 
 void GameState::init() {
+    std::cout << "GameState initialised" << std::endl;
     _background.setSize(sf::Vector2f(600, 600));
     _background.setPosition((_data->window.getSize().x - _background.getSize().x) / 2,
                             (_data->window.getSize().y - _background.getSize().y) / 2);
