@@ -1,7 +1,8 @@
 #include "InputManager.hpp"
 
 namespace View {
-bool InputManager::IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow& window) {
+template <typename T>
+bool InputManager::IsClicked(T object, sf::Mouse::Button button, sf::RenderWindow& window) {
     if (sf::Mouse::isButtonPressed(button)) {
         sf::IntRect rect(object.getPosition().x, object.getPosition().y, object.getGlobalBounds().width,
                          object.getGlobalBounds().height);

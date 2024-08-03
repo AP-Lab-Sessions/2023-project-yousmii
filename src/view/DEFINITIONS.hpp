@@ -6,4 +6,7 @@
 #define SCREEN_TITLE "CPPacman"
 #define FRAMERATE_LIMIT 165
 
+#define MONOCRAFT "Monocraft"
+#define DSFONT "Pluh"
+
 #endif // DEFINITIONS_HPP

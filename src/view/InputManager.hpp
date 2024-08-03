@@ -12,7 +12,8 @@ public:
     InputManager() = default;
     ~InputManager() = default;
 
-    bool IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow& window);
+    template <typename T>
+    bool IsClicked(T object, sf::Mouse::Button button, sf::RenderWindow& window);
 
     sf::Vector2i GetMousePosition(sf::RenderWindow& window);
 };

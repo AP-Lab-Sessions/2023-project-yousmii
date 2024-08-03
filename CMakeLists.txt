@@ -32,6 +32,8 @@ add_executable(CPPacman
         src/view/STATE_LIST.hpp
         src/view/states/GameState.cpp
         src/view/states/GameState.hpp
+        src/view/states/PauseState.cpp
+        src/view/states/PauseState.hpp
 )
 target_link_libraries(CPPacman PRIVATE sfml-graphics sfml-audio)
 target_compile_features(CPPacman PRIVATE cxx_std_17)

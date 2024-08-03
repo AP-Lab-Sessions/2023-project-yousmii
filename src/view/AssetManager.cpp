@@ -13,7 +13,6 @@ std::pair<std::string, T> AssetManager::Load(const std::string& name, const std:
 
 void AssetManager::LoadTexture(const std::string& name, const std::string& fileName) {
     auto asset = Load<sf::Texture>(name, fileName);
-    asset.second.setSmooth(true);
     _textures.insert(asset);
 }
 

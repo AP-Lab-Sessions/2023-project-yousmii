@@ -1,4 +1,5 @@
 #include "GameState.hpp"
+#include "PauseState.hpp"
 
 namespace View {
 GameState::GameState(GameDataRef data) : _data(data) {}
@@ -20,14 +21,14 @@ void GameState::HandleInput() {
         }
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
-        // _data->machine.AddState(StateRef(new PauseMenuState(_data)), false);
+        _data->machine.AddState(StateRef(new PauseState(_data)), false);
     }
 }
 
 void GameState::Update() {}
 
 void GameState::Draw() {
-    _data->window.clear(Color::DARK_BLUE);
+    _data->window.clear(Color::BLUE);
     _data->window.draw(_background);
     _data->window.display();
 }
