@@ -1,6 +1,7 @@
 #ifndef SPRITEFACTORY_HPP
 #define SPRITEFACTORY_HPP
 
+#include "DEFINITIONS.hpp"
 #include "Game.hpp"
 #include "entities/Character.hpp"
 #include "entities/Collectable.hpp"
@@ -8,22 +9,25 @@
 #include <SFML/Graphics.hpp>
 
 namespace View {
-
 // Managed by GameState
 class EntityFactory {
 public:
-    EntityFactory() = default;
+    EntityFactory(GameDataRef data);
     ~EntityFactory() = default;
 
-    Character createCharacter(std::string name, const sf::Texture& texture);
-    Collectable createCollectable(std::string name, const sf::Texture& texture);
+    void initCharacters(const sf::Texture& texture);
+    void initCollectables(const sf::Texture& texture); // Depends on map
 
-    void drawCharacters(GameDataRef data);
-    void drawCollectables(GameDataRef data);
+    Character createCharacter(CharacterName name, const sf::Texture& texture);
+    Collectable createCollectable(CharacterName name, const sf::Texture& texture);
+
+    void drawCharacters();
+    void drawCollectables();
 
 private:
-    std::map<std::string, Character> _characters;
-    std::map<std::string, Collectable> _collectables;
+    GameDataRef _data;
+    std::map<CharacterName, Character> _characters;
+    std::map<CollectableName, std::vector<Collectable>> _collectables;
 };
 
 } // namespace View

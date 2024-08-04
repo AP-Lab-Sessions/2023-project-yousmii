@@ -9,4 +9,8 @@
 #define MONOCRAFT "Monocraft"
 #define DSFONT "Pluh"
 
+enum class CharacterName { PACMAN, BLINKY, PINKY, INKY, CLYDE };
+
+enum class CollectableName { DOT, POWERUP };
+
 #endif // DEFINITIONS_HPP
