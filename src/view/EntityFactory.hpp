@@ -26,6 +26,6 @@ private:
     std::map<std::string, Collectable> _collectables;
 };
 
-} // View
+} // namespace View
 
-#endif //SPRITEFACTORY_HPP
+#endif // SPRITEFACTORY_HPP

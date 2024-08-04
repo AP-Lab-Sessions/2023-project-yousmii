@@ -11,12 +11,8 @@ void Collectable::setTexture(sf::Texture& texture) {
     _sprite.setTexture(_texture);
 }
 
-void Collectable::setPosition(float x, float y) {
-    _sprite.setPosition(x, y);
-}
+void Collectable::setPosition(float x, float y) { _sprite.setPosition(x, y); }
 
-sf::Sprite Collectable::getSprite() {
-    return _sprite;
-}
+sf::Sprite Collectable::getSprite() { return _sprite; }
 
 } // namespace View

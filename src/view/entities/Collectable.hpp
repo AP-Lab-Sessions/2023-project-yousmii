@@ -20,6 +20,6 @@ private:
     sf::Texture _texture;
 };
 
-} // View
+} // namespace View
 
-#endif //COLLECTABLE_HPP
+#endif // COLLECTABLE_HPP
