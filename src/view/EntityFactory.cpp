@@ -1,6 +1,3 @@
 #include "EntityFactory.hpp"
 
-namespace View {
-
-
-} // View
+namespace View {} // View
