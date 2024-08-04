@@ -15,25 +15,34 @@ add_executable(CPPacman
         src/main.cpp
         src/view/Game.cpp
         src/view/Game.hpp
-        src/view/State.cpp
-        src/view/State.hpp
-        src/view/StateMachine.cpp
-        src/view/StateMachine.hpp
+
         src/view/AssetManager.cpp
         src/view/AssetManager.hpp
         src/view/InputManager.cpp
         src/view/InputManager.hpp
         src/logic/Stopwatch.cpp
         src/logic/Stopwatch.hpp
+
         src/view/DEFINITIONS.hpp
+        src/view/COLORS.hpp
+
+        src/view/STATE_LIST.hpp
+        src/view/State.hpp
+        src/view/StateMachine.cpp
+        src/view/StateMachine.hpp
         src/view/states/MainMenuState.cpp
         src/view/states/MainMenuState.hpp
-        src/view/COLORS.hpp
-        src/view/STATE_LIST.hpp
         src/view/states/GameState.cpp
         src/view/states/GameState.hpp
         src/view/states/PauseState.cpp
         src/view/states/PauseState.hpp
+
+        src/view/EntityFactory.cpp
+        src/view/EntityFactory.hpp
+        src/view/entities/Character.cpp
+        src/view/entities/Character.hpp
+        src/view/entities/Collectable.cpp
+        src/view/entities/Collectable.hpp
 )
 target_link_libraries(CPPacman PRIVATE sfml-graphics sfml-audio)
 target_compile_features(CPPacman PRIVATE cxx_std_17)
