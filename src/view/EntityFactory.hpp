@@ -22,7 +22,7 @@ public:
     ~EntityFactory() = default;
 
     void updateCharacters(); // Frame updating
-    void updatePositions(); // Position updating
+    void updatePositions();  // Position updating
     void updateDirections(); // Direction updating
 
     void update();
