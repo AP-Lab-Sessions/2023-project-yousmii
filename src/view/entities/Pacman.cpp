@@ -1,4 +1,3 @@
 #include "Pacman.hpp"
 
-namespace View {
-} // View
+namespace View {} // namespace View

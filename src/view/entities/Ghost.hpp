@@ -4,10 +4,8 @@
 
 namespace View {
 
-class Ghost : public Character {
+class Ghost : public Character {};
 
-};
+} // namespace View
 
-} // View
-
-#endif //GHOST_HPP
+#endif // GHOST_HPP

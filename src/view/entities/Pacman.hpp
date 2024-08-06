@@ -8,6 +8,6 @@ class Pacman : public Character {
     // Inherits everything from Character
 };
 
-} // View
+} // namespace View
 
-#endif //PACMAN_HPP
+#endif // PACMAN_HPP

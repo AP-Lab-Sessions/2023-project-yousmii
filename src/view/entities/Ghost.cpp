@@ -4,5 +4,4 @@
 
 #include "Ghost.hpp"
 
-namespace View {
-} // View
+namespace View {} // namespace View
