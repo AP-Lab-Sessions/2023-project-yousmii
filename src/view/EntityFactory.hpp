@@ -9,25 +9,37 @@
 #include <SFML/Graphics.hpp>
 
 namespace View {
+
+typedef std::shared_ptr<Character> CharacterPtr;
+typedef std::shared_ptr<Collectable> CollectablePtr;
+typedef std::map<CharacterName, CharacterPtr> Characters;
+typedef std::map<CollectableName, std::vector<CollectablePtr>> Collectables;
+
 // Managed by GameState
 class EntityFactory {
 public:
-    EntityFactory(GameDataRef data);
+    explicit EntityFactory(sf::Texture& texture);
     ~EntityFactory() = default;
 
-    void initCharacters(const sf::Texture& texture);
-    void initCollectables(const sf::Texture& texture); // Depends on map
+    void updateCharacters(); // Frame updating
+    void updatePositions(); // Position updating
+    void updateDirections(); // Direction updating
 
-    Character createCharacter(CharacterName name, const sf::Texture& texture);
-    Collectable createCollectable(CharacterName name, const sf::Texture& texture);
+    void update();
 
-    void drawCharacters();
-    void drawCollectables();
+    void getCharacters();
+    void getCollectables();
+
+    void isPacmanAlive();
+    void pacmanDie();
 
 private:
-    GameDataRef _data;
-    std::map<CharacterName, Character> _characters;
-    std::map<CollectableName, std::vector<Collectable>> _collectables;
+    void initCharacters();
+    void initCollectables();
+
+    sf::Texture& _spritesheet;
+    Characters _characters;
+    Collectables _collectables;
 };
 
 } // namespace View

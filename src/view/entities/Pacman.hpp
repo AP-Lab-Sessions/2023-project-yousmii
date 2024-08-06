@@ -5,7 +5,8 @@
 namespace View {
 
 class Pacman : public Character {
-    // Inherits everything from Character
+public:
+    explicit Pacman(sf::Texture& texture);
 };
 
 } // namespace View

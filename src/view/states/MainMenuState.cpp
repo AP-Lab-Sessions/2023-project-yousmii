@@ -5,7 +5,7 @@
 #include <iostream>
 
 namespace View {
-MainMenuState::MainMenuState(GameDataRef data) : _data(data) {}
+MainMenuState::MainMenuState(GameDataPtr data) : _data(data) {}
 
 void MainMenuState::initTitle() {
     _title.setFont(_data->assets.GetFont(MONOCRAFT));

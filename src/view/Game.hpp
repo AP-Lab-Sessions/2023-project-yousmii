@@ -19,14 +19,14 @@ struct GameData {
     Logic::Stopwatch stopwatch = Logic::Stopwatch::GetInstance();
 };
 
-typedef std::shared_ptr<GameData> GameDataRef;
+typedef std::shared_ptr<GameData> GameDataPtr;
 
 class Game {
 public:
     Game();
 
 private:
-    GameDataRef _data = std::make_shared<GameData>();
+    GameDataPtr _data = std::make_shared<GameData>();
     void Run();
 };
 } // namespace View

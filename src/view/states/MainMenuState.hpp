@@ -8,7 +8,7 @@ namespace View {
 
 class MainMenuState : public State {
 public:
-    MainMenuState(GameDataRef data);
+    MainMenuState(GameDataPtr data);
 
     void init() override;
 
@@ -17,7 +17,7 @@ public:
     void Draw();
 
 private:
-    GameDataRef _data;
+    GameDataPtr _data;
     sf::Sprite _icon;
     sf::Text _title;
     sf::Text _spacetostart;

@@ -1,6 +1,9 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
-#include "SFML/Graphics/Sprite.hpp"
+
+#include "../DEFINITIONS.hpp"
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
 
 #include <map>
 
@@ -11,7 +14,7 @@ enum class Frame { // Characters have 2 frames
     TWO
 };
 
-enum class Direction { UP, RIGHT, DOWN, LEFT };
+typedef std::map<Direction, std::pair<sf::Texture, sf::Texture>> CharacterTextures;
 
 class Character {
 public:
@@ -19,18 +22,23 @@ public:
     ~Character() = default;
 
     void setTextures(Direction direction, sf::Texture textureOne, sf::Texture textureTwo);
+    void setFullTextures(CharacterTextures& textures);
     void setDirection(Direction direction);
 
-    void updateSprite();
+    void update();
     void setPosition(float x, float y);
 
     void getSprite(sf::Sprite& sprite);
+    virtual bool isAlive() = 0;
+    virtual void die() = 0;
+    virtual void respawn() = 0;
 
 private:
     Frame _frame;
     Direction _direction;
     sf::Sprite _sprite;
-    std::map<Direction, std::pair<sf::Texture, sf::Texture>> _textures;
+    CharacterTextures _textures;
+    bool _alive;
 
     void switchFrame();
     sf::Texture& getTexture();

@@ -8,7 +8,7 @@ namespace View {
 
 class PauseState : public State {
 public:
-    PauseState(GameDataRef data);
+    PauseState(GameDataPtr data);
 
     void init() override;
 
@@ -17,7 +17,7 @@ public:
     void Draw();
 
 private:
-    GameDataRef _data;
+    GameDataPtr _data;
 
     sf::Text _pauseText;
     sf::Text _resumeText;

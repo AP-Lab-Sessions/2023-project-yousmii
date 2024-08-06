@@ -5,7 +5,7 @@
 
 namespace View {
 
-PauseState::PauseState(GameDataRef data) : _data(data) {}
+PauseState::PauseState(GameDataPtr data) : _data(data) {}
 
 void PauseState::initPauseText() {
     _pauseText.setString("PAUSED");
@@ -39,6 +39,7 @@ void PauseState::initResumeButton() {}
 void PauseState::initExitButton() {}
 
 void PauseState::init() {
+    std::cout << "PauseState initialised" << std::endl;
     initPauseText();
     initResumeText();
     initExitText();

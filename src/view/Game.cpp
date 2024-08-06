@@ -8,7 +8,7 @@ Game::Game() {
     // Asset loading
     _data->assets.LoadFont(MONOCRAFT, "assets/fonts/Monocraft.ttf");
     _data->assets.LoadFont(DSFONT, "assets/fonts/pluh.ttf");
-
+    _data->assets.LoadTexture("Sprites", "assets/textures/Sprites.png");
     _data->assets.LoadTexture("Icon", "assets/textures/Icon.png");
     _data->assets.LoadImage("Icon", "assets/textures/Icon.png");
 
@@ -28,10 +28,10 @@ Game::Game() {
 }
 
 void Game::Run() {
-
     while (_data->window.isOpen()) {
         _data->machine.ProcessStateChanges();
         _data->stopwatch.Tick();
+
         _data->machine.GetActiveState()->HandleInput();
         _data->machine.GetActiveState()->Update();
         _data->machine.GetActiveState()->Draw();

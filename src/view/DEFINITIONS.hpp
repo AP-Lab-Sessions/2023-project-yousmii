@@ -12,8 +12,9 @@
 #define SPRITE_HEIGHT 16
 #define SPRITE_WIDTH 16
 
-enum class CharacterName { PACMAN, BLINKY, PINKY, INKY, CLYDE };
-
+enum class CharacterName { Pacman, Blinky, Pinky, Inky, Clyde };
+enum class Direction { RIGHT, LEFT, UP, DOWN };
 enum class CollectableName { DOT, POWERUP };
+enum class GhostState {NORMAL, FRIGHTENED, CALMING, DEAD};
 
 #endif // DEFINITIONS_HPP

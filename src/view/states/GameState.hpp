@@ -8,7 +8,7 @@ namespace View {
 
 class GameState : public State {
 public:
-    GameState(GameDataRef data);
+    GameState(GameDataPtr data);
 
     void init() override;
 
@@ -17,7 +17,7 @@ public:
     void Draw();
 
 private:
-    GameDataRef _data;
+    GameDataPtr _data;
     sf::RectangleShape _background;
     // Entity viewer goes here, handles positioning, etc. just sends the data to the gamestate
     // EntityViewer _entityViewer;

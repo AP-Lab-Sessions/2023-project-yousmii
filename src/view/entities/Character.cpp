@@ -1,23 +1,27 @@
 
 #include "Character.hpp"
 #include <SFML/Graphics/Texture.hpp> // solves some missing functions
+#include <utility>
 
 namespace View {
 Character::Character() {
     _frame = Frame::ONE;
     _direction = Direction::DOWN;
     _sprite = sf::Sprite();
-    _textures = std::map<Direction, std::pair<sf::Texture, sf::Texture>>();
+    _textures = CharacterTextures();
+    _alive = true;
 };
 
 void Character::setTextures(Direction direction, sf::Texture textureOne, sf::Texture textureTwo) {
-    _textures[direction].first = textureOne;
-    _textures[direction].second = textureTwo;
+    _textures[direction].first.update(textureOne);
+    _textures[direction].second.update(textureTwo);
 }
+
+void Character::setFullTextures(CharacterTextures& textures) { _textures = textures; }
 
 void Character::setDirection(Direction direction) { _direction = direction; }
 
-void Character::updateSprite() {
+void Character::update() {
     switchFrame();
     _sprite.setTexture(getTexture());
 }
@@ -40,5 +44,9 @@ sf::Texture& Character::getTexture() {
         return _textures[_direction].second;
     }
 }
+
+bool Character::isAlive() { return _alive; }
+void Character::die() { _alive = false; }
+void Character::respawn() { _alive = true; }
 
 } // namespace View

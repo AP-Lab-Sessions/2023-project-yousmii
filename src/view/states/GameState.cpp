@@ -2,7 +2,7 @@
 #include "PauseState.hpp"
 
 namespace View {
-GameState::GameState(GameDataRef data) : _data(data) {}
+GameState::GameState(GameDataPtr data) : _data(data) {}
 
 void GameState::init() {
     std::cout << "GameState initialised" << std::endl;
