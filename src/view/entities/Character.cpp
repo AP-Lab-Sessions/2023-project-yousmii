@@ -13,7 +13,6 @@ Character::Character() {
 void Character::setTextures(Direction direction, sf::Texture textureOne, sf::Texture textureTwo) {
     _textures[direction].first = textureOne;
     _textures[direction].second = textureTwo;
-    _textures[direction];
 }
 
 void Character::setDirection(Direction direction) { _direction = direction; }

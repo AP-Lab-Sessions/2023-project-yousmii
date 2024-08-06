@@ -43,6 +43,10 @@ add_executable(CPPacman
         src/view/entities/Character.hpp
         src/view/entities/Collectable.cpp
         src/view/entities/Collectable.hpp
+        src/view/entities/Pacman.cpp
+        src/view/entities/Pacman.hpp
+        src/view/entities/Ghost.cpp
+        src/view/entities/Ghost.hpp
 )
 target_link_libraries(CPPacman PRIVATE sfml-graphics sfml-audio)
 target_compile_features(CPPacman PRIVATE cxx_std_17)

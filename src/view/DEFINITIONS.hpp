@@ -9,7 +9,10 @@
 #define MONOCRAFT "Monocraft"
 #define DSFONT "Pluh"
 
-enum class CharacterName { PACMAN, BLINKY, PINKY, INKY, CLYDE };
+#define SPRITE_HEIGHT 16
+#define SPRITE_WIDTH 16
+
+enum class CharacterName { PACMAN, BLINKY, PINKY, INKY, CLYDE};
 
 enum class CollectableName { DOT, POWERUP };
 
