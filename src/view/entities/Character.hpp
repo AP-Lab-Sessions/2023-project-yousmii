@@ -29,9 +29,9 @@ public:
     void setPosition(float x, float y);
 
     void getSprite(sf::Sprite& sprite);
-    virtual bool isAlive() = 0;
-    virtual void die() = 0;
-    virtual void respawn() = 0;
+    bool isAlive();
+    void die();
+    void respawn();
 
 private:
     Frame _frame;

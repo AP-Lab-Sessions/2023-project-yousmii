@@ -64,4 +64,6 @@ void Ghost::changeState(GhostState state) {
     }
 }
 
+void Ghost::getState(GhostState& state) { state = _state; }
+
 } // namespace View
