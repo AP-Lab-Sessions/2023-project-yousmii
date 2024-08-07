@@ -8,7 +8,7 @@ class Ghost : public Character {
 public:
     Ghost(sf::Texture& texture, const CharacterName& name);
     void changeState(GhostState state);
-
+    void getState(GhostState& state);
 private:
     CharacterTextures _deadTextures;
     CharacterTextures _frightenedTextures;
