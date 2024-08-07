@@ -41,17 +41,11 @@ void EntityFactory::update() {
     updateDirections();
 }
 
-Characters EntityFactory::getCharacters() {
-    return _characters;
-}
+Characters EntityFactory::getCharacters() { return _characters; }
 
-Collectables EntityFactory::getCollectables() {
-    return _collectables;
-}
+Collectables EntityFactory::getCollectables() { return _collectables; }
 
-CharacterPtr EntityFactory::getCharacter(CharacterName name) {
-    return _characters[name];
-}
+CharacterPtr EntityFactory::getCharacter(CharacterName name) { return _characters[name]; }
 
 void EntityFactory::isPacmanAlive() { _characters[CharacterName::Pacman]->isAlive(); }
 

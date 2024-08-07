@@ -1,11 +1,12 @@
 #include "GameState.hpp"
 
-#include <utility>
 #include "PauseState.hpp"
+#include <utility>
 
 namespace View {
 GameState::GameState(GameDataPtr data) : _data(std::move(data)) {
-    EntityFactoryPtr entityFactory(new EntityFactory(_data->assets.GetTexture("Sprites"))); // remember that putting this in init
+    EntityFactoryPtr entityFactory(
+        new EntityFactory(_data->assets.GetTexture("Sprites"))); // remember that putting this in init
     _entityFactory = std::move(entityFactory);
 }
 
@@ -34,7 +35,7 @@ void GameState::Update() {}
 
 void GameState::Draw() {
     _data->window.clear(Color::BLUE);
-    // _data->window.draw(_background);
+    _data->window.draw(_background);
     sf::Sprite test_sprite = _entityFactory->getCharacter(CharacterName::Pacman)->getSprite();
     _data->window.draw(test_sprite);
     _data->window.display();
