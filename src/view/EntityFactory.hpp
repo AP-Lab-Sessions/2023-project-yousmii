@@ -27,8 +27,11 @@ public:
 
     void update();
 
-    void getCharacters();
-    void getCollectables();
+    Characters getCharacters();
+    Collectables getCollectables();
+
+    CharacterPtr getCharacter(CharacterName name);
+    // Collectable getCollectable(CollectableName name);
 
     void isPacmanAlive();
     void pacmanDie();
@@ -41,6 +44,8 @@ private:
     Characters _characters;
     Collectables _collectables;
 };
+
+typedef std::shared_ptr<EntityFactory> EntityFactoryPtr;
 
 } // namespace View
 

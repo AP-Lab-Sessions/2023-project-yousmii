@@ -1,6 +1,7 @@
 #ifndef GAMESTATE_HPP
 #define GAMESTATE_HPP
 
+#include "../EntityFactory.hpp"
 #include "../Game.hpp"
 #include "../State.hpp"
 
@@ -9,6 +10,7 @@ namespace View {
 class GameState : public State {
 public:
     GameState(GameDataPtr data);
+    ~GameState(); // Destructs EntityFactory too
 
     void init() override;
 
@@ -19,8 +21,8 @@ public:
 private:
     GameDataPtr _data;
     sf::RectangleShape _background;
-    // Entity viewer goes here, handles positioning, etc. just sends the data to the gamestate
-    // EntityViewer _entityViewer;
+    EntityFactoryPtr _entityFactory;
+    // WorldData _world;
 };
 
 } // namespace View

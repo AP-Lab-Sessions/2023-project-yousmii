@@ -6,6 +6,7 @@
 #include <SFML/Graphics/Texture.hpp>
 
 #include <map>
+#include <memory>
 
 namespace View {
 
@@ -14,21 +15,22 @@ enum class Frame { // Characters have 2 frames
     TWO
 };
 
-typedef std::map<Direction, std::pair<sf::Texture, sf::Texture>> CharacterTextures;
+typedef std::shared_ptr<sf::Texture> TexturePtr;
+typedef std::map<Direction, std::pair<TexturePtr, TexturePtr>> CharacterTextures;
 
 class Character {
 public:
     Character();
     ~Character() = default;
 
-    void setTextures(Direction direction, sf::Texture textureOne, sf::Texture textureTwo);
+    void setTextures(Direction direction, TexturePtr textureOne, TexturePtr textureTwo);
     void setFullTextures(CharacterTextures& textures);
     void setDirection(Direction direction);
 
     void update();
     void setPosition(float x, float y);
 
-    void getSprite(sf::Sprite& sprite);
+    sf::Sprite getSprite();
     bool isAlive();
     void die();
     void respawn();
@@ -41,7 +43,7 @@ private:
     bool _alive;
 
     void switchFrame();
-    sf::Texture& getTexture();
+    TexturePtr getTexture();
 };
 
 } // namespace View

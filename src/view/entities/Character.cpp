@@ -6,15 +6,18 @@
 namespace View {
 Character::Character() {
     _frame = Frame::ONE;
-    _direction = Direction::DOWN;
+    _direction = Direction::RIGHT;
+
     _sprite = sf::Sprite();
+    _sprite.setScale(2, 2);
+
     _textures = CharacterTextures();
     _alive = true;
 };
 
-void Character::setTextures(Direction direction, sf::Texture textureOne, sf::Texture textureTwo) {
-    _textures[direction].first.update(textureOne);
-    _textures[direction].second.update(textureTwo);
+void Character::setTextures(Direction direction, TexturePtr textureOne, TexturePtr textureTwo) {
+    _textures[direction].first = std::move(textureOne);
+    _textures[direction].second = std::move(textureTwo);
 }
 
 void Character::setFullTextures(CharacterTextures& textures) { _textures = textures; }
@@ -23,12 +26,12 @@ void Character::setDirection(Direction direction) { _direction = direction; }
 
 void Character::update() {
     switchFrame();
-    _sprite.setTexture(getTexture());
+    _sprite.setTexture(*getTexture());
 }
 
 void Character::setPosition(float x, float y) { _sprite.setPosition(x, y); }
 
-void Character::getSprite(sf::Sprite& sprite) { sprite = _sprite; }
+sf::Sprite Character::getSprite() { return _sprite; }
 
 void Character::switchFrame() {
     if (_frame == Frame::ONE) {
@@ -37,7 +40,7 @@ void Character::switchFrame() {
         _frame = Frame::ONE;
     }
 }
-sf::Texture& Character::getTexture() {
+TexturePtr Character::getTexture() {
     if (_frame == Frame::ONE) {
         return _textures[_direction].first;
     } else {

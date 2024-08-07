@@ -4,13 +4,13 @@ namespace View {
 Ghost::Ghost(sf::Texture& texture, const CharacterName& name) {
     // Load normal textures
     for (int i = 0; i < 4; i++) {
-        sf::Texture texture1;
-        texture1.loadFromImage(texture.copyToImage(),
+        TexturePtr texture1 = std::make_shared<sf::Texture>();
+        texture1->loadFromImage(texture.copyToImage(),
                                sf::IntRect(SPRITE_WIDTH * i * 2,
                                            SPRITE_HEIGHT * 4 + SPRITE_HEIGHT * static_cast<int>(name), SPRITE_WIDTH,
                                            SPRITE_HEIGHT));
-        sf::Texture texture2;
-        texture2.loadFromImage(texture.copyToImage(),
+        TexturePtr texture2 = std::make_shared<sf::Texture>();
+        texture2->loadFromImage(texture.copyToImage(),
                                sf::IntRect(SPRITE_WIDTH + SPRITE_WIDTH * i * 2,
                                            SPRITE_HEIGHT * 4 + SPRITE_HEIGHT * static_cast<int>(name), SPRITE_WIDTH,
                                            SPRITE_HEIGHT));
@@ -20,30 +20,31 @@ Ghost::Ghost(sf::Texture& texture, const CharacterName& name) {
 
     // Load dead textures
     for (int i = 0; i < 2; i++) {
-        sf::Texture texture1;
-        texture1.loadFromImage(texture.copyToImage(), sf::IntRect(SPRITE_WIDTH * 8 + SPRITE_WIDTH * i,
+        TexturePtr texture1 = std::make_shared<sf::Texture>();
+        texture1->loadFromImage(texture.copyToImage(), sf::IntRect(SPRITE_WIDTH * 8 + SPRITE_WIDTH * i,
                                                                   SPRITE_HEIGHT * 5, SPRITE_WIDTH, SPRITE_HEIGHT));
         _deadTextures[static_cast<Direction>(i)] = std::make_pair(texture1, texture1);
     }
 
     // Load frightened textures
-    sf::Texture fright1;
-    fright1.loadFromImage(texture.copyToImage(),
+    TexturePtr fright1 = std::make_shared<sf::Texture>();
+    fright1->loadFromImage(texture.copyToImage(),
                           sf::IntRect(SPRITE_WIDTH * 8, SPRITE_HEIGHT * 4, SPRITE_WIDTH, SPRITE_HEIGHT));
-    sf::Texture fright2;
-    fright2.loadFromImage(texture.copyToImage(), sf::IntRect(SPRITE_WIDTH * 10 + SPRITE_WIDTH, SPRITE_HEIGHT * 4,
+    TexturePtr fright2 = std::make_shared<sf::Texture>();
+    fright2->loadFromImage(texture.copyToImage(), sf::IntRect(SPRITE_WIDTH * 10 + SPRITE_WIDTH, SPRITE_HEIGHT * 4,
                                                              SPRITE_WIDTH, SPRITE_HEIGHT));
     for (int i = 0; i < 2; i++) {
         _frightenedTextures[static_cast<Direction>(i)] = std::make_pair(fright1, fright2);
     }
 
     // Load calming textures
-    sf::Texture calming1;
-    calming1.loadFromImage(texture.copyToImage(),
+    TexturePtr calming1 = std::make_shared<sf::Texture>();
+    calming1->loadFromImage(texture.copyToImage(),
                            sf::IntRect(SPRITE_WIDTH * 11, SPRITE_HEIGHT * 4, SPRITE_WIDTH, SPRITE_HEIGHT));
     for (int i = 0; i < 2; i++) {
         _calmingTextures[static_cast<Direction>(i)] = std::make_pair(fright1, calming1); // Creates a flashing effect
     }
+    update(); // DEFINETLY DONT FORGET THIS LOL
 }
 
 void Ghost::changeState(GhostState state) {
