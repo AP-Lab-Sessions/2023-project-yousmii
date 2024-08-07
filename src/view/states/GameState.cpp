@@ -36,8 +36,6 @@ void GameState::Update() {}
 void GameState::Draw() {
     _data->window.clear(Color::BLUE);
     _data->window.draw(_background);
-    sf::Sprite test_sprite = _entityFactory->getCharacter(CharacterName::Pacman)->getSprite();
-    _data->window.draw(test_sprite);
     _data->window.display();
 }
 
