@@ -10,8 +10,7 @@
 
 namespace View {
 
-enum class CharacterFrame {
-    ONE = 1,
+enum class CharacterFrame { ONE = 1,
     TWO
 };
 
@@ -42,6 +41,8 @@ public:
     void update();
 
     /// @brief Set the position of the character.
+    /// @param x X coordinate, obviously
+    /// @param y Y coordinate, obviously
     void setPosition(float x, float y);
 
     /// @brief Get the sprite of the character. Used for rendering.
@@ -58,6 +59,7 @@ public:
     virtual void respawn();
 
     bool _alive;
+
 private:
     CharacterFrame _frame;
     Direction _direction;
