@@ -7,6 +7,9 @@ namespace View {
 class Ghost : public Character {
 public:
     Ghost(sf::Texture& texture, const CharacterName& name);
+
+    void die() override;
+    void respawn() override;
     void changeState(GhostState state);
     void getState(GhostState& state);
 

@@ -21,7 +21,7 @@ public:
     explicit EntityFactory(sf::Texture& texture);
     ~EntityFactory() = default;
 
-    void updateCharacters(); // Frame updating
+    void updateCharacters(); // CharacterFrame updating
     void updatePositions();  // Position updating
     void updateDirections(); // Direction updating
 

@@ -8,12 +8,12 @@ Ghost::Ghost(sf::Texture& texture, const CharacterName& name) {
         texture1->loadFromImage(texture.copyToImage(),
                                 sf::IntRect(SPRITE_WIDTH * i * 2,
                                             SPRITE_HEIGHT * 4 + SPRITE_HEIGHT * static_cast<int>(name), SPRITE_WIDTH,
-                                           SPRITE_HEIGHT));
+                                            SPRITE_HEIGHT));
         TexturePtr texture2 = std::make_shared<sf::Texture>();
         texture2->loadFromImage(texture.copyToImage(),
                                 sf::IntRect(SPRITE_WIDTH + SPRITE_WIDTH * i * 2,
                                             SPRITE_HEIGHT * 4 + SPRITE_HEIGHT * static_cast<int>(name), SPRITE_WIDTH,
-                                           SPRITE_HEIGHT));
+                                            SPRITE_HEIGHT));
         setTextures(static_cast<Direction>(i), texture1, texture2);
         _normalTextures[static_cast<Direction>(i)] = std::make_pair(texture1, texture2);
     }
@@ -44,8 +44,12 @@ Ghost::Ghost(sf::Texture& texture, const CharacterName& name) {
     for (int i = 0; i < 2; i++) {
         _calmingTextures[static_cast<Direction>(i)] = std::make_pair(fright1, calming1); // Creates a flashing effect
     }
-    update(); // DEFINETLY DONT FORGET THIS LOL
 }
+void Ghost::die() {
+    changeState(GhostState::DEAD);
+    _alive = false;
+}
+void Ghost::respawn() { Character::respawn(); }
 
 void Ghost::changeState(GhostState state) {
     _state = state;

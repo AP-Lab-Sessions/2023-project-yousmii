@@ -13,6 +13,5 @@ Pacman::Pacman(sf::Texture& texture) {
                                 sf::IntRect(SPRITE_WIDTH, SPRITE_HEIGHT * i, SPRITE_WIDTH, SPRITE_HEIGHT));
         setTextures(Direction(i), texture1, texture2);
     }
-    update();
 }
 } // namespace View
