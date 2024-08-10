@@ -28,12 +28,25 @@ Game::Game() {
 }
 
 void Game::Run() {
+    double accumulator = 0.0;
+    const float dt = 0.01f;
+
     while (_data->window.isOpen()) {
+        // Check changes
         _data->machine.ProcessStateChanges();
+        _data->input.checkClose(_data->window);
+
+        // Timestep
         _data->stopwatch.Tick();
+        float frameTime = _data->stopwatch.GetFrameTime();
+        accumulator += frameTime;
+
+        while (accumulator >= dt) {
+            _data->machine.GetActiveState()->Update();
+            accumulator -= dt;
+        }
 
         _data->machine.GetActiveState()->HandleInput();
-        _data->machine.GetActiveState()->Update();
         _data->machine.GetActiveState()->Draw();
     }
 }

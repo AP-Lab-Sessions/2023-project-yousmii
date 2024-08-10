@@ -14,7 +14,7 @@ public:
     void Start();
     void Tick();
 
-    [[nodiscard]] double GetFrameTime();
+    [[nodiscard]] float GetFrameTime();
 
 private:
     Stopwatch() = default;

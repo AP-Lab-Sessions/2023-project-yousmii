@@ -10,8 +10,7 @@
 
 namespace View {
 
-enum class CharacterFrame { ONE = 1,
-    TWO
+enum class CharacterFrame { ONE = 1, TWO
 };
 
 typedef std::shared_ptr<sf::Texture> TexturePtr;

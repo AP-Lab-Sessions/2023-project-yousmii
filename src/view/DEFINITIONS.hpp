@@ -9,12 +9,12 @@
 #define MONOCRAFT "Monocraft"
 #define DSFONT "Pluh"
 
-#define SPRITE_HEIGHT 16
+#define SPRITE_HEIGHT 16 // Within the spritesheet
 #define SPRITE_WIDTH 16
 
 enum class CharacterName { Pacman, Blinky, Pinky, Inky, Clyde };
 enum class Direction { RIGHT, LEFT, UP, DOWN };
-enum class CollectableName { DOT, POWERUP };
+enum class CollectableName { DOT, FRUIT };
 enum class GhostState {NORMAL, FRIGHTENED, CALMING, DEAD};
 
 #endif // DEFINITIONS_HPP

@@ -10,5 +10,5 @@ void Stopwatch::Tick() {
     _start = now;
 }
 
-[[nodiscard]] double Stopwatch::GetFrameTime() { return dt.count(); }
+[[nodiscard]] float Stopwatch::GetFrameTime() { return std::chrono::duration<float>(dt).count(); }
 } // namespace Logic

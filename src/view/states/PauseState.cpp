@@ -17,7 +17,7 @@ void PauseState::initPauseText() {
 }
 
 void PauseState::initResumeText() {
-    _resumeText.setString("Resume");
+    _resumeText.setString("Press Enter to resume");
     _resumeText.setCharacterSize(60);
     _resumeText.setFont(_data->assets.GetFont(DSFONT));
     _resumeText.setFillColor(Color::WHITE);
@@ -26,7 +26,7 @@ void PauseState::initResumeText() {
 }
 
 void PauseState::initExitText() {
-    _exitText.setString("EXIT");
+    _exitText.setString("Press E to exit");
     _exitText.setCharacterSize(60);
     _exitText.setFont(_data->assets.GetFont(DSFONT));
     _exitText.setFillColor(Color::WHITE);
@@ -54,11 +54,11 @@ void PauseState::HandleInput() {
         }
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) { // TODO: Change to button to be clicked
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) { // TODO: Change to button to be clicked?
         _data->machine.RemoveState();
     }
 
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E)) { // TODO: Change to button to be clicked
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E)) { // TODO: Change to button to be clicked?
         _data->machine.RemoveState();
         _data->machine.AddState(StateRef(new MainMenuState(_data)), true);
     }

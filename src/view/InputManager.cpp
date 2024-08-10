@@ -16,4 +16,13 @@ bool InputManager::IsClicked(T object, sf::Mouse::Button button, sf::RenderWindo
 
 sf::Vector2i InputManager::GetMousePosition(sf::RenderWindow& window) { return sf::Mouse::getPosition(window); }
 
+void InputManager::checkClose(sf::RenderWindow& window) {
+    sf::Event event;
+    while (window.pollEvent(event)) {
+        if (event.type == sf::Event::Closed) {
+            window.close();
+        }
+    }
+}
+
 } // namespace View

@@ -15,6 +15,8 @@ public:
     template <typename T>
     bool IsClicked(T object, sf::Mouse::Button button, sf::RenderWindow& window);
 
+    void checkClose(sf::RenderWindow& window);
+
     sf::Vector2i GetMousePosition(sf::RenderWindow& window);
 };
 

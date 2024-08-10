@@ -4,7 +4,6 @@ namespace View {
 Collectable::Collectable() {
     _sprite = sf::Sprite();
     _texture = sf::Texture();
-    _eaten = false;
 }
 
 void Collectable::setTexture(sf::Texture& texture) {
