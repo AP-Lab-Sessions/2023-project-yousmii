@@ -4,10 +4,10 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
-#include "../logic/Stopwatch.hpp"
 #include "AssetManager.hpp"
 #include "InputManager.hpp"
 #include "StateMachine.hpp"
+#include "../singletons/Stopwatch.hpp"
 
 namespace View {
 
@@ -16,7 +16,7 @@ struct GameData {
     sf::RenderWindow window;
     AssetManager assets;
     InputManager input;
-    Logic::Stopwatch stopwatch = Logic::Stopwatch::GetInstance();
+    Singletons::Stopwatch stopwatch = Singletons::Stopwatch::GetInstance();
 };
 
 typedef std::shared_ptr<GameData> GameDataPtr;

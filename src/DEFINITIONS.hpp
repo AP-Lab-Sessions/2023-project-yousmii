@@ -12,6 +12,11 @@
 #define SPRITE_HEIGHT 16 // Within the spritesheet
 #define SPRITE_WIDTH 16
 
+#define SPRITE_SCALE 3
+
+#define LEVEL_WIDTH 20
+#define LEVEL_HEIGHT 10 // To be respected in the level file, I dont feel like supporting other level sizes
+
 enum class CharacterName { Pacman, Blinky, Pinky, Inky, Clyde };
 enum class Direction { RIGHT, LEFT, UP, DOWN };
 enum class CollectableName { DOT, FRUIT };

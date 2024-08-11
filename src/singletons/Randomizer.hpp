@@ -2,7 +2,7 @@
 #define RANDOMIZER_HPP
 
 #include <random>
-namespace Logic {
+namespace Singletons {
 
 /// Singleton class for generating random numbers
 class RNG {
@@ -13,9 +13,8 @@ public:
 private:
     RNG() = default;
     std::mt19937 generator;
-
 };
 
-} // Logic
+} // namespace Singletons
 
-#endif //RANDOMIZER_HPP
+#endif // RANDOMIZER_HPP

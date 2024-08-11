@@ -1,6 +1,6 @@
 #include "Game.hpp"
 
-#include "DEFINITIONS.hpp"
+#include "../DEFINITIONS.hpp"
 #include "STATE_LIST.hpp"
 
 namespace View {

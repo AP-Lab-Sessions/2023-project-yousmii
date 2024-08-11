@@ -1,6 +1,6 @@
 #include "PauseState.hpp"
 
-#include "../DEFINITIONS.hpp"
+#include "../../DEFINITIONS.hpp"
 #include "MainMenuState.hpp"
 
 namespace View {

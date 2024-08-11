@@ -1,6 +1,6 @@
 #include "Stopwatch.hpp"
 
-namespace Logic {
+namespace Singletons {
 void Stopwatch::Start() { _start = std::chrono::high_resolution_clock::now(); }
 
 void Stopwatch::Tick() {
@@ -11,4 +11,4 @@ void Stopwatch::Tick() {
 }
 
 [[nodiscard]] float Stopwatch::GetFrameTime() { return std::chrono::duration<float>(dt).count(); }
-} // namespace Logic
+} // namespace Singletons

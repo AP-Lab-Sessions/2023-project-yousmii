@@ -4,6 +4,7 @@
 #include <SFML/Graphics/Texture.hpp> // solves some missing functions
 #include <stdexcept>
 #include <utility>
+#include "../DEFINITIONS.hpp"
 
 namespace View {
 Character::Character() {
@@ -11,7 +12,7 @@ Character::Character() {
     _direction = Direction::RIGHT;
 
     _sprite = sf::Sprite();
-    _sprite.setScale(2, 2);
+    _sprite.setScale(SPRITE_SCALE, SPRITE_SCALE);
 
     _textures = CharacterTextures();
     _alive = true;

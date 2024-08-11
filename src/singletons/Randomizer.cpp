@@ -1,6 +1,6 @@
 #include "Randomizer.hpp"
 
-namespace Logic {
+namespace Singletons {
 
 RNG RNG::getInstance() {
     static RNG instance;
@@ -11,4 +11,4 @@ int RNG::getRandomInt(const int min, const int max) {
     std::uniform_int_distribution<int> distribution(min, max);
     return distribution(generator);
 }
-} // Logic
+} // namespace Singletons

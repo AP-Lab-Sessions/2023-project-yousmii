@@ -3,7 +3,7 @@
 
 #include <chrono>
 
-namespace Logic {
+namespace Singletons {
 
 class Stopwatch {
 public:
@@ -23,6 +23,6 @@ private:
     std::chrono::seconds dt;
 };
 
-} // namespace Logic
+} // namespace Singletons
 
 #endif // STOPWATCH_HPP

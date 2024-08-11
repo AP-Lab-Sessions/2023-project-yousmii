@@ -1,7 +1,7 @@
 #ifndef SPRITEFACTORY_HPP
 #define SPRITEFACTORY_HPP
 
-#include "DEFINITIONS.hpp"
+#include "../DEFINITIONS.hpp"
 #include "Game.hpp"
 #include "entities/Character.hpp"
 #include "entities/Collectable.hpp"

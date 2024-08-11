@@ -1,10 +1,13 @@
 add_subdirectory(logic)
+add_subdirectory(singletons)
 
 include(FetchContent)
 FetchContent_Declare(SFML
         GIT_REPOSITORY https://github.com/SFML/SFML.git
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
+
+find_package(SFML COMPONENTS graphics audio REQUIRED)
 
 set(VIEW_SRC
         main.cpp
@@ -15,10 +18,10 @@ set(VIEW_SRC
         view/AssetManager.hpp
         view/InputManager.cpp
         view/InputManager.hpp
-        logic/Stopwatch.cpp
-        logic/Stopwatch.hpp
+        singletons/Stopwatch.cpp
+        singletons/Stopwatch.hpp
 
-        view/DEFINITIONS.hpp
+        DEFINITIONS.hpp
         view/COLORS.hpp
 
         view/STATE_LIST.hpp
@@ -45,7 +48,7 @@ set(VIEW_SRC
 )
 
 add_executable(CPPacman ${VIEW_SRC})
-target_link_libraries(CPPacman PRIVATE CPPacmanLogic sfml-graphics sfml-audio)
+target_link_libraries(CPPacman PRIVATE CPPacmanLogic Singletons sfml-graphics sfml-audio)
 target_include_directories(CPPacman PUBLIC Logic ${CMAKE_CURRENT_SOURCE_DIR})
 target_compile_features(CPPacman PRIVATE cxx_std_17)
 
