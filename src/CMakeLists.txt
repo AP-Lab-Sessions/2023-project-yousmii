@@ -7,8 +7,6 @@ FetchContent_Declare(SFML
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-find_package(SFML COMPONENTS graphics audio REQUIRED)
-
 set(VIEW_SRC
         main.cpp
         view/Game.cpp
