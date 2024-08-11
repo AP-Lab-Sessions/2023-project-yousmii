@@ -19,13 +19,6 @@ void GameState::init() {
 }
 
 void GameState::HandleInput() {
-    sf::Event event;
-
-    while (_data->window.pollEvent(event)) {
-        if (sf::Event::Closed == event.type) {
-            _data->window.close();
-        }
-    }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
         _data->machine.AddState(StateRef(new PauseState(_data)), false);
     }

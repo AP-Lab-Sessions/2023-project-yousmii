@@ -45,6 +45,9 @@ set(VIEW_SRC
         view/entities/Pacman.hpp
         view/entities/Ghost.cpp
         view/entities/Ghost.hpp
+        SETTINGS.hpp
+        view/entities/Wall.cpp
+        view/entities/Wall.hpp
 )
 
 add_executable(CPPacman ${VIEW_SRC})

@@ -20,7 +20,7 @@ private:
     Stopwatch() = default;
 
     std::chrono::time_point<std::chrono::high_resolution_clock> _start;
-    std::chrono::seconds dt;
+    std::chrono::milliseconds dt;
 };
 
 } // namespace Singletons

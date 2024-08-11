@@ -1,0 +1,6 @@
+#ifndef SETTINGS_HPP
+#define SETTINGS_HPP
+
+#define FRAMERATE_LIMIT 165
+
+#endif // SETTINGS_HPP

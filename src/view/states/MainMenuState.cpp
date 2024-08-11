@@ -42,13 +42,7 @@ void MainMenuState::init() {
 
 void MainMenuState::HandleInput() {
     sf::Event event;
-
-    while (_data->window.pollEvent(event)) {
-        if (sf::Event::Closed == event.type) {
-            _data->window.close();
-        }
-    }
-
+    // TODO: add 1 and 2 to change the level :)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
         _data->machine.AddState(StateRef(new GameState(_data)), true);
     }

@@ -13,5 +13,4 @@ There is also usage of threads and mutexes.
 
 # Known Issues
 
-- There's no actual game yet, only the frontend is implemented
-- Updating and handling input is too fast, you cannot pause and resume with the same key
+- Input delay is a lil weird sometimes and might misbehave 

@@ -13,25 +13,25 @@ void PauseState::initPauseText() {
     _pauseText.setFont(_data->assets.GetFont(MONOCRAFT));
     _pauseText.setFillColor(Color::WHITE);
     _pauseText.setOrigin(_pauseText.getGlobalBounds().width / 2, _pauseText.getGlobalBounds().height / 2);
-    _pauseText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 4);
+    _pauseText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 2 - 120);
 }
 
 void PauseState::initResumeText() {
-    _resumeText.setString("Press Enter to resume");
-    _resumeText.setCharacterSize(60);
+    _resumeText.setString("Press Escape again to resume");
+    _resumeText.setCharacterSize(30);
     _resumeText.setFont(_data->assets.GetFont(DSFONT));
     _resumeText.setFillColor(Color::WHITE);
     _resumeText.setOrigin(_resumeText.getGlobalBounds().width / 2, _resumeText.getGlobalBounds().height / 2);
-    _resumeText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 4 * 2);
+    _resumeText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 2);
 }
 
 void PauseState::initExitText() {
     _exitText.setString("Press E to exit");
-    _exitText.setCharacterSize(60);
+    _exitText.setCharacterSize(30);
     _exitText.setFont(_data->assets.GetFont(DSFONT));
     _exitText.setFillColor(Color::WHITE);
     _exitText.setOrigin(_exitText.getGlobalBounds().width / 2, _exitText.getGlobalBounds().height / 2);
-    _exitText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 4 * 3);
+    _exitText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 2 + 50);
 }
 
 void PauseState::initResumeButton() {}
@@ -46,19 +46,11 @@ void PauseState::init() {
 }
 
 void PauseState::HandleInput() {
-    sf::Event event;
-
-    while (_data->window.pollEvent(event)) {
-        if (sf::Event::Closed == event.type) {
-            _data->window.close();
-        }
-    }
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) { // TODO: Change to button to be clicked?
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
         _data->machine.RemoveState();
     }
 
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E)) { // TODO: Change to button to be clicked?
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E)) {
         _data->machine.RemoveState();
         _data->machine.AddState(StateRef(new MainMenuState(_data)), true);
     }
