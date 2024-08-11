@@ -4,7 +4,7 @@
 #include <SFML/Graphics/Texture.hpp> // solves some missing functions
 #include <stdexcept>
 #include <utility>
-#include "../DEFINITIONS.hpp"
+#include "../../DEFINITIONS.hpp"
 
 namespace View {
 Character::Character() {
