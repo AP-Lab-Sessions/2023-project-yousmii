@@ -6,7 +6,7 @@
 namespace View {
 GameState::GameState(GameDataPtr data) : _data(std::move(data)) {
     EntityFactoryPtr entityFactory(
-        new EntityFactory(_data->assets.GetTexture("Sprites"))); // remember that putting this in init
+        new EntityFactory(_data->assets.GetTexture("Sprites")));
     _entityFactory = std::move(entityFactory);
 }
 
