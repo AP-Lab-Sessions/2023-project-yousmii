@@ -16,7 +16,7 @@ typedef std::shared_ptr<PacmanData> PacmanDataPtr;
 
 class PacmanState {
 public:
-    PacmanState(PacmanDataPtr pacmanData) {};
+    PacmanState(PacmanDataPtr pacmanData){};
     virtual ~PacmanState() = default;
 
     virtual void move() = 0;
@@ -24,9 +24,9 @@ public:
     virtual void powerUp() = 0;
 
 protected:
-     PacmanDataPtr _pacmanData;
+    PacmanDataPtr _pacmanData;
 };
 
-} // Logic
+} // namespace Logic
 
-#endif //PACMANSTATE_HPP
+#endif // PACMANSTATE_HPP
