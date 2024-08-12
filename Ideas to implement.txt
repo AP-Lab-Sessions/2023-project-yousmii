@@ -1,0 +1,29 @@
+--- Parsing ----
+- Load full map
+-> dot can be a banana p=0.01
+- Init characters
+-> Ghosts in setup (different timers for the ghosts)
+- Pacman init, with direction set to left
+- Set score at 1000
+- Pacman lives -> 2
+
+
+--- World update event---
+- Update direction (handleInput) 
+- Update score (decrease)
+- Update position of Pacman (pacman.move)
+	- Checks if it can move in given direction!! (wall moment)
+- Check collision with coin (score increase)
+- Check collision with ghost (ghost.die if powered up, pacman.die if not)
+-> don't forget score increase
+- Check collision with Fruit (powerup (refresh))
+-> (re)start frightened timer, increase score
+
+- Check available paths for all ghosts
+-> Ghosts cannot collide with each other!
+
+- Update positions of ghosts to target
+-> Respawn: don't check for collisions with Pacman
+
+
+- Check best direction for ghost to pacman

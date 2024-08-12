@@ -1,14 +1,11 @@
-//
-// Created by maerrey on 11/08/2024.
-//
-
 #ifndef WALL_HPP
 #define WALL_HPP
+#include "Entity.hpp"
 
 namespace Logic {
 
-class Wall {
-
+class Wall : public Entity {
+    // Its a wall, what do you expect? It doesn't move or die or anything. It just exists.
 };
 
 } // Logic

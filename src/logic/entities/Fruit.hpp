@@ -1,6 +1,3 @@
-//
-// Created by maerrey on 11/08/2024.
-//
 
 #ifndef FRUIT_HPP
 #define FRUIT_HPP
@@ -8,6 +5,12 @@
 namespace Logic {
 
 class Fruit {
+public:
+    void eat();
+    [[nodiscard]] bool isEaten() const { return _isEaten; }
+
+private:
+    bool _isEaten = false;
 
 };
 

@@ -4,7 +4,7 @@
 #include <utility>
 
 namespace View {
-GameState::GameState(GameDataPtr data) : _data(std::move(data)) {
+GameState::GameState(GameDataPtr data, unsigned int level) : _data(std::move(data)), _level(level) {
     EntityFactoryPtr entityFactory(
         new EntityFactory(_data->assets.GetTexture("Sprites")));
     _entityFactory = std::move(entityFactory);

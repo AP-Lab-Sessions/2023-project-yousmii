@@ -1,10 +1,10 @@
 
 #include "Character.hpp"
 
+#include "../../DEFINITIONS.hpp"
 #include <SFML/Graphics/Texture.hpp> // solves some missing functions
 #include <stdexcept>
 #include <utility>
-#include "../../DEFINITIONS.hpp"
 
 namespace View {
 Character::Character() {

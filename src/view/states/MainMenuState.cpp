@@ -41,10 +41,18 @@ void MainMenuState::init() {
 }
 
 void MainMenuState::HandleInput() {
-    sf::Event event;
     // TODO: add 1 and 2 to change the level :)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
         _data->machine.AddState(StateRef(new GameState(_data)), true);
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
+        _data->window.close();
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num1)) {
+        _data->machine.AddState(StateRef(new GameState(_data, 1)), true);
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num2)) {
+        _data->machine.AddState(StateRef(new GameState(_data, 2)), true);
     }
 }
 

@@ -9,7 +9,7 @@ namespace View {
 
 class GameState : public State {
 public:
-    GameState(GameDataPtr data);
+    GameState(GameDataPtr data, unsigned int level=1);
     ~GameState(); // Destructs EntityFactory too
 
     void init() override;
@@ -20,6 +20,7 @@ public:
 
 private:
     GameDataPtr _data;
+    unsigned int _level;
     sf::RectangleShape _background;
     EntityFactoryPtr _entityFactory;
     // WorldData _world;
