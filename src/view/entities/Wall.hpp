@@ -1,10 +1,20 @@
 #ifndef WALL_HPP
 #define WALL_HPP
+#include <SFML/Graphics.hpp>
 
 namespace View {
 
+/// @brief Wall class represents the walls in the game. It only holds the sprite
 class Wall {
-    // bro its a fucking square
+    public:
+        /// @brief Constructor for the Wall class. Position the wall at (x, y), doesnt have to change
+        Wall(int x, int y);
+        ~Wall() = default;
+
+        /// @brief Get the sprite of the wall.
+        sf::Sprite getSprite();
+    private:
+        sf::RectangleShape _wall;
 };
 
 } // View

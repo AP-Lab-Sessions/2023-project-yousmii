@@ -18,6 +18,9 @@
 // To be respected in the level file, I dont feel like supporting other level sizes right now
 #define LEVEL_WIDTH 20
 #define LEVEL_HEIGHT 10
+#define LEVEL_SCALE
+#define LEVEL_DIR "assets/levels/"
+#define AVAILABLE_LEVELS 2
 
 // Just nice to have here
 enum class CharacterName { Pacman, Blinky, Pinky, Inky, Clyde };

@@ -8,7 +8,7 @@ public:
     LevelParser();
     ~LevelParser();
 
-    void ParseLevel();
+    void ParseLevel(int levelNumber);
 };
 
 } // Logic
