@@ -5,4 +5,11 @@
 #include "Tile.hpp"
 
 namespace Logic {
-} // Logic
+void Tile::setEntity(std::shared_ptr<Entity> entity) {
+    _entity = std::move(entity);
+    _isOccupied = true;
+}
+
+std::weak_ptr<Entity> Tile::getEntity() const { return std::weak_ptr<Entity>(_entity); }
+
+} // namespace Logic

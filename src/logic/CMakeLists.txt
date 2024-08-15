@@ -9,8 +9,6 @@ set(LOGIC_SRC
         Event.cpp
         Event.hpp
 
-        level/LevelParser.cpp
-        level/LevelParser.hpp
         level/Level.cpp
         level/Level.hpp
         level/Tile.cpp
@@ -53,5 +51,6 @@ set(LOGIC_SRC
         entities/states/PacmanStateManager.hpp
         entities/states/GhostStateManager.cpp
         entities/states/GhostStateManager.hpp
+        entities/EntityList.hpp
 )
 add_library(CPPacmanLogic ${LOGIC_SRC})

@@ -1,6 +1,6 @@
 #ifndef TILE_HPP
 #define TILE_HPP
-#include "../entities/Entity.hpp"
+#include "../entities/EntityList.hpp"
 
 #include <memory>
 
@@ -11,12 +11,12 @@ public:
     Tile() = default;
     ~Tile() = default;
 
-    void setEntity(std::unique_ptr<Entity> entity);
-    Entity* getEntity() const;
+    void setEntity(std::shared_ptr<Entity> entity);
+    std::weak_ptr<Entity> getEntity() const;
     bool isOccupied() const;
 
 private:
-    std::unique_ptr<Entity> _entity;
+    std::shared_ptr<Entity> _entity;
     bool _isOccupied;
 };
 

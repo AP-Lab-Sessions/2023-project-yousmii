@@ -1,17 +1,13 @@
 
 #ifndef FRUIT_HPP
 #define FRUIT_HPP
+#include "Entity.hpp"
 
 namespace Logic {
 
-class Fruit {
+class Fruit : public Entity {
 public:
-    void eat();
-    [[nodiscard]] bool isEaten() const { return _isEaten; }
-
-private:
-    bool _isEaten = false;
-
+    Fruit(int x, int y) : Entity(x, y) {}
 };
 
 } // Logic

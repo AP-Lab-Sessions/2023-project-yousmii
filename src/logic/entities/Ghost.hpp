@@ -1,12 +1,13 @@
 #ifndef GHOST_HPP
 #define GHOST_HPP
 #include "../../DEFINITIONS.hpp"
+#include "Entity.hpp"
 
 #include <list>
 
 namespace Logic {
 
-class Ghost {
+class Ghost : public Entity{
 public:
     Ghost(CharacterName name, int x, int y);
     ~Ghost() = default;
