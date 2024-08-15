@@ -6,7 +6,7 @@ namespace View {
 
 class Fruit : public Collectable {
 public:
-    Fruit();
+    Fruit(sf::Texture texture);
 
 };
 

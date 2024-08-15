@@ -5,8 +5,8 @@
 
 #include <vector>
 
-#define SCREEN_WIDTH 1000
-#define SCREEN_HEIGHT 700
+#define SCREEN_WIDTH 960
+#define SCREEN_HEIGHT 600
 #define SCREEN_TITLE "CPPacman"
 
 #define MONOCRAFT "Monocraft" // Minecraft font but monospaced :)
@@ -19,9 +19,9 @@
 
 // To be respected in the level file, I dont feel like supporting other level sizes right now
 #define LEVEL_WIDTH 20
-#define LEVEL_HEIGHT 10
-#define LEVEL_SCALE
-#define LEVEL_DIR "assets/levels/"
+#define LEVEL_HEIGHT 11
+#define TILE_SIZE 48
+#define LEVEL_DIR "assets/levels/level"
 #define AVAILABLE_LEVELS 2
 
 // Just nice to have here
@@ -51,5 +51,7 @@ struct OutputData { // Easy access to the output data, cannot alter the original
     int score;
     int lives;
 };
+
+
 
 #endif // DEFINITIONS_HPP

@@ -12,7 +12,8 @@ class Wall {
         ~Wall() = default;
 
         /// @brief Get the sprite of the wall.
-        sf::Sprite getSprite();
+        sf::RectangleShape getSprite() { return _wall; }
+
     private:
         sf::RectangleShape _wall;
 };

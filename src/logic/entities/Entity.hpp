@@ -1,8 +1,8 @@
 #ifndef ENTITY_HPP
 #define ENTITY_HPP
 
-#include <utility>
 #include "../../DEFINITIONS.hpp"
+#include <utility>
 
 namespace Logic {
 

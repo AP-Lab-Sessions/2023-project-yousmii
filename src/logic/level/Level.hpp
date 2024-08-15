@@ -26,6 +26,9 @@ struct LevelData { // Easy access to the level data, less searching for the righ
     int pinkyRow;
     int pinkyCol;
 
+    int ghostSpawnRow;
+    int ghostSpawnCol;
+
     int coinCount = 0;
     int lives = 3;
     int score = 2000;
@@ -36,10 +39,10 @@ typedef std::shared_ptr<LevelData> LevelDataPtr;
 class Level {
 public:
     Level(int levelNumber);
-    ~Level();
+    ~Level() = default;
 
     std::weak_ptr<Tile> getTile(int row, int col);
-    void updateLevel();
+    // void updateLevel(float dt);
 
     int getScore();
     int getLives();
@@ -53,6 +56,8 @@ private:
 
     bool _isCompleted;
 };
+
+typedef std::shared_ptr<Level> LevelPtr;
 
 } // Logic
 

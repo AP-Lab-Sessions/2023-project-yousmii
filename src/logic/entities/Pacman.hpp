@@ -2,11 +2,11 @@
 #define PACMAN_HPP
 #include "../../DEFINITIONS.hpp"
 #include "Entity.hpp"
-#include "states/GhostState.hpp"
-#include "states/PacmanStateManager.hpp"
-
-#include <memory>
-#include <stack>
+// #include "states/GhostState.hpp"
+// #include "states/PacmanStateManager.hpp"
+//
+// #include <memory>
+// #include <stack>
 
 namespace Logic {
 
@@ -15,10 +15,10 @@ public:
     Pacman(int x, int y);
     ~Pacman() override = default;
 
-    void move();
-    void changeDirection(Direction direction);
-    void die();
-    void powerUp();
+    // void move();
+    // void changeDirection(Direction direction);
+    // void die();
+    // void powerUp();
 
     bool isPoweredUp() const { return _poweredUp; }
     bool isAlive() const { return _alive; }
@@ -30,7 +30,7 @@ private:
     bool _alive;
     bool _moving;
     Direction _direction;
-    PacmanStateManager _stateManager;
+    // PacmanStateManager _stateManager;
 };
 
 } // Logic

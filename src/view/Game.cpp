@@ -29,7 +29,7 @@ Game::Game() {
 
 void Game::Run() {
     double accumulator = 0.0;
-    const float dt = 0.01f;
+    const float dt = 0.1f;
 
     while (_data->window.isOpen()) {
         // Check changes

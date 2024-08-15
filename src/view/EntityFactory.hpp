@@ -5,6 +5,7 @@
 #include "Game.hpp"
 #include "entities/Character.hpp"
 #include "entities/Collectable.hpp"
+#include "entities/Wall.hpp"
 
 #include <SFML/Graphics.hpp>
 
@@ -12,13 +13,15 @@ namespace View {
 
 typedef std::shared_ptr<Character> CharacterPtr;
 typedef std::shared_ptr<Collectable> CollectablePtr;
+typedef std::shared_ptr<Wall> WallPtr;
 typedef std::map<CharacterName, CharacterPtr> Characters;
-typedef std::map<CollectableName, std::vector<CollectablePtr>> Collectables;
+typedef std::vector<CollectablePtr> Collectables;
+typedef std::vector<WallPtr> Walls;
 
 // Managed by GameState
 class EntityFactory {
 public:
-    explicit EntityFactory(sf::Texture& texture);
+    explicit EntityFactory(sf::Texture& texture, const EntityDataMap& data_map);
     ~EntityFactory() = default;
 
     void updateCharacters(); // CharacterFrame updating
@@ -27,22 +30,20 @@ public:
 
     void update();
 
+    void drawAll(sf::RenderWindow& window);
+
     Characters getCharacters();
     Collectables getCollectables();
+    Walls getWalls();
 
     CharacterPtr getCharacter(CharacterName name);
-    // Collectable getCollectable(CollectableName name);
 
-    void isPacmanAlive();
-    void pacmanDie();
 
 private:
-    void initCharacters();
-    void initCollectables();
-
     sf::Texture& _spritesheet;
     Characters _characters;
     Collectables _collectables;
+    Walls _walls;
 };
 
 typedef std::shared_ptr<EntityFactory> EntityFactoryPtr;

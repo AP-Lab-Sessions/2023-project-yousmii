@@ -2,7 +2,7 @@
 #define GHOST_HPP
 #include "../../DEFINITIONS.hpp"
 #include "Entity.hpp"
-#include "states/GhostStateManager.hpp"
+// #include "states/GhostStateManager.hpp"
 
 #include <list>
 
@@ -13,9 +13,9 @@ public:
     Ghost(CharacterName name, int x, int y);
     ~Ghost() = default;
 
-    void die();
-    void frighten();
-    void move(std::list<Direction> available_directions);
+    // void die();
+    // void frighten();
+    // void move(std::list<Direction> available_directions);
 
     bool isFrightened() const { return _frightened; }
     bool isAlive() const { return _alive; }
@@ -30,7 +30,7 @@ private:
     bool _chasing;
     Direction _direction;
 
-    GhostStateManager _stateManager;
+    // GhostStateManager _stateManager;
 };
 
 } // Logic

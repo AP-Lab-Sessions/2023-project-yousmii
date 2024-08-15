@@ -7,6 +7,8 @@
 namespace View {
 
 class Coin : public Collectable {
+public:
+    Coin(sf::Texture& texture);
 
 };
 

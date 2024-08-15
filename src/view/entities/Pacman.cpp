@@ -3,7 +3,7 @@
 #include <iostream>
 
 namespace View {
-Pacman::Pacman(sf::Texture& texture) {
+Pacman::Pacman(sf::Texture& texture) : Character() {
     // Only one texture for Pacman
     for (int i = 0; i < 4; i++) {
         TexturePtr texture1 = std::make_shared<sf::Texture>();

@@ -1,8 +1,14 @@
 #include "Camera.hpp"
 
 namespace Logic {
+Camera::Camera(LevelPtr level) : _level(level) {}
+
 EntityDataMap Camera::getFullMap() { // GOD THIS IS SO UGLY I HATE IT, WHY IS THERE SO MUCH NESTING IM SORRY
     EntityDataMap fullMap;
+    fullMap.resize(LEVEL_HEIGHT);
+    for (int i = 0; i < LEVEL_HEIGHT; i++) {
+        fullMap[i].resize(LEVEL_WIDTH);
+    }
     for (int i = 0; i < LEVEL_HEIGHT; i++) {
         for (int j = 0; j < LEVEL_WIDTH; j++) {
             if (auto tile = _level->getTile(i, j).lock()) {
@@ -28,6 +34,7 @@ EntityDataMap Camera::getFullMap() { // GOD THIS IS SO UGLY I HATE IT, WHY IS TH
         }
     }
     return fullMap;
+
 }
 
 OutputData Camera::getOutputData() {

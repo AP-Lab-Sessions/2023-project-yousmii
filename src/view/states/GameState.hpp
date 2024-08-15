@@ -4,6 +4,8 @@
 #include "../EntityFactory.hpp"
 #include "../Game.hpp"
 #include "../State.hpp"
+#include "Camera.hpp"
+#include "World.hpp"
 
 namespace View {
 
@@ -19,11 +21,13 @@ public:
     void Draw();
 
 private:
+    void initView();
+
     GameDataPtr _data;
-    unsigned int _level;
+    int _level;
+    std::unique_ptr<Logic::World> _world;
     sf::RectangleShape _background;
     EntityFactoryPtr _entityFactory;
-    // WorldData _world;
 };
 
 } // namespace View

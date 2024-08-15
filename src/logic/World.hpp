@@ -1,6 +1,9 @@
 #ifndef WORLD_HPP
 #define WORLD_HPP
+#include "../DEFINITIONS.hpp"
 #include "../singletons/Stopwatch.hpp"
+#include "Camera.hpp"
+#include "level/Level.hpp"
 
 #include <memory>
 
@@ -17,12 +20,20 @@ typedef std::shared_ptr<WorldData> WorldDataPtr;
 
 class World {
 public:
-    World();
+    World(int levelNumber);
 
     void Start();
     void Update(float dt);
 
-    void SetPlayerDirection(int direction);
+    EntityDataMap GetFullMap();
+    void GetUpdates();
+    OutputData GetOutputData();
+
+    void SetPlayerDirection(Direction direction);
+
+private:
+    LevelPtr _level;
+    CameraPtr _camera;
 };
 
 } // Logic

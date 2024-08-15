@@ -1,18 +1,18 @@
 #include "Ghost.hpp"
 
 namespace View {
-Ghost::Ghost(sf::Texture& texture, const CharacterName& name) {
+Ghost::Ghost(sf::Texture& texture, const CharacterName& name): Character()  {
     // Load normal textures
     for (int i = 0; i < 4; i++) {
         TexturePtr texture1 = std::make_shared<sf::Texture>();
         texture1->loadFromImage(texture.copyToImage(),
                                 sf::IntRect(SPRITE_WIDTH * i * 2,
-                                            SPRITE_HEIGHT * 4 + SPRITE_HEIGHT * static_cast<int>(name), SPRITE_WIDTH,
+                                            SPRITE_HEIGHT * 3 + SPRITE_HEIGHT * static_cast<int>(name), SPRITE_WIDTH,
                                             SPRITE_HEIGHT));
         TexturePtr texture2 = std::make_shared<sf::Texture>();
         texture2->loadFromImage(texture.copyToImage(),
                                 sf::IntRect(SPRITE_WIDTH + SPRITE_WIDTH * i * 2,
-                                            SPRITE_HEIGHT * 4 + SPRITE_HEIGHT * static_cast<int>(name), SPRITE_WIDTH,
+                                            SPRITE_HEIGHT * 3 + SPRITE_HEIGHT * static_cast<int>(name), SPRITE_WIDTH,
                                             SPRITE_HEIGHT));
         setTextures(static_cast<Direction>(i), texture1, texture2);
         _normalTextures[static_cast<Direction>(i)] = std::make_pair(texture1, texture2);
