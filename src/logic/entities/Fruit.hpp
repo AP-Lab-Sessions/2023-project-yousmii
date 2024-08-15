@@ -7,7 +7,7 @@ namespace Logic {
 
 class Fruit : public Entity {
 public:
-    Fruit(int x, int y) : Entity(x, y) {}
+    Fruit(int x, int y) : Entity(x, y) {_type = EntityType::FRUIT;}
 };
 
 } // Logic

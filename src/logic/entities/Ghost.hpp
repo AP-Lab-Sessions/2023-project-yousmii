@@ -2,6 +2,7 @@
 #define GHOST_HPP
 #include "../../DEFINITIONS.hpp"
 #include "Entity.hpp"
+#include "states/GhostStateManager.hpp"
 
 #include <list>
 
@@ -30,6 +31,8 @@ private:
     bool _moving;
     bool _chasing;
     Direction _direction;
+
+    GhostStateManager _stateManager;
 };
 
 } // Logic

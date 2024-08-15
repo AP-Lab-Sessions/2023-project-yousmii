@@ -3,6 +3,7 @@
 #include "../../DEFINITIONS.hpp"
 #include "Entity.hpp"
 #include "states/GhostState.hpp"
+#include "states/PacmanStateManager.hpp"
 
 #include <memory>
 #include <stack>
@@ -29,6 +30,7 @@ private:
     bool _alive;
     bool _moving;
     Direction _direction;
+    PacmanStateManager _stateManager;
 };
 
 } // Logic

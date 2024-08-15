@@ -13,6 +13,7 @@ public:
 
     void setEntity(std::shared_ptr<Entity> entity);
     std::weak_ptr<Entity> getEntity() const;
+    EntityType getEntityType() const;
     bool isOccupied() const;
 
 private:

@@ -18,11 +18,9 @@ set(LOGIC_SRC
         entities/Pacman.hpp
         entities/Ghost.cpp
         entities/Ghost.hpp
-        entities/Fruit.cpp
         entities/Fruit.hpp
         entities/Wall.cpp
         entities/Wall.hpp
-        entities/Coin.cpp
         entities/Coin.hpp
         entities/Entity.hpp
 
