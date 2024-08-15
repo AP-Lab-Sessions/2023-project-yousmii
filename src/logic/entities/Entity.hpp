@@ -2,7 +2,7 @@
 #define ENTITY_HPP
 
 #include <utility>
-enum class EntityType { Empty, PACMAN, GHOST, WALL, COIN, FRUIT };
+#include "../../DEFINITIONS.hpp"
 
 namespace Logic {
 
@@ -18,8 +18,10 @@ public:
     void setPosition(int x, int y) {_position = {x, y};}
     void setSpawnPoint(int x, int y) {_spawnPoint = {x, y};}
     [[nodiscard]] EntityType getEntityType() const { return _type; }
+    [[nodiscard]] CharacterName getCharacterName() const { return _name; }
 
     EntityType _type; // Just really handy to have this to know which child class we are dealing with
+    CharacterName _name = CharacterName::None; // Mostly for the ghost class to know which ghost it is
 private:
     Coordinate _position;
     Coordinate _spawnPoint;

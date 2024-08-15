@@ -31,9 +31,6 @@ void Game::Run() {
     double accumulator = 0.0;
     const float dt = 0.01f;
 
-    const float inputdt = 0.144f; // Just to make sure the input is not too fast
-    double inputAccumulator = 0.0;
-
     while (_data->window.isOpen()) {
         // Check changes
         _data->machine.ProcessStateChanges();
@@ -43,13 +40,9 @@ void Game::Run() {
         _data->stopwatch.Tick();
         float frameTime = _data->stopwatch.GetFrameTime();
         accumulator += frameTime;
-        inputAccumulator += frameTime;
 
-        while (inputAccumulator >= inputdt) {
-            _data->machine.GetActiveState()->HandleInput();
-            inputAccumulator = 0.0;
-        }
         while (accumulator >= dt) {
+            _data->machine.GetActiveState()->HandleInput();
             _data->machine.GetActiveState()->Update();
             accumulator -= dt;
         }

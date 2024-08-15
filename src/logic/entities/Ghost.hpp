@@ -22,10 +22,8 @@ public:
     bool isMoving() const { return _moving; }
     bool isChasing() const { return _chasing; }
     Direction getDirection() const { return _direction; }
-    CharacterName getName() const { return _name; }
 
 private:
-    CharacterName _name;
     bool _frightened;
     bool _alive;
     bool _moving;

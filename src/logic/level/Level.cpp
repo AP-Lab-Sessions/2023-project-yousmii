@@ -1,7 +1,10 @@
 #include "Level.hpp"
 
 namespace Logic {
-Level::Level(int levelNumber) { _levelNumber = levelNumber; }
+Level::Level(int levelNumber) {
+    _levelNumber = levelNumber;
+    loadLevel();
+}
 
 void Level::loadLevel() {
     _tiles = TileMap();

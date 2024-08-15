@@ -33,33 +33,25 @@ struct LevelData { // Easy access to the level data, less searching for the righ
 
 typedef std::shared_ptr<LevelData> LevelDataPtr;
 
-struct OutputData { // Easy access to the output data, cannot alter the original data
-    int score;
-    int lives;
-    int coins;
-};
-
-struct EntityData {
-    int row;
-    int col;
-    Direction direction;
-};
-
 class Level {
 public:
     Level(int levelNumber);
     ~Level();
 
-    void loadLevel(); // works as a reset :)
     std::weak_ptr<Tile> getTile(int row, int col);
-    std::weak_ptr<OutputData> getOutputData() const;
+    void updateLevel();
 
-    std::unordered_map<std::string, EntityData> getInitialEntityData() const;
+    int getScore();
+    int getLives();
 
 private:
+    void loadLevel(); // works as a reset :)
+
     TileMap _tiles;
     int _levelNumber;
     LevelDataPtr _levelData;
+
+    bool _isCompleted;
 };
 
 } // Logic

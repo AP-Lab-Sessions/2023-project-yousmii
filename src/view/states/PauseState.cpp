@@ -17,7 +17,7 @@ void PauseState::initPauseText() {
 }
 
 void PauseState::initResumeText() {
-    _resumeText.setString("Press Escape again to resume");
+    _resumeText.setString("Press Space to resume");
     _resumeText.setCharacterSize(30);
     _resumeText.setFont(_data->assets.GetFont(DSFONT));
     _resumeText.setFillColor(Color::WHITE);
@@ -46,7 +46,7 @@ void PauseState::init() {
 }
 
 void PauseState::HandleInput() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space)) {
         _data->machine.RemoveState();
     }
 

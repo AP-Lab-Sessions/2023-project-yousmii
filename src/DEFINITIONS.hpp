@@ -3,6 +3,8 @@
 
 #include "SETTINGS.hpp" // For the framerate limit
 
+#include <vector>
+
 #define SCREEN_WIDTH 1000
 #define SCREEN_HEIGHT 700
 #define SCREEN_TITLE "CPPacman"
@@ -23,7 +25,7 @@
 #define AVAILABLE_LEVELS 2
 
 // Just nice to have here
-enum class CharacterName { Pacman, Blinky, Pinky, Inky, Clyde };
+enum class CharacterName { Pacman, Blinky, Pinky, Inky, Clyde, None };
 enum class Direction { RIGHT, LEFT, UP, DOWN };
 enum class CollectableName { DOT, FRUIT };
 enum class GhostState {
@@ -32,5 +34,22 @@ enum class GhostState {
     CALMING,
     DEAD
 }; // CALMING is when the ghost is almost done being frightened
+
+enum class EntityType { Empty, PACMAN, GHOST, WALL, COIN, FRUIT };
+
+struct EntityData {
+    EntityType type = EntityType::Empty;
+    CharacterName name = CharacterName::None;
+    int row;
+    int col;
+    Direction direction = Direction::LEFT;
+};
+
+typedef std::vector<std::vector<EntityData>> EntityDataMap;
+
+struct OutputData { // Easy access to the output data, cannot alter the original data
+    int score;
+    int lives;
+};
 
 #endif // DEFINITIONS_HPP

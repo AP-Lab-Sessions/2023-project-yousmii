@@ -46,6 +46,10 @@ set(VIEW_SRC
         SETTINGS.hpp
         view/entities/Wall.cpp
         view/entities/Wall.hpp
+        view/entities/Fruit.cpp
+        view/entities/Fruit.hpp
+        view/entities/Coin.cpp
+        view/entities/Coin.hpp
 )
 
 add_executable(CPPacman ${VIEW_SRC})
