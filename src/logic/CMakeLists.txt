@@ -3,8 +3,6 @@ set(LOGIC_SRC
         World.hpp
         Camera.cpp
         Camera.hpp
-        AbstractFactory.cpp
-        AbstractFactory.hpp
 
         Event.cpp
         Event.hpp
