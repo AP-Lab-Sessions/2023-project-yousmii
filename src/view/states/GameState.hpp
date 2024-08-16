@@ -4,7 +4,7 @@
 #include "../EntityFactory.hpp"
 #include "../Game.hpp"
 #include "../State.hpp"
-#include "../logic/World.hpp"
+#include "../../logic/World.hpp"
 
 namespace View {
 
