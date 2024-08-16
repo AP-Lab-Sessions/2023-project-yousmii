@@ -5,7 +5,13 @@
 
 namespace Logic {
 
-class PacmanStateManager : public StateManager<PacmanState> {};
+class PacmanStateManager : public StateManager<PacmanState> {
+public:
+    explicit PacmanStateManager(PacmanDataPtr pacmanData);
+    ~PacmanStateManager() override = default;
+
+    void processStateChanges() override;
+};
 
 } // namespace Logic
 

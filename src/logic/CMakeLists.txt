@@ -48,5 +48,6 @@ set(LOGIC_SRC
         entities/states/GhostStateManager.cpp
         entities/states/GhostStateManager.hpp
         entities/EntityList.hpp
+        entities/states/Statemanager.cpp
 )
 add_library(CPPacmanLogic ${LOGIC_SRC})

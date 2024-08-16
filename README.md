@@ -22,8 +22,8 @@ while also using smart pointers and the SFML library.
 | Game has a game over screen     | ❌          |
 | Game has custom level files (*) | ✅          |
 | Simple animations               | ✅          |
-| Display score                   | ❌          |
-| Display lives                   | ❌          |
+| Display score                   | ✅          |
+| Display lives                   | ✅          |
 | Player can change direction     | ❌          |
 | Player can move                 | ❌          |
 | Player can eat pellets          | ❌          |
