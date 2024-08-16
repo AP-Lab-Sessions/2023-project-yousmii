@@ -4,7 +4,7 @@
 #include <utility>
 
 namespace View {
-GameState::GameState(GameDataPtr data, unsigned int level) : _data(std::move(data)), _level(level) {
+GameState::GameState(GameDataPtr data, int level) : _data(std::move(data)), _level(level) {
     if (_level > AVAILABLE_LEVELS) {
         _level = 1;
     }

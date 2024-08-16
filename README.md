@@ -1,4 +1,4 @@
-Project Advanced Programming 2023-2024
+Project Advanced Programming 2023-2024: CPPacman (C++ Pacman)
 =======================================
 
 **Name:** Yousra Smits  
@@ -13,15 +13,6 @@ while also using smart pointers and the SFML library.
 ## Installation
 
 ## Features
-
-### Implemented
-
-- Game has a start screen, game screen and pause screen
-- The game has a player and enemies
-- The entities are animated
-- Custom level files can be loaded with a fixed size and format
-
-### Planned
 
 | Feature                         | Completed? |
 |---------------------------------|------------|
@@ -49,19 +40,23 @@ while also using smart pointers and the SFML library.
 
 ## (*): Custom level files
 
-The custom level files are stored in the `assets/levels` folder. With the name `level{n}.lvl` The format is as follows:
+The custom level files are stored in the `assets/levels` folder. With the name `level{n}.lvl` and `{n}` being the level
+number.
 
+**The format is as follows:**
 - Dimensions of the level are fixed at 20x11 tiles
 - Meaning of the characters:
   - `#`: Wall
   - `.`: Pellet
-  - `o`: Player
+  - `o`: Player/Pacman (only one per level)
   - ` `: Empty space (like the character 'space', the one on your keyboard)
   - `g`: (Re)spawn point for the ghost
-  - `b`: Blinky (red ghost)
-  - `p`: Pinky (pink ghost)
-  - `i`: Inky (blue ghost)
-  - `c`: Clyde (orange ghost)
-  - `f`: Fruit (Power up)
+  - `b`: Blinky (red ghost) (only one per level)
+  - `p`: Pinky (pink ghost) (only one per level)
+  - `i`: Inky (blue ghost) (only one per level)
+  - `c`: Clyde (orange ghost) (only one per level)
+  - `f`: Fruit (Power up) (only one per level)
+- All levels must have a player, a spawn point for the ghosts, at least one pellet and all ghosts. The fruit is
+  optional.
 - Please note that the level files are case-sensitive
 - If you want to change the dimensions of the levels, you can change this in "DEFINITIONS.hpp"

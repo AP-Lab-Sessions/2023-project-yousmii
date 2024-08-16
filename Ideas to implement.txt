@@ -1,14 +1,3 @@
---- Parsing ----
-- Load full map
--> dot can be a banana p=0.01
-- Init characters
--> Ghosts in setup (different timers for the ghosts)
-- Pacman init, with direction set to left
-- Set score at 1000
-- Pacman lives -> 2
-
-all done!
-
 
 --- World update event---
 - Update direction (handleInput) 

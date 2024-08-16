@@ -30,7 +30,7 @@ struct LevelData { // Easy access to the level data, less searching for the righ
     int ghostSpawnCol;
 
     int coinCount = 0;
-    int lives = 3;
+    int lives = 2;
     int score = 2000;
 };
 

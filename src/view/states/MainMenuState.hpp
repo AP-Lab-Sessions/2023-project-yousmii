@@ -21,11 +21,16 @@ private:
     sf::Sprite _icon;
     sf::Text _title;
     sf::Text _spacetostart;
+    sf::Text _level1Start;
+    sf::Text _level2Start;
+
     sf::Vector2f _centerwindow;
 
     void initTitle();
     void initSpaceToStart();
     void initIcon();
+    void initLevel1Start();
+    void initLevel2Start();
 };
 
 } // namespace View

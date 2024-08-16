@@ -10,7 +10,7 @@ namespace View {
 
 class GameState : public State {
 public:
-    GameState(GameDataPtr data, unsigned int level=1);
+    GameState(GameDataPtr data, int level=1);
     ~GameState(); // Destructs EntityFactory too
 
     void init() override;
