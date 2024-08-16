@@ -6,7 +6,8 @@
 #include "entities/Pacman.hpp"
 
 namespace View {
-EntityFactory::EntityFactory(sf::Texture& texture, const EntityDataMap& data_map) : _spritesheet(texture) {
+EntityFactory::EntityFactory(sf::Texture& texture, const EntityDataMap& data_map)
+    : _spritesheet(texture) {
     for (int i = 0; i < LEVEL_HEIGHT; i++) {
         for (int j = 0; j < LEVEL_WIDTH; j++) {
             EntityType type = data_map[i][j].type;
@@ -42,13 +43,13 @@ EntityFactory::EntityFactory(sf::Texture& texture, const EntityDataMap& data_map
                 break;
 
             case EntityType::COIN:
-                _collectables.push_back(std::static_pointer_cast<Collectable>(std::make_shared<Coin>(texture)));
-                _collectables.back()->setPosition(j * TILE_SIZE, i * TILE_SIZE);
+                _collectables[{i, j}] = std::make_shared<Coin>(texture);
+                _collectables[{i, j}]->setPosition(j * TILE_SIZE, i * TILE_SIZE);
                 break;
 
             case EntityType::FRUIT:
-                _collectables.push_back(std::static_pointer_cast<Collectable>(std::make_shared<Fruit>(texture)));
-                _collectables.back()->setPosition(j * TILE_SIZE, i * TILE_SIZE);
+                _collectables[{i, j}] = std::make_shared<Fruit>(texture);
+                _collectables[{i, j}]->setPosition(j * TILE_SIZE, i * TILE_SIZE);
                 break;
             case EntityType::WALL:
                 _walls.push_back(std::make_shared<Wall>(j * TILE_SIZE, i * TILE_SIZE));
@@ -83,7 +84,7 @@ void EntityFactory::drawAll(sf::RenderWindow& window) {
         window.draw(character.second->getSprite());
     }
     for (auto& collectable : _collectables) {
-        window.draw(collectable->getSprite());
+        window.draw(collectable.second->getSprite());
     }
     for (auto& wall : _walls) {
         window.draw(wall->getSprite());

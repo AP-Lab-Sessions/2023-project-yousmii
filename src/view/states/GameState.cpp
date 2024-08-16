@@ -7,6 +7,9 @@
 
 namespace View {
 GameState::GameState(GameDataPtr data, unsigned int level) : _data(std::move(data)), _level(level) {
+    if (_level > AVAILABLE_LEVELS) {
+        _level = 1;
+    }
     _world = std::make_unique<Logic::World>(_level);
     EntityFactoryPtr entityFactory(
         new EntityFactory(_data->assets.GetTexture("Sprites"), _world->GetFullMap()));
@@ -31,7 +34,7 @@ void GameState::Update() {
 }
 
 void GameState::Draw() {
-    _data->window.clear(Color::BLUE);
+    _data->window.clear(Color::BLACK);
     _data->window.draw(_background);
     _entityFactory->drawAll(_data->window);
     _data->window.display();

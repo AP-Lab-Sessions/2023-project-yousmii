@@ -5,10 +5,6 @@
 
 #include <vector>
 
-#define SCREEN_WIDTH 960
-#define SCREEN_HEIGHT 600
-#define SCREEN_TITLE "CPPacman"
-
 #define MONOCRAFT "Monocraft" // Minecraft font but monospaced :)
 #define DSFONT "Pluh"         // Don't question it, it might get me in trouble
 
@@ -23,6 +19,11 @@
 #define TILE_SIZE 48
 #define LEVEL_DIR "assets/levels/level"
 #define AVAILABLE_LEVELS 2
+
+// The screen size and title
+#define SCREEN_WIDTH LEVEL_WIDTH* TILE_SIZE
+#define SCREEN_HEIGHT LEVEL_HEIGHT* TILE_SIZE + TILE_SIZE * 1.5
+#define SCREEN_TITLE "CPPacman"
 
 // Just nice to have here
 enum class CharacterName { Pacman, Blinky, Pinky, Inky, Clyde, None };

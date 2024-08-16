@@ -59,7 +59,7 @@ void PauseState::HandleInput() {
 void PauseState::Update() {}
 
 void PauseState::Draw() {
-    _data->window.clear(Color::BLUE);
+    _data->window.clear(Color::BLACK);
     _data->window.draw(_pauseText);
     _data->window.draw(_resumeText);
     _data->window.draw(_exitText);

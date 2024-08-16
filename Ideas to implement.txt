@@ -7,6 +7,8 @@
 - Set score at 1000
 - Pacman lives -> 2
 
+all done!
+
 
 --- World update event---
 - Update direction (handleInput) 

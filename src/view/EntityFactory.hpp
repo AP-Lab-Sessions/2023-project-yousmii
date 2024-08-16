@@ -2,7 +2,7 @@
 #define SPRITEFACTORY_HPP
 
 #include "../DEFINITIONS.hpp"
-#include "Game.hpp"
+
 #include "entities/Character.hpp"
 #include "entities/Collectable.hpp"
 #include "entities/Wall.hpp"
@@ -15,7 +15,7 @@ typedef std::shared_ptr<Character> CharacterPtr;
 typedef std::shared_ptr<Collectable> CollectablePtr;
 typedef std::shared_ptr<Wall> WallPtr;
 typedef std::map<CharacterName, CharacterPtr> Characters;
-typedef std::vector<CollectablePtr> Collectables;
+typedef std::map<std::pair<int, int>, CollectablePtr> Collectables;
 typedef std::vector<WallPtr> Walls;
 
 // Managed by GameState
