@@ -6,8 +6,7 @@
 #include "entities/Pacman.hpp"
 
 namespace View {
-EntityFactory::EntityFactory(sf::Texture& texture, const EntityDataMap& data_map)
-    : _spritesheet(texture) {
+EntityFactory::EntityFactory(sf::Texture& texture, const EntityDataMap& data_map) : _spritesheet(texture) {
     for (int i = 0; i < LEVEL_HEIGHT; i++) {
         for (int j = 0; j < LEVEL_WIDTH; j++) {
             EntityType type = data_map[i][j].type;
