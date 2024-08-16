@@ -4,9 +4,10 @@ Project Advanced Programming 2023-2024
 **Name:** Yousra Smits  
 **Student number:** 20201267
 
-Project for the subject Advanced Programming. The project is about 'remaking' Pacman with C++ and SFML. I learn to apply
-the principles of object-oriented programming and software design.
-There is also usage of threads and mutexes.
+Project for the subject Advanced Programming. The project is about 'remaking' Pacman with C++ and SFML.
+I learn to apply the principles of object-oriented programming and software design,
+while also using smart pointers and the SFML library.
+
 ---
 
 ## Installation

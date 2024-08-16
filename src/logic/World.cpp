@@ -12,4 +12,9 @@ EntityDataMap World::GetFullMap() {
     return _camera->getFullMap();
 }
 
+OutputData World::GetOutputData() {
+    return _camera->getOutputData();
+}
+
+
 } // Logic

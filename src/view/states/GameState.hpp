@@ -1,10 +1,10 @@
 #ifndef GAMESTATE_HPP
 #define GAMESTATE_HPP
 
+#include "../../logic/World.hpp"
 #include "../EntityFactory.hpp"
 #include "../Game.hpp"
 #include "../State.hpp"
-#include "../../logic/World.hpp"
 
 namespace View {
 
@@ -19,6 +19,9 @@ public:
     void Update();
     void Draw();
 
+    void updateScore();
+    void updateLives();
+
 private:
     void initView();
 
@@ -27,6 +30,8 @@ private:
     std::unique_ptr<Logic::World> _world;
     sf::RectangleShape _background;
     EntityFactoryPtr _entityFactory;
+    sf::Text _scoreText;
+    sf::Text _livesText;
 };
 
 } // namespace View

@@ -11,7 +11,7 @@ void PauseState::initPauseText() {
     _pauseText.setString("PAUSED");
     _pauseText.setCharacterSize(128);
     _pauseText.setFont(_data->assets.GetFont(MONOCRAFT));
-    _pauseText.setFillColor(Color::WHITE);
+    _pauseText.setFillColor(Color::YELLOW);
     _pauseText.setOrigin(_pauseText.getGlobalBounds().width / 2, _pauseText.getGlobalBounds().height / 2);
     _pauseText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 2 - 120);
 }

@@ -11,6 +11,8 @@
 
 namespace View {
 
+class Wall;
+
 typedef std::shared_ptr<Character> CharacterPtr;
 typedef std::shared_ptr<Collectable> CollectablePtr;
 typedef std::shared_ptr<Wall> WallPtr;
