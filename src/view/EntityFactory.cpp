@@ -62,8 +62,13 @@ EntityFactory::EntityFactory(sf::Texture& texture, const EntityDataMap& data_map
 }
 
 void EntityFactory::updateCharacters() {
-    for (auto& character : _characters) {
-        character.second->update();
+    if (updateAnimation) { // Skip a frame
+        for (auto& character : _characters) {
+            character.second->update();
+        }
+        updateAnimation = false;
+    } else {
+        updateAnimation = true;
     }
 }
 
@@ -94,7 +99,7 @@ Characters EntityFactory::getCharacters() { return _characters; }
 
 Collectables EntityFactory::getCollectables() { return _collectables; }
 
-Walls EntityFactory::getWalls() {return _walls;}
+Walls EntityFactory::getWalls() { return _walls; }
 
 CharacterPtr EntityFactory::getCharacter(CharacterName name) { return _characters[name]; }
 

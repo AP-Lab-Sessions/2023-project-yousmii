@@ -1,5 +1,7 @@
 #include "Level.hpp"
 
+#include <iostream>
+
 namespace Logic {
 Level::Level(int levelNumber) {
     _levelNumber = levelNumber;
@@ -41,7 +43,6 @@ void Level::loadLevel() {
     bool hasInky = false;
     bool hasClyde = false;
     bool hasPinky = false;
-    bool hasGhostSpawn = false;
 
     int row = 0;
     int col = 0;
@@ -115,11 +116,7 @@ void Level::loadLevel() {
             case 'f':
                 _tiles[row][col]->setEntity(std::make_shared<Fruit>(row, col));
                 break;
-            case 'g':
-                hasGhostSpawn = true;
-                _levelData->ghostSpawnCol = col;
-                _levelData->ghostSpawnRow = row;
-                break;
+
             case '\n':
                 if (col != LEVEL_WIDTH) {
                     throw std::runtime_error("Invalid level format");
@@ -135,6 +132,10 @@ void Level::loadLevel() {
         row++;
         col = 0;
     }
+    levelFile.close();
+
+    std::cout << "Level loaded" << std::endl;
+
     if (!hasPacman) {
         throw std::runtime_error("Invalid level format, missing pacman!");
     }
@@ -154,9 +155,5 @@ void Level::loadLevel() {
     if (!hasCoin) { // Level will be considered completed when all coins are collected or if there are no coins
         throw std::runtime_error("Invalid level format, missing coins!");
     }
-    if (!hasGhostSpawn) {
-        throw std::runtime_error("Invalid level format, missing ghost spawn!");
-    }
-
 }
 } // namespace Logic

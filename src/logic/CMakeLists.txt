@@ -4,8 +4,8 @@ set(LOGIC_SRC
         Camera.cpp
         Camera.hpp
 
-        Event.cpp
-        Event.hpp
+        ../events/Event.cpp
+        ../events/Event.hpp
 
         level/Level.cpp
         level/Level.hpp

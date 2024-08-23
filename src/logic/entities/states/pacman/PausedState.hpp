@@ -2,12 +2,13 @@
 #define PAUSEDSTATE_HPP
 
 #include "../PacmanState.hpp"
+#include "../../Pacman.hpp"
 
 namespace Logic {
 
 class PausedState : public PacmanState { // Also works as a setup state at the beginning of the game
 public:
-    PausedState(PacmanDataPtr pacmanData) : PacmanState(std::move(pacmanData)) {};
+    PausedState(PacmanDataPtr pacmanData);
     ~PausedState() override = default;
 
     void init() override;
@@ -17,8 +18,12 @@ public:
     void powerDown() override;
     void slip() override;
 
+    void update() override;
+    void changeDirection(Direction direction) override;
+
 private:
-    float _pauseTime = 1.0f; // 1 second pause
+    PacmanDataPtr _pacmanData;
+    float _pauseTime; // 1 second pause
 
 };
 

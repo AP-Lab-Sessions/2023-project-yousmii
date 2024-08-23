@@ -29,7 +29,7 @@ void StateMachine::ProcessStateChanges() {
             if (_isReplacing) {
                 _states.pop();
             } else {
-                _states.top()->Pause();
+                _states.top()->Pause(); // No real functionality here
             }
         }
 

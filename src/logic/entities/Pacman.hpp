@@ -4,7 +4,21 @@
 #include "Entity.hpp"
 #include "states/PacmanStateManager.hpp"
 
-namespace Logic {
+namespace Logic{
+
+struct PacmanData {
+    int x, y;
+    int spawnX, spawnY;
+
+    bool isPowerUp;
+    bool isAlive;
+    bool isMoving;
+
+    Direction direction;
+    PacmanStateManagerPtr stateManager;
+};
+
+typedef std::shared_ptr<PacmanData> PacmanDataPtr;
 
 class Pacman : public Entity {
 public:
@@ -13,10 +27,10 @@ public:
 
     void update();
     void changeDirection(Direction direction);
+    Direction getDirection() const { return _pacmanData->direction; }
 
 private:
     void updateData();
-    std::shared_ptr<PacmanStateManager> _stateManager;
     PacmanDataPtr _pacmanData;
 };
 

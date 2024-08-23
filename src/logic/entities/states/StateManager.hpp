@@ -17,7 +17,7 @@ public:
 
     void removeState();
 
-    virtual void processStateChanges();
+    void processStateChanges();
 
     std::unique_ptr<State>& getActiveState();
 

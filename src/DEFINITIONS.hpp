@@ -36,7 +36,7 @@ enum class GhostState {
     DEAD
 }; // CALMING is when the ghost is almost done being frightened
 
-enum class EntityType { Empty, PACMAN, GHOST, WALL, COIN, FRUIT };
+enum class EntityType { Empty, PACMAN, GHOST, WALL, COIN, FRUIT , BANANA};
 
 struct EntityData {
     EntityType type = EntityType::Empty;

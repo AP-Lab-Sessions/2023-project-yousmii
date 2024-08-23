@@ -7,21 +7,9 @@
 
 namespace Logic {
 
-struct PacmanData {
-    int x, y;
-
-    bool isPowerUp;
-    bool isAlive;
-    bool isMoving;
-
-    Direction direction;
-};
-
-typedef std::shared_ptr<PacmanData> PacmanDataPtr;
-
 class PacmanState {
 public:
-    explicit PacmanState(PacmanDataPtr pacmanData): _pacmanData(std::move(pacmanData)){};
+    PacmanState() = default;
     virtual ~PacmanState() = default;
 
     virtual void init() = 0;
@@ -33,12 +21,9 @@ public:
     virtual void powerDown() = 0;
     virtual void slip() = 0; // Banana moment :D
     virtual void changeDirection(Direction direction) = 0;
-
-    PacmanDataPtr getPacmanData() { return _pacmanData; }
-
-protected:
-    PacmanDataPtr _pacmanData;
 };
+
+typedef std::unique_ptr<PacmanState> PacmanStatePtr;
 
 } // namespace Logic
 

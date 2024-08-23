@@ -1,5 +1,6 @@
 add_subdirectory(logic)
 add_subdirectory(singletons)
+add_subdirectory(events)
 
 include(FetchContent)
 FetchContent_Declare(SFML
@@ -50,10 +51,14 @@ set(VIEW_SRC
         view/entities/Fruit.hpp
         view/entities/Coin.cpp
         view/entities/Coin.hpp
+        view/states/GameOverState.cpp
+        view/states/GameOverState.hpp
+        view/entities/Banana.cpp
+        view/entities/Banana.hpp
 )
 
 add_executable(CPPacman ${VIEW_SRC})
-target_link_libraries(CPPacman PRIVATE CPPacmanLogic Singletons sfml-graphics sfml-audio)
+target_link_libraries(CPPacman PRIVATE CPPacmanLogic CPPacmanEvents Singletons sfml-graphics sfml-audio)
 target_include_directories(CPPacman PUBLIC Logic ${CMAKE_CURRENT_SOURCE_DIR})
 target_compile_features(CPPacman PRIVATE cxx_std_17)
 
