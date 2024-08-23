@@ -29,7 +29,7 @@ Game::Game() {
 
 void Game::Run() {
     double accumulator = 0.0;
-    const float dt = 0.1f;
+    const float dt = 1.0f / 30.0f; // 30 frames per second
 
     while (_data->window.isOpen()) {
         // Check changes

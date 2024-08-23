@@ -1,31 +1,29 @@
 #ifndef PACMANSTATE_HPP
 #define PACMANSTATE_HPP
 
+#include "../../../DEFINITIONS.hpp"
+
 #include <memory>
 
 namespace Logic {
 
-struct PacmanData {
-    int x, y;
-    int lives, score;
-    bool isPowerUp;
-    bool isAlive;
-};
-
-typedef std::shared_ptr<PacmanData> PacmanDataPtr;
-
 class PacmanState {
 public:
-    PacmanState(PacmanDataPtr pacmanData){};
+    PacmanState() = default;
     virtual ~PacmanState() = default;
+
+    virtual void init() = 0;
+    virtual void update() = 0;
 
     virtual void move() = 0;
     virtual void die() = 0;
     virtual void powerUp() = 0;
-
-protected:
-    PacmanDataPtr _pacmanData;
+    virtual void powerDown() = 0;
+    virtual void slip() = 0; // Banana moment :D
+    virtual void changeDirection(Direction direction) = 0;
 };
+
+typedef std::unique_ptr<PacmanState> PacmanStatePtr;
 
 } // namespace Logic
 

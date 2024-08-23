@@ -1,11 +1,18 @@
 #ifndef PACMANSTATEMANAGER_HPP
 #define PACMANSTATEMANAGER_HPP
-#include "PacmanState.hpp"
+
 #include "StateManager.hpp"
+#include "PacmanState.hpp"
 
 namespace Logic {
 
-class PacmanStateManager : public StateManager<PacmanState> {};
+class PacmanStateManager : public StateManager<PacmanState> {
+public:
+    PacmanStateManager() = default;
+    ~PacmanStateManager() override = default;
+};
+
+typedef std::shared_ptr<PacmanStateManager> PacmanStateManagerPtr;
 
 } // namespace Logic
 

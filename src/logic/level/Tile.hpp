@@ -6,18 +6,22 @@
 
 namespace Logic {
 
+typedef std::shared_ptr<Entity> EntityPtr;
+typedef std::stack<EntityPtr> EntityStack;
+
 class Tile {
 public:
     Tile() = default;
     ~Tile() = default;
 
-    void setEntity(std::shared_ptr<Entity> entity);
+    void setEntity(EntityPtr entity, bool isReplacing = false);
+    void removeEntity();
     std::weak_ptr<Entity> getEntity() const;
     EntityType getEntityType() const;
     bool isOccupied() const;
 
 private:
-    std::shared_ptr<Entity> _entity;
+    EntityStack _entities;
     bool _isOccupied;
 };
 

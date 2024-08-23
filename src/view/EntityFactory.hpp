@@ -42,6 +42,7 @@ public:
 
 
 private:
+    bool updateAnimation;
     sf::Texture& _spritesheet;
     Characters _characters;
     Collectables _collectables;

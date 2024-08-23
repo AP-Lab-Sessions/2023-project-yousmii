@@ -2,35 +2,36 @@
 #define PACMAN_HPP
 #include "../../DEFINITIONS.hpp"
 #include "Entity.hpp"
-// #include "states/GhostState.hpp"
-// #include "states/PacmanStateManager.hpp"
-//
-// #include <memory>
-// #include <stack>
+#include "states/PacmanStateManager.hpp"
 
-namespace Logic {
+namespace Logic{
+
+struct PacmanData {
+    int x, y;
+    int spawnX, spawnY;
+
+    bool isPowerUp;
+    bool isAlive;
+    bool isMoving;
+
+    Direction direction;
+    PacmanStateManagerPtr stateManager;
+};
+
+typedef std::shared_ptr<PacmanData> PacmanDataPtr;
 
 class Pacman : public Entity {
 public:
     Pacman(int x, int y);
     ~Pacman() override = default;
 
-    // void move();
-    // void changeDirection(Direction direction);
-    // void die();
-    // void powerUp();
-
-    bool isPoweredUp() const { return _poweredUp; }
-    bool isAlive() const { return _alive; }
-    bool isMoving() const { return _moving; }
-    Direction getDirection() const { return _direction; }
+    void update();
+    void changeDirection(Direction direction);
+    Direction getDirection() const { return _pacmanData->direction; }
 
 private:
-    bool _poweredUp;
-    bool _alive;
-    bool _moving;
-    Direction _direction;
-    // PacmanStateManager _stateManager;
+    void updateData();
+    PacmanDataPtr _pacmanData;
 };
 
 } // Logic

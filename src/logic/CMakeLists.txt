@@ -4,8 +4,8 @@ set(LOGIC_SRC
         Camera.cpp
         Camera.hpp
 
-        Event.cpp
-        Event.hpp
+        ../events/Event.cpp
+        ../events/Event.hpp
 
         level/Level.cpp
         level/Level.hpp
@@ -48,5 +48,6 @@ set(LOGIC_SRC
         entities/states/GhostStateManager.cpp
         entities/states/GhostStateManager.hpp
         entities/EntityList.hpp
+        entities/states/Statemanager.cpp
 )
 add_library(CPPacmanLogic ${LOGIC_SRC})

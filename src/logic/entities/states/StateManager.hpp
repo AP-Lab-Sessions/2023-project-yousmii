@@ -6,32 +6,27 @@
 
 namespace Logic {
 
-template <typename T>
+template <typename State>
 // State manager parent class, has children that manage the states of the ghost and pacman
 class StateManager {
 public:
     StateManager() = default;
     virtual ~StateManager() = default;
 
-    virtual void addState(std::unique_ptr<T> newState, bool isReplacing = true);
+    void addState(std::unique_ptr<State> newState, bool isReplacing = true);
 
-    virtual void removeState();
+    void removeState();
 
-    virtual void processStateChanges();
+    void processStateChanges();
 
-    std::unique_ptr<T>& getActiveState();
+    std::unique_ptr<State>& getActiveState();
 
 protected:
-    [[nodiscard]] bool isAdding() const { return _isAdding; }
-    [[nodiscard]] bool isRemoving() const { return _isRemoving; }
-    [[nodiscard]] bool isReplacing() const { return _isReplacing; }
-
-private:
-    std::stack<std::unique_ptr<T>> _states;
-    std::unique_ptr<std::unique_ptr<T>> _newState;
-    bool _isAdding;
-    bool _isRemoving;
-    bool _isReplacing;
+    std::stack<std::unique_ptr<State>> _states;
+    std::unique_ptr<State> _newState;
+    bool _isAdding = false;
+    bool _isRemoving = false;
+    bool _isReplacing = false;
 };
 
 } // namespace Logic
