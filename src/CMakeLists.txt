@@ -1,6 +1,5 @@
 add_subdirectory(logic)
 add_subdirectory(singletons)
-add_subdirectory(events)
 
 include(FetchContent)
 FetchContent_Declare(SFML
@@ -58,7 +57,7 @@ set(VIEW_SRC
 )
 
 add_executable(CPPacman ${VIEW_SRC})
-target_link_libraries(CPPacman PRIVATE CPPacmanLogic CPPacmanEvents Singletons sfml-graphics sfml-audio)
+target_link_libraries(CPPacman PRIVATE CPPacmanLogic Singletons sfml-graphics sfml-audio)
 target_include_directories(CPPacman PUBLIC Logic ${CMAKE_CURRENT_SOURCE_DIR})
 target_compile_features(CPPacman PRIVATE cxx_std_17)
 

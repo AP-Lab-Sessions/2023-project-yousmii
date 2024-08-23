@@ -12,7 +12,7 @@ typedef std::stack<EntityPtr> EntityStack;
 class Tile {
 public:
     Tile() = default;
-    ~Tile() = default;
+    ~Tile();
 
     void setEntity(EntityPtr entity, bool isReplacing = false);
     void removeEntity();

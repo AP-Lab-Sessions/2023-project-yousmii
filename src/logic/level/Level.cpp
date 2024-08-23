@@ -8,14 +8,19 @@ Level::Level(int levelNumber) {
     _levelData = std::make_shared<LevelData>();
     loadLevel();
 }
-
-int Level::getScore() {
-    return _levelData->score;
+Level::~Level() {
+    for (int i = 0; i < LEVEL_HEIGHT; i++) {
+        for (int j = 0; j < LEVEL_WIDTH; j++) {
+            _tiles[i][j]->setEntity(nullptr);
+        }
+    }
 }
 
-int Level::getLives() {
-    return _levelData->lives;
-}
+int Level::getScore() { return _levelData->score.getScore(); }
+
+int Level::getLives() { return _levelData->lives; }
+
+void Level::setPlayerDirection(Direction direction) { _pacman.lock()->setDirection(direction); }
 
 std::weak_ptr<Tile> Level::getTile(int row, int col) {
     return std::weak_ptr<Tile>(_tiles[row][col]);
@@ -47,6 +52,8 @@ void Level::loadLevel() {
     int row = 0;
     int col = 0;
 
+    std::shared_ptr<Pacman> pacman = nullptr;
+
     std::string line;
     while (std::getline(levelFile, line)) {
         if (row >= LEVEL_HEIGHT) {
@@ -64,8 +71,11 @@ void Level::loadLevel() {
                 hasPacman = true;
                 _levelData->pacmanRow = row;
                 _levelData->pacmanCol = col;
-                _tiles[row][col]->setEntity(std::make_shared<Pacman>(row, col));
+                pacman = std::make_shared<Pacman>(row, col);
+                _pacman = std::weak_ptr<Pacman>(pacman);
+                _tiles[row][col]->setEntity(std::move(pacman));
                 break;
+
             case 'b':
                 if (hasBlinky) {
                     throw std::runtime_error("Invalid level format, multiple blinkys!");

@@ -26,7 +26,7 @@ public:
     ~Pacman() override = default;
 
     void update();
-    void changeDirection(Direction direction);
+    void setDirection(Direction direction);
     Direction getDirection() const { return _pacmanData->direction; }
 
 private:

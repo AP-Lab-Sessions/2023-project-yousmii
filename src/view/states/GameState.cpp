@@ -34,6 +34,22 @@ void GameState::HandleInput() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
         _data->machine.AddState(StateRef(new PauseState(_data)), false);
     }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)) {
+        _world->SetPlayerDirection(Direction::UP);
+        _entityFactory->getCharacter(CharacterName::Pacman)->setDirection(Direction::UP);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)) {
+        _world->SetPlayerDirection(Direction::DOWN);
+        _entityFactory->getCharacter(CharacterName::Pacman)->setDirection(Direction::DOWN);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)) {
+        _world->SetPlayerDirection(Direction::LEFT);
+        _entityFactory->getCharacter(CharacterName::Pacman)->setDirection(Direction::LEFT);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)) {
+        _world->SetPlayerDirection(Direction::RIGHT);
+        _entityFactory->getCharacter(CharacterName::Pacman)->setDirection(Direction::RIGHT);
+    }
 }
 
 void GameState::Update() {

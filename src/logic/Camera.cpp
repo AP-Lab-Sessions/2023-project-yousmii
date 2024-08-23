@@ -1,7 +1,7 @@
 #include "Camera.hpp"
 
 namespace Logic {
-Camera::Camera(LevelPtr level) : _level(level) {}
+Camera::Camera(std::weak_ptr<Level> level) : _level(std::move(level)) {}
 
 EntityDataMap Camera::getFullMap() { // GOD THIS IS SO UGLY I HATE IT, WHY IS THERE SO MUCH NESTING IM SORRY
     EntityDataMap fullMap;
@@ -11,7 +11,7 @@ EntityDataMap Camera::getFullMap() { // GOD THIS IS SO UGLY I HATE IT, WHY IS TH
     }
     for (int i = 0; i < LEVEL_HEIGHT; i++) {
         for (int j = 0; j < LEVEL_WIDTH; j++) {
-            if (auto tile = _level->getTile(i, j).lock()) {
+            if (auto tile = _level.lock()->getTile(i, j).lock()) {
                 if (tile->isOccupied()) {
                     fullMap[i][j].type = tile->getEntityType();
                     if (tile->getEntityType() == EntityType::PACMAN) {
@@ -39,8 +39,8 @@ EntityDataMap Camera::getFullMap() { // GOD THIS IS SO UGLY I HATE IT, WHY IS TH
 
 OutputData Camera::getOutputData() {
     OutputData outputData;
-    outputData.score = _level->getScore();
-    outputData.lives = _level->getLives();
+    outputData.score = _level.lock()->getScore();
+    outputData.lives = _level.lock()->getLives();
     return outputData;
 }
 

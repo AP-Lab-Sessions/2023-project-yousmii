@@ -2,6 +2,7 @@
 #define LEVEL_HPP
 
 #include "../../DEFINITIONS.hpp"
+#include "Score.hpp"
 #include "Tile.hpp"
 #include <fstream>
 #include <memory>
@@ -19,19 +20,19 @@ struct LevelData { // Easy access to the level data, less searching for the righ
 
     int blinkyRow;
     int blinkyCol;
+
     int inkyRow;
     int inkyCol;
+
     int clydeRow;
     int clydeCol;
+
     int pinkyRow;
     int pinkyCol;
 
-    int ghostSpawnRow;
-    int ghostSpawnCol;
-
     int coinCount = 0;
     int lives = 3;
-    int score = 2000;
+    Score score = Score();
 };
 
 typedef std::shared_ptr<LevelData> LevelDataPtr;
@@ -39,7 +40,7 @@ typedef std::shared_ptr<LevelData> LevelDataPtr;
 class Level {
 public:
     Level(int levelNumber);
-    ~Level() = default;
+    ~Level();
 
     std::weak_ptr<Tile> getTile(int row, int col);
     // void updateLevel(float dt);
@@ -47,8 +48,16 @@ public:
     int getScore();
     int getLives();
 
+    void setPlayerDirection(Direction direction);
+
 private:
     void loadLevel(); // works as a reset :)
+    std::weak_ptr<Pacman> _pacman;
+
+    // std::weak_ptr<Ghost> _blinky;
+    // std::weak_ptr<Ghost> _inky;
+    // std::weak_ptr<Ghost> _clyde;
+    // std::weak_ptr<Ghost> _pinky;
 
     TileMap _tiles;
     int _levelNumber;

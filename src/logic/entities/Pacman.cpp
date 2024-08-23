@@ -27,8 +27,8 @@ void Pacman::update() {
     updateData();
 }
 
-void Pacman::changeDirection(Direction direction) {
-    // _pacmanData->stateManager->getActiveState()->changeDirection(direction);
+void Pacman::setDirection(Direction direction) {
+    _pacmanData->direction = direction;
 }
 
 

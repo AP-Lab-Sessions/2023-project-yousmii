@@ -13,25 +13,20 @@ struct TileInfo {
     EntityType type;
 };
 
-/// @brief The camera class is responsible for Observing the level and returning the necessary data to the renderer and entities involved in the game.
-class Camera { // imma make this a singleton observer
+/// @brief The camera class is responsible for viewing the level and returning the necessary data to the renderer and entities involved in the game.
+class Camera {
 public:
-    Camera(LevelPtr level);
+    explicit Camera(std::weak_ptr<Level> level);
     ~Camera() = default;
 
-    /// @brief Get the full tilemap of the level. Useful for the initial rendering of the level.
+    /// @brief Get the full tilemap of the level. Used for the initial rendering of the level.
     EntityDataMap getFullMap();
-    /// @brief Get the updates of the level. Does not return the full map.
-    // void getUpdates();
+
     /// @brief Get the output data of the level. Gives current score and lives.
     OutputData getOutputData();
 
-    TileInfo getTileInfo(int row, int col);
-    void changeLevel(LevelPtr level);
-
 private:
-    LevelPtr _level;
-    // EventQueuePtr _eventQueue;
+    std::weak_ptr<Level> _level;
 };
 
 typedef std::unique_ptr<Camera> CameraPtr;

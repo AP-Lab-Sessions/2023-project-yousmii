@@ -1,6 +1,11 @@
 #include "Tile.hpp"
 
 namespace Logic {
+Tile::~Tile() {
+    if (isOccupied()) {
+        _entities.pop();
+    }
+}
 void Tile::setEntity(EntityPtr entity, bool isReplacing) {
     if (isOccupied()) {
         if (isReplacing) {
