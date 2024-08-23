@@ -15,8 +15,6 @@ EntityDataMap World::GetFullMap() {
 
 OutputData World::GetOutputData() { return _camera->getOutputData(); }
 
-void World::SetPlayerDirection(Direction direction) {
-    _simulator->getLevel().lock()->setPlayerDirection(direction);
-}
+void World::SetPlayerDirection(Direction direction) { _simulator->getLevel().lock()->setPlayerDirection(direction); }
 
 } // Logic

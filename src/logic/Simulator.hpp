@@ -6,11 +6,12 @@
 
 namespace Logic {
 
-/// @brief The Simulator class is responsible for simulating the game, it will be responsible for updating the World and the Entities.
+/// @brief The Simulator class is responsible for simulating the game, it will be responsible for updating the World and
+/// the Entities.
 class Simulator {
 public:
     Simulator(LevelPtr level);
-    ~Simulator() ;
+    ~Simulator();
 
     /// @brief Updates the level as a whole and calls the update function of the entities.
     void update();
@@ -55,6 +56,6 @@ private:
 };
 
 typedef std::unique_ptr<Simulator> SimulatorPtr;
-} // Logic
+} // namespace Logic
 
-#endif //SIMULATOR_HPP
+#endif // SIMULATOR_HPP
