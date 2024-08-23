@@ -29,7 +29,6 @@ void Pacman::update() {
 
 void Pacman::setDirection(Direction direction) { _pacmanData->direction = direction; }
 
-
 void Pacman::updateData() {
 
 }
