@@ -6,7 +6,8 @@ namespace View {
 
 class Fruit : public Collectable {
 public:
-    Fruit(sf::Texture texture);
+    /// @brief Constructor of Fruit, which initializes the texture of the entity to the cherry texture
+    explicit Fruit(sf::Texture texture);
 
 };
 

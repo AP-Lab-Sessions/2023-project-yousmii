@@ -10,10 +10,11 @@
 
 namespace View {
 
-enum class CharacterFrame { ONE = 1, TWO
-};
+/// @brief Represents the frame of the character.
+enum class CharacterFrame { ONE = 1, TWO };
 
 typedef std::shared_ptr<sf::Texture> TexturePtr;
+/// @brief Holds the 2 textures of the character, depending on where it is facing.
 typedef std::map<Direction, std::pair<TexturePtr, TexturePtr>> CharacterTextures;
 
 ///@brief Parent class: Represents a character in the game.

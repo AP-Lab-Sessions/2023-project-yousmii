@@ -8,13 +8,18 @@ namespace View {
 
 class PauseState : public State {
 public:
-    PauseState(GameDataPtr data);
+    explicit PauseState(GameDataPtr data);
 
     void init() override;
 
-    void HandleInput();
-    void Update();
-    void Draw();
+    /// @brief Handle input if the user wants to resume or exit the game
+    void HandleInput() override;
+
+    /// @brief Update the state, does nothing in this state
+    void Update() override;
+
+    /// @brief Draw the sprites and text onto the window
+    void Draw() override;
 
 private:
     GameDataPtr _data;
@@ -23,14 +28,12 @@ private:
     sf::Text _resumeText;
     sf::Text _exitText;
 
-    sf::Sprite _resumebutton;
-    sf::Sprite _exitbutton;
-
+    /// @brief Initialize the pause text
     void initPauseText();
+    /// @brief Initialize the resume text
     void initResumeText();
+    /// @brief Initialize the exit text
     void initExitText();
-    void initResumeButton();
-    void initExitButton();
 };
 
 } // namespace View

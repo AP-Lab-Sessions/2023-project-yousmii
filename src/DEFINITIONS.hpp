@@ -25,11 +25,11 @@
 #define SCREEN_HEIGHT LEVEL_HEIGHT* TILE_SIZE + TILE_SIZE * 1.5
 #define SCREEN_TITLE "CPPacman"
 
-// The tick rate
+// The tick rate of the game logic
 #define TICK_RATE 1.0f / 30.0f
 
-// The speed of the characters
-#define PACMAN_SPEED 0.2f
+// Initial score, set me to 0 for testing if the game over screen works
+#define INITIAL_SCORE 1000
 
 // Just nice to have here
 enum class CharacterName { Pacman, Blinky, Pinky, Inky, Clyde, None };

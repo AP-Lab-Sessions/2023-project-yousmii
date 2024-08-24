@@ -1,9 +1,11 @@
 #include "Score.hpp"
+#include "../../DEFINITIONS.hpp"
+
 
 #include <stdexcept>
 
 namespace Logic {
-    Score::Score() : _score(2000) {}
+    Score::Score() : _score(INITIAL_SCORE) {}
 
     void Score::addScore(int score) {
         if (score < 0) {

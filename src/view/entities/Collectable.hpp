@@ -11,7 +11,9 @@ namespace View {
 ///@remarks This class works very differently from the Character class
 class Collectable {
 public:
+    /// @brief Constructor, does not initialize the texture of the entity
     Collectable();
+    /// @brief Destructor >:(
     ~Collectable() = default;
 
     /// @brief Get the sprite of the collectable.

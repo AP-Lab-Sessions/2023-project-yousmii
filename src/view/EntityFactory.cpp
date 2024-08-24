@@ -4,9 +4,13 @@
 #include "entities/Fruit.hpp"
 #include "entities/Ghost.hpp"
 #include "entities/Pacman.hpp"
+#include "entities/Wall.hpp"
+#include "entities/Banana.hpp"
 
 namespace View {
 EntityFactory::EntityFactory(sf::Texture& texture, const EntityDataMap& data_map) : _spritesheet(texture) {
+    // Read the data map and create the entities
+    // Some extra funny thing is how i actually forgot that a row is a y coordinate and a column is an x coordinate, i totally did not spend 2 hours debugging that somewhere else
     for (int i = 0; i < LEVEL_HEIGHT; i++) {
         for (int j = 0; j < LEVEL_WIDTH; j++) {
             EntityType type = data_map[i][j].type;
@@ -17,6 +21,7 @@ EntityFactory::EntityFactory(sf::Texture& texture, const EntityDataMap& data_map
                 _characters[CharacterName::Pacman]->setPosition(j * TILE_SIZE, i * TILE_SIZE);
                 break;
 
+            // Ghosts are created based on their name
             case EntityType::GHOST:
 
                 switch (name) {
@@ -54,6 +59,11 @@ EntityFactory::EntityFactory(sf::Texture& texture, const EntityDataMap& data_map
                 _walls.push_back(std::make_shared<Wall>(j * TILE_SIZE, i * TILE_SIZE));
                 break;
 
+            case EntityType::BANANA:
+                _collectables[{i, j}] = std::make_shared<Banana>(texture);
+                _collectables[{i, j}]->setPosition(j * TILE_SIZE, i * TILE_SIZE);
+                break;
+
             default:
                 break;
             }
@@ -62,13 +72,13 @@ EntityFactory::EntityFactory(sf::Texture& texture, const EntityDataMap& data_map
 }
 
 void EntityFactory::updateCharacters() {
-    if (updateAnimation) { // Skip a frame
+    if (nextUpdateAnimation <= 0) {
         for (auto& character : _characters) {
             character.second->update();
         }
-        updateAnimation = false;
+        nextUpdateAnimation = 0.06f; // omg magic number
     } else {
-        updateAnimation = true;
+        nextUpdateAnimation -= TICK_RATE;
     }
 }
 

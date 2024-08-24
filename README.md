@@ -38,7 +38,7 @@ make install
 
 ### Running the project
 
-To run the project, you can use the following command in the root of the project:
+To run the executable, you can use the following command in the root of the project:
 
 ```bash
 ./build/cppacman
@@ -68,7 +68,8 @@ To run the project, you can use the following command in the root of the project
 
 ## Known Issues
 
-- Framerate may feel a bit different from the typical Pacman game
+- There is no smooth movement for the player. The player moves from tile to tile. This is because of the way the level
+  is stored.
 
 ## (*): Custom level files
 
@@ -96,3 +97,12 @@ number.
 
 You can easily change to this screen by pressing "Left Alt + F2" for a loss, and "Left Alt + F3" for a win.
 This was done for presentation purposes. :)
+
+## Extra Features
+
+- There is a SETTINGS.hpp file where you can define your preferred framerate. Currently, it is set to 165.
+- DEFINITIONS.hpp contains a lot of definitions that can be changed to your liking. For example, the dimensions of the
+  level, the size of the tiles, the size of the window, etc. Please refrain from changing these values though...
+- HOWEVER, please note that changing the dimensions of the level will require you to change the level files as well.
+- view/COLORS.hpp contains all the colors used in the game. You can change these to your liking. This doesnt change the
+  colors of the sprites

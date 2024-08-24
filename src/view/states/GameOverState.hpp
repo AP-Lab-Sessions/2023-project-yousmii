@@ -8,7 +8,7 @@ namespace View {
 
 class GameOverState : public State {
 public:
-    GameOverState(GameDataPtr data, int score, bool win, int level);
+    explicit GameOverState(GameDataPtr data, int score, bool win, int level);
 
     void init() override;
     void HandleInput() override;

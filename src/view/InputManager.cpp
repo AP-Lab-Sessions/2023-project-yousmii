@@ -1,6 +1,8 @@
 #include "InputManager.hpp"
 
 namespace View {
+
+/// Source code from SFML Game Development By Sonar Systems on YouTube :)
 template <typename T>
 bool InputManager::IsClicked(T object, sf::Mouse::Button button, sf::RenderWindow& window) {
     if (sf::Mouse::isButtonPressed(button)) {
@@ -14,8 +16,10 @@ bool InputManager::IsClicked(T object, sf::Mouse::Button button, sf::RenderWindo
     return false;
 }
 
+/// Source code from SFML Game Development By Sonar Systems on YouTube
 sf::Vector2i InputManager::GetMousePosition(sf::RenderWindow& window) { return sf::Mouse::getPosition(window); }
 
+/// Source code from SFML example code
 void InputManager::checkClose(sf::RenderWindow& window) {
     sf::Event event;
     while (window.pollEvent(event)) {

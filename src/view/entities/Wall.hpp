@@ -8,7 +8,7 @@ namespace View {
 class Wall {
     public:
         /// @brief Constructor for the Wall class. Position the wall at (x, y), doesnt have to change
-        Wall(int x, int y);
+        explicit Wall(int x, int y);
         ~Wall() = default;
 
         /// @brief Get the sprite of the wall.

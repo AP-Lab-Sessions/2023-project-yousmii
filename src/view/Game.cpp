@@ -28,12 +28,13 @@ Game::Game() {
 }
 
 void Game::Run() {
-    double accumulator = 0.0;
-    const float dt = TICK_RATE; // 30 frames per second
+    double accumulator = 0.0; // Time accumulator, used for fixed timestep logic
+    const float dt = TICK_RATE; // currently 30 update frames per second, tick rate of the game, you can change this in DEFINITIONS.hpp
 
     while (_data->window.isOpen()) {
-        // Check changes
+        // Apply changes
         _data->machine.ProcessStateChanges();
+        // Check for window close
         _data->input.checkClose(_data->window);
 
         // Timestep
@@ -41,11 +42,13 @@ void Game::Run() {
         float frameTime = _data->stopwatch.GetFrameTime();
         accumulator += frameTime;
 
+        // Update the game logic
         while (accumulator >= dt) {
             _data->machine.GetActiveState()->HandleInput();
             _data->machine.GetActiveState()->Update();
-            accumulator -= dt;
+            accumulator -= dt; // Subtract the time that has been processed, useful in case of lag
         }
+        // Draw the game
         _data->machine.GetActiveState()->Draw();
     }
 }

@@ -8,13 +8,17 @@ namespace View {
 
 class MainMenuState : public State {
 public:
-    MainMenuState(GameDataPtr data);
+    explicit MainMenuState(GameDataPtr data);
 
+    /// @brief Initialize the state, sets the icon, title, and text
     void init() override;
 
-    void HandleInput();
-    void Update();
-    void Draw();
+    /// @brief Handle input if the user wants to start the game, either level 1 or 2, or random
+    void HandleInput() override;
+
+    /// @brief Update the state, does nothing in this state
+    void Update() override;
+    void Draw() override;
 
 private:
     GameDataPtr _data;

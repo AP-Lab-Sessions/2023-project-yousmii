@@ -6,8 +6,10 @@ namespace View {
 
 class Banana : public Collectable{
 public:
-    Banana(sf::Texture texture);
+    explicit Banana(sf::Texture texture);
 };
+
+// Well this game doesnt have easter eggs but it has bananas, so have this comment as your easter egg :)
 
 } // View
 

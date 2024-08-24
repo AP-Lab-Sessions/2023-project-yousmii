@@ -34,10 +34,6 @@ void PauseState::initExitText() {
     _exitText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 2 + 50);
 }
 
-void PauseState::initResumeButton() {}
-
-void PauseState::initExitButton() {}
-
 void PauseState::init() {
     std::cout << "PauseState initialised" << std::endl;
     initPauseText();

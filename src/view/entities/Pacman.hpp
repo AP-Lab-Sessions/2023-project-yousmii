@@ -6,6 +6,7 @@ namespace View {
 
 class Pacman : public Character {
 public:
+    /// @brief Constructor of Pacman, which initializes the texture of the entity in all directions
     explicit Pacman(sf::Texture& texture);
 };
 

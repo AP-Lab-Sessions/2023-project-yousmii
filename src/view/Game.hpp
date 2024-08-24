@@ -11,6 +11,8 @@
 
 namespace View {
 
+/// @brief Structure to hold the game data, passed to each state.
+/// Holds the state machine, window, asset manager, input manager, and stopwatch
 struct GameData {
     StateMachine machine;
     sf::RenderWindow window;
@@ -21,8 +23,10 @@ struct GameData {
 
 typedef std::shared_ptr<GameData> GameDataPtr;
 
+/// @brief The main game class that runs the game loop
 class Game {
 public:
+    /// @brief Constructor, adds the first state to the state machine and runs the game
     Game();
 
 private:

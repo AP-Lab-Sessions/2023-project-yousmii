@@ -17,19 +17,30 @@ public:
     StateMachine() {}
     ~StateMachine() = default;
 
+    /// @brief Add a state to the stack
+    /// @param newState The state to add
+    /// @param isReplacing Whether to replace the top state or not.
+    /// @details The state is added at the start of the next frame
     void AddState(StateRef newState, bool isReplacing = true);
-    // isReplacing determines whether the old state is kept on the stack or popped and replaced by the new state
-    // This way we can save some memory by no longer keeping the main menu state or the pause menu since these are
-    // always the same and can just be reconstructed
+
+    //// @brief Remove the top state from the stack
+    /// @details The state is removed at the start of the next frame
     void RemoveState();
 
+    /// @brief Process state changes, adding, removing, replacing. Called at the start of the frame
     void ProcessStateChanges();
 
+    /// @brief Get the active state reference
+    /// @return The active state reference
+    /// @remark Please do not store this reference, as it may become invalid and cause undefined behavior
     StateRef& GetActiveState();
 
 private:
-    std::stack<StateRef> _states; // States present on the stack
-    StateRef _newState;           // Latest state to add
+    /// Stack of states
+    std::stack<StateRef> _states;
+
+    /// State to add
+    StateRef _newState;
 
     // Track what needs to be done
     bool _isRemoving;

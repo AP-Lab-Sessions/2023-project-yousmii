@@ -11,7 +11,6 @@ namespace View {
 class GameState : public State {
 public:
     GameState(GameDataPtr data, int level = 1);
-    ~GameState(); // TODO: Destruct EntityFactory too
 
     void init() override;
 

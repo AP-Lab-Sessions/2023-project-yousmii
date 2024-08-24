@@ -19,9 +19,7 @@ public:
         _newState = std::move(newState);
     }
 
-    void removeState() {
-        _isRemoving = true;
-    }
+    void removeState() { _isRemoving = true; }
 
     void processStateChanges() {
         if (_isRemoving && !_states.empty()) {
@@ -29,7 +27,7 @@ public:
             _isRemoving = false;
         }
         if (_isAdding) {
-            if(!_states.empty() && _isReplacing) {
+            if (!_states.empty() && _isReplacing) {
                 _states.pop();
             }
             _states.push(std::move(_newState));
@@ -38,9 +36,7 @@ public:
         }
     }
 
-    std::unique_ptr<State>& getActiveState() {
-        return _states.top();
-    }
+    std::unique_ptr<State>& getActiveState() { return _states.top(); }
 
 protected:
     std::stack<std::unique_ptr<State>> _states;
