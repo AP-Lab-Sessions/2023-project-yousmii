@@ -31,7 +31,6 @@ public:
     std::pair<int, int> getNewPosition() const;
     void discardNewPosition();
 
-
 private:
     void updateData();
     PacmanDataPtr _pacmanData;

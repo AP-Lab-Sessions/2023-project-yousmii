@@ -22,4 +22,4 @@ struct Event {
 
 typedef std::stack<Event> Events;
 
-#endif //EVENTS_HPP
+#endif // EVENTS_HPP

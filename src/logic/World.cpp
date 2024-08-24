@@ -17,12 +17,8 @@ OutputData World::GetOutputData() { return _camera->getOutputData(); }
 
 void World::SetPlayerDirection(Direction direction) { _simulator->getLevel().lock()->setPlayerDirection(direction); }
 
-void World::Update() {
-    _simulator->update();
-}
+void World::Update() { _simulator->update(); }
 
-Events World::GetUpdates() {
-    return _simulator->getEvents();
-}
+Events World::GetUpdates() { return _simulator->getEvents(); }
 
 } // Logic

@@ -197,9 +197,8 @@ void Level::moveTileEntity(CharacterName name, int newRow, int newCol, bool isRe
         _levelData->pinkyCol = newCol;
         break;
 
-
-        case CharacterName::None:
-            break;
+    case CharacterName::None:
+        break;
     }
 
     _tiles[newRow][newCol]->setEntity(entity, isReplacing);
