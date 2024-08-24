@@ -13,13 +13,34 @@ public:
     StateManager() = default;
     ~StateManager() = default;
 
-    void addState(std::unique_ptr<State> newState, bool isReplacing = true);
+    void addState(std::unique_ptr<State> newState, bool isReplacing = true) {
+        _isAdding = true;
+        _isReplacing = isReplacing;
+        _newState = std::move(newState);
+    }
 
-    void removeState();
+    void removeState() {
+        _isRemoving = true;
+    }
 
-    void processStateChanges();
+    void processStateChanges() {
+        if (_isRemoving && !_states.empty()) {
+            _states.pop();
+            _isRemoving = false;
+        }
+        if (_isAdding) {
+            if(!_states.empty() && _isReplacing) {
+                _states.pop();
+            }
+            _states.push(std::move(_newState));
+            _states.top()->init();
+            _isAdding = false;
+        }
+    }
 
-    std::unique_ptr<State>& getActiveState();
+    std::unique_ptr<State>& getActiveState() {
+        return _states.top();
+    }
 
 protected:
     std::stack<std::unique_ptr<State>> _states;
@@ -30,7 +51,5 @@ protected:
 };
 
 } // namespace Logic
-
-#include "StateManager.inl"
 
 #endif // STATEMANAGER_HPP

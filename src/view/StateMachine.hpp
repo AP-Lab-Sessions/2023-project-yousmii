@@ -13,8 +13,9 @@ typedef std::unique_ptr<State> StateRef;
 
 class StateMachine {
 public:
+    /// Constructor, does not add any states
     StateMachine() {}
-    ~StateMachine() {}
+    ~StateMachine() = default;
 
     void AddState(StateRef newState, bool isReplacing = true);
     // isReplacing determines whether the old state is kept on the stack or popped and replaced by the new state

@@ -40,7 +40,6 @@ set(LOGIC_SRC
         entities/states/GhostStateManager.cpp
         entities/states/GhostStateManager.hpp
         entities/EntityList.hpp
-        entities/states/Statemanager.inl
         level/Score.cpp
         level/Score.hpp
         Simulator.cpp
