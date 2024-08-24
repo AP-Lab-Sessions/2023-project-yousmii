@@ -25,7 +25,7 @@ void Simulator::collectCoin(int x, int y) {
 }
 
 void Simulator::updateScore() {
-    if(nextScoreUpdate <= 0.0f) {
+    if (nextScoreUpdate <= 0.0f) {
         _level->getScore()->subtractScore(1);
         nextScoreUpdate = 1.0f;
     } else {

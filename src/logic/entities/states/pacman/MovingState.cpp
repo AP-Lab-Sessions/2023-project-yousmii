@@ -49,4 +49,4 @@ void MovingState::update() {
     }
 }
 
-} // Logic
+} // namespace Logic
