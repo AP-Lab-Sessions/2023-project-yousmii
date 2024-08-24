@@ -23,6 +23,8 @@ struct TileInfo {
 /// @brief The camera class is needed for viewing the entire level and getting the output data.
 class Camera {
 public:
+    /// @brief Constructor of the Camera.
+    /// @param level The level to view, used for getting the full tilemap and output data.
     explicit Camera(std::weak_ptr<Level> level);
     ~Camera() = default;
 

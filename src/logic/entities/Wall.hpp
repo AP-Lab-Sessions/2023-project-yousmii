@@ -3,10 +3,11 @@
 #include "Entity.hpp"
 
 namespace Logic {
-
+/// @brief The wall, but logical this time
 class Wall : public Entity {
 public:
-    Wall (int x, int y) : Entity(x, y) {_type = EntityType::WALL;}
+    /// @brief Constructor of the Wall class
+    explicit Wall (const int x, const int y) : Entity(x, y) {_type = EntityType::WALL;}
 };
 
 } // Logic

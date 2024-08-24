@@ -1,36 +1,28 @@
 #include "PausedState.hpp"
-
 #include "MovingState.hpp"
 
 namespace Logic {
-PausedState::PausedState(PacmanDataPtr pacmanData) : _pacmanData(std::move (pacmanData)) {
-    _pauseTime = 1.0f; // 1 second pause
+PausedState::PausedState(PacmanDataPtr pacmanData, float pauseTime) : _pacmanData(std::move (pacmanData)), _pauseTime(pauseTime) {
 };
 
 void PausedState::init() {
     _pacmanData->isMoving = false;
 }
 
-void PausedState::move() {
-    // Doesn't move
-}
-
 void PausedState::die() {
-    _pauseTime = 1.0f; // 1 second pause
+    _pauseTime = 3.0f; // 2 seconds pause
 }
 
 void PausedState::slip() {
-    // Doesn't slip
+    // actually, it's impossible to slip in the paused state >:)
 }
 
 void PausedState::update() {
-    _pauseTime -= TICK_RATE; // 30 frames per second
+    _pauseTime -= TICK_RATE; // Defined in DEFINITIONS.hpp
     if (_pauseTime <= 0.0f) {
         _pacmanData->stateManager->addState(std::make_unique<MovingState>(_pacmanData));
     }
 }
-void PausedState::changeDirection(Direction direction) {
-    _pacmanData->direction = direction;
-}
+
 
 } // Logic

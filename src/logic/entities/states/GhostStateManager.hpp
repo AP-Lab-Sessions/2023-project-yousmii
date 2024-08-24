@@ -5,7 +5,9 @@
 
 namespace Logic {
 
-class GhostStateManager : public StateManager<GhostState> {};
+class GhostStateManager : public StateManager<GhostState> {
+    // Empty gang, rise up, fuck duplicate code
+};
 
 } // namespace Logic
 

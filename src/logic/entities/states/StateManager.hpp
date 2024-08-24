@@ -7,20 +7,23 @@
 namespace Logic {
 
 template <typename State>
-// State manager parent class, has children that manage the states of the ghost and pacman
+/// @brief State manager parent class, has children that manage the states of the ghost and pacman
 class StateManager {
 public:
     StateManager() = default;
     ~StateManager() = default;
 
+    /// @brief Add a state to the stack
     void addState(std::unique_ptr<State> newState, bool isReplacing = true) {
         _isAdding = true;
         _isReplacing = isReplacing;
         _newState = std::move(newState);
     }
 
+    /// @brief Remove the current state
     void removeState() { _isRemoving = true; }
 
+    /// @brief Process state changes, called at the end of the world update
     void processStateChanges() {
         if (_isRemoving && !_states.empty()) {
             _states.pop();
@@ -36,6 +39,7 @@ public:
         }
     }
 
+    /// @brief Get a reference to the current active state
     std::unique_ptr<State>& getActiveState() { return _states.top(); }
 
 protected:

@@ -11,15 +11,13 @@ namespace Logic {
 /// the Entities.
 class Simulator {
 public:
-    Simulator(LevelPtr level);
+    /// @brief Constructor of the Simulator
+    /// @param level The level to simulate.
+    explicit Simulator(LevelPtr level);
     ~Simulator();
 
     /// @brief Updates the level as a whole and calls the update function of the entities.
     void update();
-
-    /// @brief Returns if the game is over.
-    /// @return True if the game is over, false otherwise.
-    bool isGameOver() const;
 
     /// @brief Returns the level of the simulator. Only used for the Camera.
     std::weak_ptr<Level> getLevel();
@@ -28,22 +26,15 @@ public:
     /// @return The events of the simulator.
     Events getEvents();
 
-    /// @brief Sets the direction of the player.
-    /// @param direction The direction to set.
-    void setPlayerDirection(Direction direction);
-
 private:
-    /// @brief Simulates the Pacman. Moves the Pacman, check if movement is possible and if it is, moves the Pacman.
+    /// @brief Simulates the Pacman. Moves the Pacman, check if movement is possible and if it is, moves Pacman.
     void simulatePacman();
 
-    /// @brief Moves the Pacman
+    /// @brief Moves Pacman to its new positon and applies all changes.
     void movePacman();
 
     /// @brief Simulates the ghosts.
     // void simulateGhosts();
-
-    /// @brief Checks and handles if the ghosts collide with any entity.
-    // void checkCollisionsGhosts();
 
     /// @brief Simulates the level. Calls the simulate function of all entities.
     void simulateLevel();
@@ -58,8 +49,11 @@ private:
 
     void updateScore();
 
-    /// @brief Resets the characters to their starting positions.
+    /// @brief Resets the characters to their starting positions. Used when the player dies.
     void resetCharacters();
+
+    /// @brief Resets a single character to its starting position.
+    void resetCharacter(std::weak_ptr<Entity>& entity);
 
     LevelPtr _level;
     bool _gameOver = false;

@@ -14,7 +14,6 @@ set(LOGIC_SRC
         entities/Ghost.cpp
         entities/Ghost.hpp
         entities/Fruit.hpp
-        entities/Wall.cpp
         entities/Wall.hpp
         entities/Coin.hpp
         entities/Entity.hpp
@@ -24,10 +23,6 @@ set(LOGIC_SRC
         entities/states/ghost/SetupState.hpp
         entities/states/ghost/ChasingState.cpp
         entities/states/ghost/ChasingState.hpp
-        entities/states/ghost/FrightenedState.cpp
-        entities/states/ghost/FrightenedState.hpp
-        entities/states/ghost/RespawningState.cpp
-        entities/states/ghost/RespawningState.hpp
 
         entities/states/PacmanState.hpp
         entities/states/pacman/MovingState.cpp
@@ -37,7 +32,6 @@ set(LOGIC_SRC
 
         entities/states/StateManager.hpp
         entities/states/PacmanStateManager.hpp
-        entities/states/GhostStateManager.cpp
         entities/states/GhostStateManager.hpp
         entities/EntityList.hpp
         level/Score.cpp

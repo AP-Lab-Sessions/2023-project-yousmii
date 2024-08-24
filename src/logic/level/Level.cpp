@@ -169,6 +169,22 @@ void Level::loadLevel() {
 
 std::weak_ptr<Pacman> Level::getPacman() { return _pacman; }
 
+std::weak_ptr<Entity> Level::getGhost(CharacterName name) {
+    switch (name) {
+    case CharacterName::Blinky:
+        return _tiles[_levelData->blinkyRow][_levelData->blinkyCol]->getEntity();
+    case CharacterName::Inky:
+        return _tiles[_levelData->inkyRow][_levelData->inkyCol]->getEntity();
+    case CharacterName::Clyde:
+        return _tiles[_levelData->clydeRow][_levelData->clydeCol]->getEntity();
+    case CharacterName::Pinky:
+        return _tiles[_levelData->pinkyRow][_levelData->pinkyCol]->getEntity();
+    default:
+        throw std::runtime_error("Invalid ghost name");
+        break;
+    }
+}
+
 ScorePtr Level::getScore() { return _levelData->score; }
 
 void Level::moveTileEntity(CharacterName name, int newRow, int newCol, bool isReplacing) {
