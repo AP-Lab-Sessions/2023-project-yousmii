@@ -39,8 +39,10 @@ EntityDataMap Camera::getFullMap() { // GOD THIS IS SO UGLY I HATE IT, WHY IS TH
 
 OutputData Camera::getOutputData() {
     OutputData outputData;
-    outputData.score = _level.lock()->getScore();
+    outputData.score = _level.lock()->getScore()->getScore();
     outputData.lives = _level.lock()->getLives();
+    outputData.isCompleted = _level.lock()->isCompleted();
+    outputData.won = _level.lock()->isWon();
     return outputData;
 }
 

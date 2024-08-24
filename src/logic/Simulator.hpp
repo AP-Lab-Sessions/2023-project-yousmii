@@ -2,6 +2,7 @@
 
 #ifndef SIMULATOR_HPP
 #define SIMULATOR_HPP
+#include "Events.hpp"
 #include "level/Level.hpp"
 
 namespace Logic {
@@ -23,15 +24,19 @@ public:
     /// @brief Returns the level of the simulator. Only used for the Camera.
     std::weak_ptr<Level> getLevel();
 
+    /// @brief Returns the events of the simulator.
+    /// @return The events of the simulator.
+    Events getEvents();
+
 private:
     /// @brief Simulates the Pacman. Moves the Pacman, check if movement is possible and if it is, moves the Pacman.
     void simulatePacman();
 
+    /// @brief Moves the Pacman
+    void movePacman();
+
     /// @brief Simulates the ghosts.
     // void simulateGhosts();
-
-    /// @brief Checks and handles if the Pacman collides with any entity.
-    void checkCollisionsPacman();
 
     /// @brief Checks and handles if the ghosts collide with any entity.
     // void checkCollisionsGhosts();
@@ -40,7 +45,7 @@ private:
     void simulateLevel();
 
     /// @brief Called if the Pacman collides with a coin and updates the score.
-    void collectCoin();
+    void collectCoin(int x, int y);
 
     // void collectPowerUp();
     // void eatGhost();
@@ -53,6 +58,10 @@ private:
     void resetCharacters();
 
     LevelPtr _level;
+    bool _gameOver = false;
+    bool _win = false;
+
+    Events _events;
 };
 
 typedef std::unique_ptr<Simulator> SimulatorPtr;

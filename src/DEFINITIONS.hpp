@@ -48,10 +48,7 @@ struct EntityData {
 
 typedef std::vector<std::vector<EntityData>> EntityDataMap;
 
-struct OutputData { // Easy access to the output data, cannot alter the original data
-    int score;
-    int lives;
-};
+
 
 
 

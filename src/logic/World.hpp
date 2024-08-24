@@ -22,12 +22,12 @@ typedef std::shared_ptr<WorldData> WorldDataPtr;
 class World {
 public:
     World(int levelNumber);
+    ~World() = default;
 
-    void Start();
-    void Update(float dt);
+    void Update();
 
     EntityDataMap GetFullMap();
-    void GetUpdates();
+    Events GetUpdates();
     OutputData GetOutputData();
 
     void SetPlayerDirection(Direction direction);

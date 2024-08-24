@@ -4,6 +4,7 @@
 #include "../../DEFINITIONS.hpp"
 #include "Score.hpp"
 #include "Tile.hpp"
+
 #include <fstream>
 #include <memory>
 #include <unordered_map>
@@ -32,23 +33,29 @@ struct LevelData { // Easy access to the level data, less searching for the righ
 
     int coinCount = 0;
     int lives = 3;
-    Score score = Score();
+    ScorePtr score = std::make_shared<Score>();
 };
 
 typedef std::shared_ptr<LevelData> LevelDataPtr;
 
 class Level {
 public:
-    Level(int levelNumber);
+    explicit Level(int levelNumber);
     ~Level();
 
     std::weak_ptr<Tile> getTile(int row, int col);
-    // void updateLevel(float dt);
 
-    int getScore();
     int getLives();
+    void eatCoin();
+    void takeLife();
 
     void setPlayerDirection(Direction direction);
+    std::weak_ptr<Pacman> getPacman();
+    ScorePtr getScore();
+
+    void moveTileEntity(CharacterName name, int newRow, int newCol, bool isReplacing = false);
+    bool isCompleted();
+    bool isWon();
 
 private:
     void loadLevel(); // works as a reset :)
@@ -62,8 +69,6 @@ private:
     TileMap _tiles;
     int _levelNumber;
     LevelDataPtr _levelData;
-
-    bool _isCompleted;
 };
 
 typedef std::shared_ptr<Level> LevelPtr;

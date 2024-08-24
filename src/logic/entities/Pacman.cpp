@@ -25,9 +25,13 @@ void Pacman::update() {
 
 void Pacman::setDirection(Direction direction) { _pacmanData->direction = direction; }
 
-void Pacman::updateData() {
-
+std::pair<int, int> Pacman::getNewPosition() const {
+    std::pair newCoords = std::make_pair(_pacmanData->x, _pacmanData->y);
+    return newCoords;
 }
-
+void Pacman::discardNewPosition() {
+    _pacmanData->x = getPosition().first;
+    _pacmanData->y = getPosition().second;
+}
 
 } // namespace Logic

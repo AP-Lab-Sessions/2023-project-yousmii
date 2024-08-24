@@ -25,8 +25,12 @@ public:
 
     void update();
     void setDirection(Direction direction);
+
     Direction getDirection() const { return _pacmanData->direction; }
     bool isMoving() const { return _pacmanData->isMoving; }
+    std::pair<int, int> getNewPosition() const;
+    void discardNewPosition();
+
 
 private:
     void updateData();

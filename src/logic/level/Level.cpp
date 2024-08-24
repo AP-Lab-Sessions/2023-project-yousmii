@@ -16,15 +16,11 @@ Level::~Level() {
     }
 }
 
-int Level::getScore() { return _levelData->score.getScore(); }
-
 int Level::getLives() { return _levelData->lives; }
 
 void Level::setPlayerDirection(Direction direction) { _pacman.lock()->setDirection(direction); }
 
-std::weak_ptr<Tile> Level::getTile(int row, int col) {
-    return std::weak_ptr<Tile>(_tiles[row][col]);
-}
+std::weak_ptr<Tile> Level::getTile(int row, int col) { return std::weak_ptr<Tile>(_tiles[row][col]); }
 
 void Level::loadLevel() {
     _tiles = TileMap();
@@ -37,7 +33,7 @@ void Level::loadLevel() {
     }
     std::ifstream levelFile;
 
-    levelFile.open(LEVEL_DIR +std::to_string(_levelNumber) + ".lvl");
+    levelFile.open(LEVEL_DIR + std::to_string(_levelNumber) + ".lvl");
     if (!levelFile.is_open()) {
         throw std::runtime_error("Could not open level file");
     }
@@ -165,5 +161,72 @@ void Level::loadLevel() {
     if (!hasCoin) { // Level will be considered completed when all coins are collected or if there are no coins
         throw std::runtime_error("Invalid level format, missing coins!");
     }
+}
+
+std::weak_ptr<Pacman> Level::getPacman() { return _pacman; }
+
+ScorePtr Level::getScore() { return _levelData->score; }
+
+void Level::moveTileEntity(CharacterName name, int newRow, int newCol, bool isReplacing) {
+    EntityPtr entity;
+
+    switch (name) {
+    case CharacterName::Pacman:
+        entity = _tiles[_levelData->pacmanRow][_levelData->pacmanCol]->removeEntity();
+        _levelData->pacmanRow = newRow;
+        _levelData->pacmanCol = newCol;
+        break;
+    case CharacterName::Blinky:
+        entity = _tiles[_levelData->blinkyRow][_levelData->blinkyCol]->removeEntity();
+        _levelData->blinkyRow = newRow;
+        _levelData->blinkyCol = newCol;
+        break;
+    case CharacterName::Inky:
+        entity = _tiles[_levelData->inkyRow][_levelData->inkyCol]->removeEntity();
+        _levelData->inkyRow = newRow;
+        _levelData->inkyCol = newCol;
+        break;
+    case CharacterName::Clyde:
+        entity = _tiles[_levelData->clydeRow][_levelData->clydeCol]->removeEntity();
+        _levelData->clydeRow = newRow;
+        _levelData->clydeCol = newCol;
+        break;
+    case CharacterName::Pinky:
+        entity = _tiles[_levelData->pinkyRow][_levelData->pinkyCol]->removeEntity();
+        _levelData->pinkyRow = newRow;
+        _levelData->pinkyCol = newCol;
+        break;
+
+
+        case CharacterName::None:
+            break;
+    }
+
+    _tiles[newRow][newCol]->setEntity(entity, isReplacing);
+}
+
+bool Level::isCompleted() {
+    return _levelData->coinCount == 0 || _levelData->lives == 0 || _levelData->score->getScore() == 0;
+}
+
+void Level::takeLife() {
+    if (_levelData->lives == 0) {
+        return;
+    }
+    _levelData->lives--;
+}
+
+bool Level::isWon() {
+    if (_levelData->lives == 0 || _levelData->score->getScore() == 0) {
+        return false;
+    }
+    return _levelData->coinCount == 0;
+}
+
+void Level::eatCoin() {
+    if (_levelData->coinCount == 0) {
+        return;
+    }
+    _levelData->coinCount--;
 }
 } // namespace Logic

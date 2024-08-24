@@ -15,7 +15,8 @@ public:
     ~Tile();
 
     void setEntity(EntityPtr entity, bool isReplacing = false);
-    void removeEntity();
+    EntityPtr removeEntity();
+
     std::weak_ptr<Entity> getEntity() const;
     EntityType getEntityType() const;
     bool isOccupied() const;

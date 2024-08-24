@@ -1,5 +1,6 @@
 #ifndef SCORE_HPP
 #define SCORE_HPP
+#include <memory>
 
 namespace Logic {
 
@@ -23,6 +24,8 @@ public:
 private:
     int _score;
 };
+
+typedef std::shared_ptr<Score> ScorePtr;
 
 } // Logic
 

@@ -1,5 +1,7 @@
 #include "Tile.hpp"
 
+#include <stdexcept>
+
 namespace Logic {
 Tile::~Tile() {
     if (isOccupied()) {
@@ -16,13 +18,16 @@ void Tile::setEntity(EntityPtr entity, bool isReplacing) {
     _isOccupied = true;
 }
 
-void Tile::removeEntity() {
+EntityPtr Tile::removeEntity() {
     if (isOccupied()) {
+        EntityPtr entity = std::move(_entities.top());
         _entities.pop();
         if (_entities.empty()) {
             _isOccupied = false;
         }
+        return entity;
     }
+    throw std::runtime_error("No entity to remove");
 }
 
 std::weak_ptr<Entity> Tile::getEntity() const { return std::weak_ptr<Entity>(_entities.top()); }

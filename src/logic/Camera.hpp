@@ -8,12 +8,19 @@
 
 namespace Logic {
 
+struct OutputData { // Easy access to the output data, cannot alter the original data
+    int score;
+    int lives;
+    bool isCompleted = false;
+    bool won = false;
+};
+
 struct TileInfo {
     int row, col;
     EntityType type;
 };
 
-/// @brief The camera class is responsible for viewing the level and returning the necessary data to the renderer and entities involved in the game.
+/// @brief The camera class is needed for viewing the entire level and getting the output data.
 class Camera {
 public:
     explicit Camera(std::weak_ptr<Level> level);

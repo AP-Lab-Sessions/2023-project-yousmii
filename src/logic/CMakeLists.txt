@@ -45,5 +45,6 @@ set(LOGIC_SRC
         level/Score.hpp
         Simulator.cpp
         Simulator.hpp
+        Events.hpp
 )
 add_library(CPPacmanLogic ${LOGIC_SRC})
