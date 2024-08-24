@@ -1,6 +1,5 @@
 #include "PausedState.hpp"
 
-#include "DeadState.hpp"
 #include "MovingState.hpp"
 
 namespace Logic {
@@ -17,16 +16,7 @@ void PausedState::move() {
 }
 
 void PausedState::die() {
-    PacmanStatePtr deadState = std::make_unique<DeadState>(_pacmanData);
-    _pacmanData->stateManager->addState(std::move(deadState));
-}
-
-void PausedState::powerUp() {
-    // Doesn't power up
-}
-
-void PausedState::powerDown() {
-    // Doesn't power down
+    _pauseTime = 1.0f; // 1 second pause
 }
 
 void PausedState::slip() {

@@ -11,20 +11,16 @@ Pacman::Pacman(int x, int y) : Entity(x, y) {
     _pacmanData = std::make_shared<PacmanData>();
     _pacmanData->x = x;
     _pacmanData->y = y;
-    _pacmanData->spawnX = x;
-    _pacmanData->spawnY = y;
-    _pacmanData->isPowerUp = false;
+
     _pacmanData->isAlive = true;
     _pacmanData->stateManager = std::make_unique<PacmanStateManager>();
 
-    // _pacmanData->stateManager->addState(std::make_unique<PausedState>(_pacmanData));
-    // _pacmanData->stateManager->processStateChanges();
+    _pacmanData->stateManager->addState(std::make_unique<PausedState>(_pacmanData));
 }
 
 void Pacman::update() {
-    // _pacmanData->stateManager->processStateChanges();
-    // _pacmanData->stateManager->getActiveState()->update();
-    updateData();
+    _pacmanData->stateManager->processStateChanges();
+    _pacmanData->stateManager->getActiveState()->update();
 }
 
 void Pacman::setDirection(Direction direction) { _pacmanData->direction = direction; }

@@ -14,8 +14,6 @@ public:
     void init() override;
     void move() override;
     void die() override;
-    void powerUp() override;
-    void powerDown() override;
     void slip() override;
     void changeDirection(Direction direction) override;
 

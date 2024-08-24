@@ -11,7 +11,7 @@ template <typename State>
 class StateManager {
 public:
     StateManager() = default;
-    virtual ~StateManager() = default;
+    ~StateManager() = default;
 
     void addState(std::unique_ptr<State> newState, bool isReplacing = true);
 
@@ -30,5 +30,7 @@ protected:
 };
 
 } // namespace Logic
+
+#include "StateManager.inl"
 
 #endif // STATEMANAGER_HPP

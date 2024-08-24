@@ -17,8 +17,6 @@ public:
 
     virtual void move() = 0;
     virtual void die() = 0;
-    virtual void powerUp() = 0;
-    virtual void powerDown() = 0;
     virtual void slip() = 0; // Banana moment :D
     virtual void changeDirection(Direction direction) = 0;
 };

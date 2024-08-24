@@ -8,9 +8,7 @@ namespace Logic{
 
 struct PacmanData {
     int x, y;
-    int spawnX, spawnY;
 
-    bool isPowerUp;
     bool isAlive;
     bool isMoving;
 
@@ -28,6 +26,7 @@ public:
     void update();
     void setDirection(Direction direction);
     Direction getDirection() const { return _pacmanData->direction; }
+    bool isMoving() const { return _pacmanData->isMoving; }
 
 private:
     void updateData();

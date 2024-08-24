@@ -1,5 +1,3 @@
-#include "StateManager.hpp"
-
 namespace Logic {
 
 template <typename State>

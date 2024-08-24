@@ -32,20 +32,15 @@ set(LOGIC_SRC
         entities/states/PacmanState.hpp
         entities/states/pacman/MovingState.cpp
         entities/states/pacman/MovingState.hpp
-        entities/states/pacman/DeadState.cpp
-        entities/states/pacman/DeadState.hpp
-        entities/states/pacman/PowerUpState.cpp
-        entities/states/pacman/PowerUpState.hpp
         entities/states/pacman/PausedState.cpp
         entities/states/pacman/PausedState.hpp
 
         entities/states/StateManager.hpp
-        entities/states/PacmanStateManager.cpp
         entities/states/PacmanStateManager.hpp
         entities/states/GhostStateManager.cpp
         entities/states/GhostStateManager.hpp
         entities/EntityList.hpp
-        entities/states/Statemanager.cpp
+        entities/states/Statemanager.inl
         level/Score.cpp
         level/Score.hpp
         Simulator.cpp

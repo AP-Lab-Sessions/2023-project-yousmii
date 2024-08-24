@@ -20,6 +20,8 @@ public:
     [[nodiscard]] EntityType getEntityType() const { return _type; }
     [[nodiscard]] CharacterName getCharacterName() const { return _name; }
 
+    void resetPosition() { _position = _spawnPoint; }
+
     EntityType _type; // Just really handy to have this to know which child class we are dealing with
     CharacterName _name = CharacterName::None; // Mostly for the ghost class to know which ghost it is
 private:
