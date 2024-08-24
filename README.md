@@ -46,25 +46,25 @@ To run the project, you can use the following command in the root of the project
 
 ## Implemented Features
 
-| Feature                         | Completed? |
-|---------------------------------|------------|
-| Game has a start screen         | ✅          |
-| Game has a game screen          | ✅          |
-| Game has a pause screen         | ✅          |
-| Game has a game over screen     | ✅          |
-| Game has custom level files (*) | ✅          |
-| Simple animations               | ✅          |
-| Display score                   | ✅          |
-| Display lives                   | ✅          |
-| Player can change direction     | ✅          |
-| Player can move                 | ❌          |
-| Player can eat pellets          | ❌          |
-| Player can eat enemies          | ❌          |
-| Player can die                  | ❌          |
-| Enemies can move                | ❌          |
-| Enemies can kill player         | ❌          |
-| Enemies have a setup time       | ❌          |
-| Enemies can change from state   | ❌          |
+| Feature                          | Completed? |
+|----------------------------------|------------|
+| Game has a start screen          | ✅          |
+| Game has a game screen           | ✅          |
+| Game has a pause screen          | ✅          |
+| Game has custom level files (*)  | ✅          |
+| Game has a game over screen (**) | ✅          |
+| Simple animations                | ✅          |
+| Display score                    | ✅          |
+| Display lives                    | ✅          |
+| Player can change direction      | ✅          |
+| Player can move                  | ✅          |
+| Player can eat pellets           | ✅          |
+| Player can eat enemies           | ❌          |
+| Player can die                   | ❌          |
+| Enemies can move                 | ❌          |
+| Enemies can kill player          | ❌          |
+| Enemies have a setup time        | ❌          |
+| Enemies can change from state    | ❌          |
 
 ## Known Issues
 
@@ -91,3 +91,8 @@ number.
   optional.
 - Please note that the level files are case-sensitive
 - If you want to change the dimensions of the levels, you can change this in "DEFINITIONS.hpp"
+
+## (**): Game Over Screen
+
+You can easily change to this screen by pressing "Left Alt + F2" for a loss, and "Left Alt + F3" for a win.
+This was done for presentation purposes. :)

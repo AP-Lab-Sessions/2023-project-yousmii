@@ -24,7 +24,7 @@ void PausedState::slip() {
 }
 
 void PausedState::update() {
-    _pauseTime -= 1.0f / 30.0f; // 30 frames per second
+    _pauseTime -= TICK_RATE; // 30 frames per second
     if (_pauseTime <= 0.0f) {
         _pacmanData->stateManager->addState(std::make_unique<MovingState>(_pacmanData));
     }

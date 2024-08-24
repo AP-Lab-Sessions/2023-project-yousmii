@@ -31,6 +31,7 @@ public:
     OutputData GetOutputData();
 
     void SetPlayerDirection(Direction direction);
+    bool pacmanIsMoving() const;
 
 private:
     SimulatorPtr _simulator;

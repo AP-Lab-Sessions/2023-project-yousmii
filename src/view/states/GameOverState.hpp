@@ -16,6 +16,10 @@ public:
     void Draw() override;
 
 private:
+    void initGameOverText();
+    void initScoreText();
+    void initInstructionText();
+
     int _nextlevel;
     GameDataPtr _data;
     sf::Text _gameOverText;

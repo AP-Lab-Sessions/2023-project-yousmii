@@ -28,6 +28,10 @@ public:
     /// @return The events of the simulator.
     Events getEvents();
 
+    /// @brief Sets the direction of the player.
+    /// @param direction The direction to set.
+    void setPlayerDirection(Direction direction);
+
 private:
     /// @brief Simulates the Pacman. Moves the Pacman, check if movement is possible and if it is, moves the Pacman.
     void simulatePacman();
@@ -61,6 +65,7 @@ private:
     bool _gameOver = false;
     bool _win = false;
 
+    float nextScoreUpdate = 1.0f;
     Events _events;
 };
 

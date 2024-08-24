@@ -27,8 +27,10 @@ public:
     ~EntityFactory() = default;
 
     void updateCharacters(); // CharacterFrame updating
-    void updatePositions();  // Position updating
-    void updateDirections(); // Direction updating
+
+    void removeCollectable(int row, int col);
+    void moveCharacter(CharacterName name, int newRow, int newCol);
+    void setCharacterDirection(CharacterName name, Direction direction);
 
     void update();
 
@@ -39,7 +41,6 @@ public:
     Walls getWalls();
 
     CharacterPtr getCharacter(CharacterName name);
-
 
 private:
     bool updateAnimation;

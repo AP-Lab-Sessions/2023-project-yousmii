@@ -48,9 +48,6 @@ void MainMenuState::HandleInput() {
         int randomLevel = Singletons::RNG::getInstance().getRandomInt(1,2);
         _data->machine.AddState(StateRef(new GameState(_data, randomLevel)), true);
     }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
-        _data->window.close();
-    }
     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num1)) {
         _data->machine.AddState(StateRef(new GameState(_data, 1)), true);
     }

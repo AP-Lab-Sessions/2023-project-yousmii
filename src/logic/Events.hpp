@@ -4,6 +4,7 @@
 
 enum EventType {
     pacmanPositionChange,
+    pacmanDirectionChange,
     blinkyPositionChange,
     pinkyPositionChange,
     inkyPositionChange,

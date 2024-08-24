@@ -18,7 +18,11 @@ Level::~Level() {
 
 int Level::getLives() { return _levelData->lives; }
 
-void Level::setPlayerDirection(Direction direction) { _pacman.lock()->setDirection(direction); }
+void Level::setPlayerDirection(Direction direction) {
+    if (_pacman.lock()->isMoving()) {
+        _pacman.lock()->setDirection(direction);
+    }
+}
 
 std::weak_ptr<Tile> Level::getTile(int row, int col) { return std::weak_ptr<Tile>(_tiles[row][col]); }
 
@@ -69,6 +73,7 @@ void Level::loadLevel() {
                 _levelData->pacmanCol = col;
                 pacman = std::make_shared<Pacman>(row, col);
                 _pacman = std::weak_ptr<Pacman>(pacman);
+                pacman->setDirection(Direction::RIGHT);
                 _tiles[row][col]->setEntity(std::move(pacman));
                 break;
 
@@ -117,7 +122,6 @@ void Level::loadLevel() {
                 hasCoin = true;
                 _levelData->coinCount++;
                 _tiles[row][col]->setEntity(std::make_shared<Coin>(row, col));
-                // Chance to spawn a banana?
                 break;
             case 'f':
                 _tiles[row][col]->setEntity(std::make_shared<Fruit>(row, col));

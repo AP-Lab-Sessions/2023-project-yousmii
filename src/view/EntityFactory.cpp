@@ -72,16 +72,18 @@ void EntityFactory::updateCharacters() {
     }
 }
 
-void EntityFactory::updatePositions() {
-    // Still need to figure this one out
-    // Prolly will be that there will be a map of positions and directions for each character
+
+void EntityFactory::removeCollectable(int row, int col) { _collectables.erase({row, col}); }
+
+void EntityFactory::moveCharacter(CharacterName name, int newRow, int newCol) {
+    _characters[name]->setPosition(newCol * TILE_SIZE, newRow * TILE_SIZE);
 }
-void EntityFactory::updateDirections() {}
+void EntityFactory::setCharacterDirection(CharacterName name, Direction direction) {
+    _characters[name]->setDirection(direction);
+}
 
 void EntityFactory::update() {
     updateCharacters();
-    updatePositions();
-    updateDirections();
 }
 void EntityFactory::drawAll(sf::RenderWindow& window) {
     for (auto& character : _characters) {

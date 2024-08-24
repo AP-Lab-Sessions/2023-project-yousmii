@@ -25,6 +25,12 @@
 #define SCREEN_HEIGHT LEVEL_HEIGHT* TILE_SIZE + TILE_SIZE * 1.5
 #define SCREEN_TITLE "CPPacman"
 
+// The tick rate
+#define TICK_RATE 1.0f / 30.0f
+
+// The speed of the characters
+#define PACMAN_SPEED 0.2f
+
 // Just nice to have here
 enum class CharacterName { Pacman, Blinky, Pinky, Inky, Clyde, None };
 enum class Direction { RIGHT, LEFT, UP, DOWN };

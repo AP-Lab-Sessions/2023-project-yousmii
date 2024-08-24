@@ -12,32 +12,19 @@ GameOverState::GameOverState(GameDataPtr data, int score, bool win, int level) :
         _nextlevel = level + 1;
     }
 
-    _scoreText.setFont(_data->assets.GetFont(DSFONT));
-    _scoreText.setCharacterSize(24);
-    _scoreText.setFillColor(Color::YELLOW);
-    _scoreText.setPosition(SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2 - 50);
-    _scoreText.setString("Score: " + std::to_string(score));
-
-    _gameOverText.setFont(_data->assets.GetFont(MONOCRAFT));
-    _gameOverText.setCharacterSize(60);
-    _gameOverText.setFillColor(Color::YELLOW);
-    _gameOverText.setPosition(SCREEN_WIDTH / 2 - 200, SCREEN_HEIGHT / 2 - 200);
-
     if(win) {
         _gameOverText.setString("You Win!");
     } else {
-        _gameOverText.setString("Game Over");
+        _gameOverText.setString("You lost :(");
     }
-
-    _instructionText.setFont(_data->assets.GetFont(DSFONT));
-    _instructionText.setCharacterSize(24);
-    _instructionText.setFillColor(Color::YELLOW);
-    _instructionText.setPosition(SCREEN_WIDTH / 2 - 200, SCREEN_HEIGHT / 2 + 50);
-    _instructionText.setString("Press Enter to play the next level or Esc to quit");
+    _scoreText.setString("Score: " + std::to_string(score));
 }
 
 void GameOverState::init() {
     std::cout << "GameOverState initialised" << std::endl;
+    initGameOverText();
+    initScoreText();
+    initInstructionText();
 }
 
 void GameOverState::Draw() {
@@ -46,6 +33,31 @@ void GameOverState::Draw() {
     _data->window.draw(_scoreText);
     _data->window.draw(_instructionText);
     _data->window.display();
+}
+void GameOverState::initGameOverText() {
+    _gameOverText.setFont(_data->assets.GetFont(MONOCRAFT));
+    _gameOverText.setCharacterSize(100);
+    _gameOverText.setFillColor(Color::CYAN);
+    _gameOverText.setOrigin(_gameOverText.getGlobalBounds().width / 2, _gameOverText.getGlobalBounds().height / 2);
+    _gameOverText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 2);
+}
+
+void GameOverState::initScoreText() {
+    _scoreText.setFont(_data->assets.GetFont(MONOCRAFT));
+    _scoreText.setCharacterSize(24);
+    _scoreText.setFillColor(Color::YELLOW);
+    _scoreText.setOrigin(_scoreText.getGlobalBounds().width / 2, _scoreText.getGlobalBounds().height / 2);
+    _scoreText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 2 + 100);
+}
+
+void GameOverState::initInstructionText() {
+    _instructionText.setFont(_data->assets.GetFont(DSFONT));
+    _instructionText.setCharacterSize(24);
+    _instructionText.setFillColor(Color::WHITE);
+    _instructionText.setString("Press Enter to play again or Escape to return to the main menu");
+    _instructionText.setOrigin(_instructionText.getGlobalBounds().width / 2,
+                               _instructionText.getGlobalBounds().height / 2);
+    _instructionText.setPosition(_data->window.getSize().x / 2, _data->window.getSize().y / 2 + 130);
 }
 
 void GameOverState::HandleInput() {

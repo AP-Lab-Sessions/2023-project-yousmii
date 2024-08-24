@@ -17,6 +17,8 @@ OutputData World::GetOutputData() { return _camera->getOutputData(); }
 
 void World::SetPlayerDirection(Direction direction) { _simulator->getLevel().lock()->setPlayerDirection(direction); }
 
+bool World::pacmanIsMoving() const { return _simulator->getLevel().lock()->getPacman().lock()->isMoving(); }
+
 void World::Update() { _simulator->update(); }
 
 Events World::GetUpdates() { return _simulator->getEvents(); }

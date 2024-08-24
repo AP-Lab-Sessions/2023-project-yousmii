@@ -2,6 +2,8 @@
 
 #include "PausedState.hpp"
 
+#include <iostream>
+
 namespace Logic {
 
 MovingState::MovingState(PacmanDataPtr pacmanData) : _pacmanData(pacmanData) {}
@@ -12,18 +14,18 @@ void MovingState::init() {
 }
 
 void MovingState::move() { // Move pacman in the current direction, does not check for collisions
-    switch(_pacmanData->direction) {
+    switch (_pacmanData->direction) {
         case Direction::UP:
-            _pacmanData->y -= 1;
-            break;
+        _pacmanData->x -= 1;
+        break;
         case Direction::DOWN:
-            _pacmanData->y += 1;
+            _pacmanData->x += 1;
             break;
         case Direction::LEFT:
-            _pacmanData->x -= 1;
+            _pacmanData->y -= 1;
             break;
-        case Direction::RIGHT:
-            _pacmanData->x += 1;
+    case Direction::RIGHT:
+            _pacmanData->y += 1;
             break;
     }
 }
@@ -39,7 +41,12 @@ void MovingState::changeDirection(Direction direction) {
 }
 
 void MovingState::update() {
-    move();
+    if (_nextMove <= 0.0f) {
+        move();
+        _nextMove = 0.3f;
+    } else {
+        _nextMove -= TICK_RATE;
+    }
 }
 
 } // Logic

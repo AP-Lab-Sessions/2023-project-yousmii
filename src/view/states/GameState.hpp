@@ -19,6 +19,8 @@ public:
     void Update();
     void Draw();
 
+    void HandleEvents(Events events);
+
     void updateScore();
     void updateLives();
 

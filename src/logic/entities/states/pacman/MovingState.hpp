@@ -21,6 +21,7 @@ public:
 
 private:
     PacmanDataPtr _pacmanData;
+    float _nextMove = 0.3f;
 };
 
 } // Logic
