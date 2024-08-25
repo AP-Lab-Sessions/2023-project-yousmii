@@ -81,7 +81,7 @@ void GameState::Update() {
 
 void GameState::HandleEvents(Events events) {
     while (!events.empty()) {
-        Event event = events.top();
+        Event event = events.front();
         switch (event.type) {
         case EventType::coinEaten:
             _entityFactory->removeCollectable(event.x, event.y);

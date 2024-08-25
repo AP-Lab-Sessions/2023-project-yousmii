@@ -1,6 +1,6 @@
 #ifndef EVENTS_HPP
 #define EVENTS_HPP
-#include <stack>
+#include <queue>
 
 /// @brief The EventType enum represents the different types of events that can occur in the game. This is used to
 /// communicate between the Logic and View.
@@ -29,6 +29,6 @@ struct Event {
     explicit Event(EventType type, int x, int y) : type(type), x(x), y(y) {}
 };
 
-typedef std::stack<Event> Events;
+typedef std::queue<Event> Events;
 
 #endif // EVENTS_HPP

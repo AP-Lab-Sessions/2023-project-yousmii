@@ -53,7 +53,7 @@ private:
     void resetCharacters();
 
     /// @brief Resets a single character to its starting position.
-    void resetCharacter(std::weak_ptr<Entity>& entity);
+    void resetCharacter(std::weak_ptr<Entity>& entity) const;
 
     LevelPtr _level;
     bool _gameOver = false;
