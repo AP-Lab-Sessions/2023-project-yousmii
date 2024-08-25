@@ -38,16 +38,19 @@ void Simulator::resetCharacters() {
     // Reset Pacman
     entity = _level->getPacman();
     resetCharacter(entity);
-    _events.emplace(EventType::pacmanPositionChange, entity.lock()->getPosition().first, entity.lock()->getPosition().second);
+    _events.emplace(EventType::pacmanPositionChange, entity.lock()->getPosition().first,
+                    entity.lock()->getPosition().second);
 
     // Reset ghosts
     entity = _level->getGhost(CharacterName::Blinky);
     resetCharacter(entity);
-    _events.emplace(EventType::blinkyPositionChange, entity.lock()->getPosition().first, entity.lock()->getPosition().second);
+    _events.emplace(EventType::blinkyPositionChange, entity.lock()->getPosition().first,
+                    entity.lock()->getPosition().second);
 
     entity = _level->getGhost(CharacterName::Pinky);
     resetCharacter(entity);
-    _events.emplace(EventType::pinkyPositionChange, entity.lock()->getPosition().first, entity.lock()->getPosition().second);
+    _events.emplace(EventType::pinkyPositionChange, entity.lock()->getPosition().first,
+                    entity.lock()->getPosition().second);
 
     entity = _level->getGhost(CharacterName::Inky);
     resetCharacter(entity);
@@ -55,7 +58,8 @@ void Simulator::resetCharacters() {
 
     entity = _level->getGhost(CharacterName::Clyde);
     resetCharacter(entity);
-    _events.emplace(EventType::clydePositionChange, entity.lock()->getPosition().first, entity.lock()->getPosition().second);
+    _events.emplace(EventType::clydePositionChange, entity.lock()->getPosition().first,
+                    entity.lock()->getPosition().second);
 }
 
 void Simulator::resetCharacter(std::weak_ptr<Entity>& entity) const {
